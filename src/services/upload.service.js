@@ -19,7 +19,7 @@ class UploadService {
     }
 
     uploadImage(imageForm) {
-        return this.app.post('/image', imageForm)
+        return this.app.post('/image', imageForm) // here I will receive the Cloudinary image URL sring
     }
 }
 
