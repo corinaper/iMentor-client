@@ -1,10 +1,12 @@
 # M3 - `README.md` Example
 
 <br>
+# iMentor: Find a mentor in the Ironhack community
+<br>
 
 ## Description
 
-This is an app to manage unofficial tournaments within communities. The app helps to organize, manage and track competitions.
+**iMentor** You started your journey as a developer at Ironhack. Do you need some advice? We give you the option to get in touch with some senior Ironhackers so you can find the best mentor to guide you through your new journey. With iMentor you will find the best mentor within the Ironhack community.
 
 ## User Stories
 
@@ -40,22 +42,22 @@ User profile:
 # Client / Frontend
 
 ## React Router Routes (React App)
-| Path                      | Component            | Permissions                 | Behavior                                                     |
-| ------------------------- | -------------------- | --------------------------- | ------------------------------------------------------------ |
-| `/`                       | SplashPage           | public `<Route>`            | Home page                                                    |
-| `/signup`                 | SignupPage           | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup |
-| `/login`                  | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login |
-| `/tournaments`            | TournamentListPage   | user only `<PrivateRoute>`  | Shows all tournaments in a list                              |
-| `/tournaments/add`        | TournamentListPage   | user only `<PrivateRoute>`  | Edits a tournament                                           |
-| `/tournaments/:id`        | TournamentDetailPage | user only `<PrivateRoute>`  | Details of a tournament to edit                              |
-| `/tournament/:id`         | n/a                  | user only `<PrivateRoute>`  | Delete tournament                                            |
-| `/tournament/players`     | PlayersListPage      | user only  `<PrivateRoute>` | List of players of a tournament                              |
-| `/tournament/players/add` | PlayersListPage      | user only `<PrivateRoute>`  | Add a player to the tournament                               |
-| `/tournament/players/:id` | PlayersDetailPage    | user only `<PrivateRoute>`  | Edit player for tournament                                   |
-| `/tournament/players/:id` | PlayersListPage      | user only  `<PrivateRoute>` | Delete player from tournament                                |
-| `/tournament/tableview`   | TableView            | user only  `<PrivateRoute>` | Games view and brackets                                      |
-| `/tournament/ranks`       | RanksPage            | user only `<PrivateRoute>`  | Ranks list                                                   |
-| `/tournament/game`        | GameDetailPage       | user only `<PrivateRoute>`  | Game details                                                 |
+| Path                           | Component            | Permissions                 | Behavior                                                                     |
+| ------------------------------ | -------------------- | --------------------------- | -----------------------------------------------------------------------------|
+| `/`                            | SplashPage           | public `<Route>`            | Home page                                                                    |
+| `/signup`                      | SignupPage           | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup                |
+| `/login`                       | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login                 |
+| `/mentors`                     | TournamentListPage   | user only `<PrivateRoute>`  | Shows a list of mentors and gives the option to filter based on skills       |
+| `/questions`                   | TournamentListPage   | public `<Route>`            | List of questions and gives the option to filter based on the question topic |
+| `/questions/add`               | TournamentDetailPage | user only `<PrivateRoute>`  | Adds a question to the feed/list                                             |
+| `/questions/:id`               | n/a                  | public `<Route>`            | See the details of the specific question                                     | 
+| `/questions/:id/delete`        | PlayersListPage      | owner only  `<PrivateRoute>`| Delete the question(only the owner can do it)                                |
+| `/questions/:id/comment/add`   | PlayersListPage      | user only `<PrivateRoute>`  | Add a comment to a specific question                                         |
+| `/questions/comment/:id/delete`| PlayersDetailPage    | user only `<PrivateRoute>`  | Delete the comment                                                           |
+| `/profile/:id`                 | PlayersListPage      | user only  `<PrivateRoute>` | The details of the mentor/mentee                                             |
+| `/profile/:id/edit`            | TableView            | user only  `<PrivateRoute>` | Edit the details of the mentor/mentee                                        |
+| `/messages`                    | RanksPage            | owner only `<PrivateRoute>` | See the list of messages                                                     |
+| `/messages`                    | GameDetailPage       | owner only `<PrivateRoute>` | See specific chat                                                            |
 
 
 
