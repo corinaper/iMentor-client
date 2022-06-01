@@ -8,8 +8,7 @@ const LoginPage = () => {
         <Container>
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
-                    <h1>Inicio sesión</h1>
-                    <hr />
+                    <img src="../public/Group 45.png" alt="logo" />
                     <Loginform />
 
                 </Col>
