@@ -25,7 +25,7 @@ const Loginform = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                showMessage('Bienvenid@', 'Sesión iniciada correctamente')
+                showMessage('Welcome', 'Successfully logged in!')
                 navigate('/')
             })
             .catch(err => console.log(err))
@@ -48,11 +48,11 @@ const Loginform = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
             </Form.Group>
 
-            <Button variant="dark" type="submit">Acceder</Button>
+            <Button variant="dark" type="submit">Login</Button>
         </Form>
 
     )
