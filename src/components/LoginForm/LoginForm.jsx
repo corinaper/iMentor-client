@@ -3,6 +3,7 @@ import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import { MessageContext } from '../../context/message.context'
+import './LoginForm.css'
 
 const Loginform = () => {
 
@@ -42,7 +43,7 @@ const Loginform = () => {
         <form onSubmit={handleSubmit} className="loginForm">
             
             <div className="labelInput">
-                <label htmlFor="input-email">Email</label>
+                <label className="login-email" htmlFor="input-email">Email</label>
                     <input
                         id="imput-email" 
                         type="text"
@@ -54,7 +55,7 @@ const Loginform = () => {
             </div>
 
             <div className="labelInput">
-                <label htmlFor="input-password">Password</label>
+                <label className='login-password' htmlFor="input-password">Password</label>
                     <input
                         id="imput-password"
                         type="password"
