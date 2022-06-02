@@ -1,45 +1,38 @@
 import { useState } from "react"
-import axios from "axios"
-
+import uploadService from "../../services/upload.service"
+import questionService from "../../services/question.services"
 
 
 function AddForm(props) {
-    const [image, setImage] =useState("")
-    
-    const [coasterData, setCoasterData] = useState({
+    const [image, setImage] = useState("")
+
+    const startingFormState = {
         title: '',        
         text:'',        
         image:''
+      }
 
-    })
+    const [formState, setFormState] = useState(startingFormState)
 
-
-    const handleInputChange = e => {
-        const { name, value } = e.currentTarget
-
-        setCoasterData({
-            ...coasterData,
-            [name]: value               
-        })
+    const handleSubmit = (event)=>{
+      event.preventDefault()
+      console.log("formState: ", formState)
+      setFormState(startingFormState)
+      //uploadService.uploadImage()
+      questionService.createQuestion(formState)
+  
     }
+  
+    const handleInputChange = (event)=>{
+      let value
+      if(event.target.type === "checkbox") value = event.target.checked
+      else value = event.target.value
+      // const newFormState = Oject.assign({}, formState, {[event.target.name]: value}})
+      const newFormState = {...formState, [event.target.name]: value}
+      setFormState(newFormState)
+    } 
 
-    // const handleSubmit = e => {  // This an axios post to a route where we want to post the form
 
-    //     e.preventDefault()
-
-    //     coastersService
-    //         .saveCoaster(coasterData)
-    //         .then(response => {
-    //             fireFinalActions()
-    //         })
-    //         .catch(err => console.log(err))
-
-    // axios
-    // .post(`https://api.cloudinary.com/v1_1/marcelusironhack/image/upload`, uploadData)
-    // .then(res => setImage(res.data.secure_url))
-    // .catch(err => console.log("Error while uploading the file on service", err))
-
-    // }
 
     function handleFileUpload(event) {
         event.preventDefault();
@@ -47,15 +40,10 @@ function AddForm(props) {
         
         uploadData.append("file", event.target.files[0])
         uploadData.append("upload_preset","fzk9q9ld")
+        uploadService.uploadImage(uploadData)
+        .then(fileUrl => setImage(fileUrl))
 
-        axios
-        .post(`https://api.cloudinary.com/v1_1/marcelusironhack/image/upload`, uploadData)
-        .then(res => setImage(res.data.secure_url))
-        .catch(err => console.log("Error while uploading the file on service", err))
     }
-
-
-    const { title, text} = coasterData
 
 
 
@@ -64,14 +52,14 @@ function AddForm(props) {
         <form>
             
             <label for="name">Title:</label>
-            <input type="text" id="name" name="title" value={title} onChange={handleInputChange} />
+            <input type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} />
             
             <label for="text">Text:</label>
-            <input type="text" id="text" name="text" value={text} onChange={handleInputChange} />
+            <input type="text" id="text" name="text" value={formState.text} onChange={handleInputChange} />
 
             <input type="file" onChange={(e) => handleFileUpload(e)} value={image} />
             
-            <input type="submit" value="Post" onChange={handleSubmit} ></input>
+            <button type="submit" value="Post" onChange={handleSubmit}></button>
 
 
         
