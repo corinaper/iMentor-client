@@ -1,10 +1,10 @@
-import { Container, Modal, Button } from 'react-bootstrap'
+
 import CoastersList from '../../components/CoastersList/CoastersList'
 import { useContext, useEffect, useState } from "react"
 import NewCoasterForm from './../../components/NewCoasterForm/NewCoasterForm'
-import coastersService from './../../services/coaster.service'
-import { AuthContext } from './../../context/auth.context'
-import { MessageContext } from './../../context/message.context'
+import coastersService from '../../services/coaster.service'
+import { AuthContext } from '../../context/auth.context'
+import { MessageContext } from '../../context/message.context'
 
 const CoastersPage = () => {
 
