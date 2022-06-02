@@ -1,6 +1,7 @@
 import { useState } from "react"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
+import './SignupForm.css'
 
 const SignupForm = () => {
 
@@ -35,7 +36,7 @@ const SignupForm = () => {
         <form onSubmit={handleSubmit} className="signupForm">
 
             <div className="labelInput">
-                <label htmlFor="input-username">Username</label>
+                <label className="username" htmlFor="input-username">Name</label>
                 <input 
                     id="input-username"
                     type="text"
@@ -47,7 +48,7 @@ const SignupForm = () => {
             </div>
 
             <div className="labelInput">
-                <label htmlFor="input-email">Email</label>
+                <label className="email" htmlFor="input-email">Email</label>
                 <input 
                     id="input-email"
                     type="text"
@@ -59,7 +60,7 @@ const SignupForm = () => {
             </div>
 
             <div className="labelInput">
-                <label htmlFor="input-password">Password</label>
+                <label className="password" htmlFor="input-password">Password</label>
                 <input 
                     id="input-password"
                     type="password"
@@ -72,8 +73,8 @@ const SignupForm = () => {
             </div>
 
             <div className="signupBtn">
-                <button type="submit">
-                    Signup
+                <button className="signUpButton" type="submit">
+                    Sign Up
                 </button>
             </div>
 
