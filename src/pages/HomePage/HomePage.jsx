@@ -1,27 +1,22 @@
-import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import './HomePage.css'
 
 const IndexPage = () => {
 
     return (
     <div>
-        <h1>iMentor</h1>
+        <img src='https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654165990/iMentor/logo_wxclwz.png' alt="Logo" className='logo'/>
         <br/>
+        <h1 className='carussell'>Pictures here</h1>
         <br/>
-        <h5>Do you need a mentor?
-        <br/>
-        <br/>
-        Thats why we here!
-        <br/>
-        <br/>
-        Sign up or login here</h5>
+
         <Link to="/login">
-            <Button variant="dark" size='lg'>Login</Button>
+            <button className='login-button'>Login</button>
         </Link>
         <br/>
         <br/>
         <Link to="/signup">
-            <Button variant="dark" size='lg'>Sign Up</Button>
+            <button className='signup-button'>Sign Up</button>
         </Link>
     </div>
     )
