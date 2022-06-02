@@ -9,7 +9,7 @@ const Mentors = (props) => {
                 <img src={mentor.profileImg} alt={mentor.username}></img>
                 <h2>{mentor.username}</h2>
                 <p>{mentor.aboutMe}</p>
-                <Link to={"/profile/mentor._id"}>
+                <Link to={`/profile/${mentor._id}`}>
                     <button>Profile</button>
                 </Link>
                 <Link>
