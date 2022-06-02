@@ -4,38 +4,19 @@ import { NavLink } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
 
+
 const Navigation = () => {
 
     const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
-
+ 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
-            <Container>
-                <Navbar.Brand href="#home">Coasters app!</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <NavLink to="/" className="nav-link">Inicio</NavLink>
-                        <NavLink to="/galeria" className="nav-link">Galería</NavLink>
+        <Navbar className='navbar' bg="white" variant="white" >
 
-                        {
-                            isLoggedIn
-                                ?
-                                <div className="nav-link" onClick={logOutUser}>Cerrar sesión</div>
-                                :
-                                <>
-                                    <NavLink to="/registro" className="nav-link">Registro</NavLink>
-                                    <NavLink to="/inicio-sesion" className="nav-link">Iniciar sesión</NavLink>
-                                </>
-                        }
+        <h5>iMentor</h5>
 
-                        {
-                            user && <NavLink to="/perfil" className="nav-link justify-content-end">Hola, {user.username}</NavLink>
-                        }
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+      
+                    </Navbar>
+      
     )
 }
 
