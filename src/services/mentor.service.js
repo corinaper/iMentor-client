@@ -12,6 +12,7 @@ class Mentor {
 
     getAllMentors = () => {
         return this.app.get('/mentors')
+        
     }
 
 

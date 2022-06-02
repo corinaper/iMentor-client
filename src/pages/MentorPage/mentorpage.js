@@ -9,17 +9,15 @@ import Skills from "../../components/Skills/chips/skills"
 
 const MentorPage = () => {
 
-    // const { mentors } = useContext(MentorContext)
-    // const { skills } = useContext(SkillContext)
 
-    // return (
-    //     <>
-    //     <Navigation></Navigation>
-    //     <Skills skillList={skills}></Skills>
-    //    <Mentors mentors={mentors}></Mentors>
-    //    <Footer></Footer>
-    //    </>
-    // )
+    return (
+        <>
+        
+        {/* <Skills skillList={skills}></Skills> */}
+       <Mentors></Mentors>
+       
+       </>
+    )
 }
 
 export default MentorPage

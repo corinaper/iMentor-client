@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import NewCoasterForm from './../../components/NewCoasterForm/NewCoasterForm'
 import coastersService from './../../services/coaster.service'
 import { AuthContext } from './../../context/auth.context'
-import { MessageContext } from './../../context/message.context'
+
 
 const CoastersPage = () => {
 
@@ -24,13 +24,13 @@ const CoastersPage = () => {
     }
 
     const { isLoggedIn } = useContext(AuthContext)
-    const { showMessage } = useContext(MessageContext)
+   
 
 
     const fireFinalActions = () => {
         closeModal()
         loadCoasters()
-        showMessage('Completado', 'Montaña rusa creada en la BBDD')
+        
     }
 
 

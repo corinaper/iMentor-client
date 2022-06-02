@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
-import { MessageContext } from '../../context/message.context'
+
 
 const Loginform = () => {
 
@@ -14,7 +14,7 @@ const Loginform = () => {
     const navigate = useNavigate()
 
     const { storeToken, authenticateUser } = useContext(AuthContext)
-    const { showMessage } = useContext(MessageContext)
+   
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -24,7 +24,7 @@ const Loginform = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                showMessage('Welcome', 'Successfully logged in!')
+                
                 navigate('/')
             })
             .catch(err => console.log(err))
