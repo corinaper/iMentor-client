@@ -51,15 +51,15 @@ function AddForm(props) {
 
         <form>
             
-            <label for="name">Title:</label>
+            <label htmlFor="name">Title:</label>
             <input type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} />
             
-            <label for="text">Text:</label>
+            <label htmlFor="text">Text:</label>
             <input type="text" id="text" name="text" value={formState.text} onChange={handleInputChange} />
 
             <input type="file" onChange={(e) => handleFileUpload(e)} value={image} />
             
-            <button type="submit" value="Post" onChange={handleSubmit}></button>
+            <button type="submit" value="Post" onChange={handleSubmit}>Submit</button>
 
 
         
