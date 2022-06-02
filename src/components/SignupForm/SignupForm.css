@@ -1,0 +1,155 @@
+.username {
+    position: absolute;
+    width: 41px;
+    height: 19px;
+    left: 27px;
+    top: 297px;
+    
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+}
+
+#input-username {
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 16px;
+
+position: absolute;
+width: 321px;
+height: 51px;
+left: calc(50% - 321px/2);
+top: calc(50% - 51px/2 - 58.5px);
+
+background: #FFFFFF;
+border: 1px solid #32C3FF;
+border-radius: 5px;
+}
+
+.email {
+    position: absolute;
+    width: 37px;
+    height: 19px;
+    left: 27px;
+    top: 397px;
+    
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+}
+
+#input-email {
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 16px;
+
+position: absolute;
+width: 321px;
+height: 51px;
+left: calc(50% - 321px/2);
+top: calc(50% - 51px/2 + 44.5px);
+
+background: #FFFFFF;
+border: 1px solid #32C3FF;
+border-radius: 5px;
+}
+
+.password {
+    position: absolute;
+    width: 65px;
+    height: 19px;
+    left: 27px;
+    top: 500px;
+    
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+}
+
+#input-password {
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 16px;
+
+position: absolute;
+width: 321px;
+height: 51px;
+left: calc(50% - 321px/2);
+top: calc(50% - 51px/2 + 147.5px);
+
+background: #FFFFFF;
+border: 1px solid #32C3FF;
+border-radius: 5px;
+}
+
+.signUpButton {box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px 16px;
+
+position: absolute;
+width: 322px;
+height: 52px;
+left: calc(50% - 322px/2 + 0.5px);
+top: calc(50% - 52px/2 + 291px);
+
+background: #32C3FF;
+border: 1px solid #96D1DF;
+border-radius: 5px;
+
+font-family: 'SF Pro Display';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}

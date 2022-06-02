@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Form, Button } from "react-bootstrap"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
+import './SignupForm.css'
 
 const SignupForm = () => {
 
@@ -19,7 +19,7 @@ const SignupForm = () => {
         authService
             .signup(signupData)
             .then(res => {
-                navigate('/inicio-sesion')
+                navigate('/homepage')
             })
             .catch(err => console.log(err))
     }
@@ -33,27 +33,54 @@ const SignupForm = () => {
 
     return (
 
-        <Form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="signupForm">
 
-            <Form.Group className="mb-3" controlId="username">
-                <Form.Label>Nombre de usuario</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
-            </Form.Group>
+            <div className="labelInput">
+                <label className="username" htmlFor="input-username">Name</label>
+                <input 
+                    id="input-username"
+                    type="text"
+                    name="username"
+                    value={username}
+                    onChange={handleInputChange}
+                    required
+                />
+            </div>
 
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" onChange={handleInputChange} name="email" value={email} />
-            </Form.Group>
+            <div className="labelInput">
+                <label className="email" htmlFor="input-email">Email</label>
+                <input 
+                    id="input-email"
+                    type="text"
+                    name="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    required
+                />
+            </div>
 
-            <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
-            </Form.Group>
+            <div className="labelInput">
+                <label className="password" htmlFor="input-password">Password</label>
+                <input 
+                    id="input-password"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handleInputChange}
+                    required
+                    minLength="8"
+                />
+            </div>
 
-            <Button variant="dark" type="submit">Registrarme</Button>
-        </Form>
+            <div className="signupBtn">
+                <button className="signUpButton" type="submit">
+                    Sign Up
+                </button>
+            </div>
+
+        </form>
 
     )
-}
+} 
 
 export default SignupForm
