@@ -13,14 +13,13 @@ const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<IndexPage />} />
-            <Route path="/galeria" element={<CoastersPage />} />
-            <Route path="/detalles/:coaster_id" element={<CoasterDetailsPage />} />
-            <Route path="/registro" element={<SignupPage />} />
-            <Route path="/inicio-sesion" element={<LoginPage />} />
+            
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/login" element={<LoginPage />} />
 
-            <Route path="/perfil" element={<PrivateRoute />}>
+            {/* <Route path="/perfil" element={<PrivateRoute />}>
                 <Route path="" element={<ProfilePage />} />
-            </Route>
+            </Route> */}
 
 
             <Route path="*" element={<h1>Esto es un 404, melón</h1>} />
