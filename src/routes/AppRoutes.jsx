@@ -5,6 +5,7 @@ import MentorPage from "../pages/MentorPage/mentorpage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
+import QuestionPage from "../pages/QuestionPage/QuestionPage"
 
 
 const AppRoutes = () => {
@@ -18,7 +19,7 @@ const AppRoutes = () => {
             
 
             <Route path="/questions" element={<PrivateRoute />}>
-                {/* <Route path="" element={<MentorPage />} /> */}
+                <Route path="" element={<QuestionPage />} />
             </Route>
             
             {/* <Route path="/mentors" element={<PrivateRoute />}> */}
