@@ -1,5 +1,3 @@
-import { useContext } from "react"
-
 
 import Mentors from "../../components/MentorCard/mentor"
 import Skills from "../../components/Skills/skills"

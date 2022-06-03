@@ -1,23 +1,37 @@
 import { useContext } from "react"
+import { useEffect } from "react"
+import { useState } from "react"
 
 import { AuthContext } from "../../context/auth.context"
 import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
-import Navigation from "../../components/Navigation/Navigation"
-import Footer from "../../components/Footer/Footer"
+
 import Skills from "../../components/Skills/skills"
 
 
 const ProfilePage = () => {
+    const [userProfile, setuserProfile] = useState([]);
+ 
+    useEffect(()=>{
+        profile.getOneUser(profileId.id)
+        .then((user)=>{
+            console.log("user from card", user)
+            setuserProfile(user.data)})
+        .catch((err)=>console.log(err))
+        
+    },[profileId.id])
+
+
     const profileId = useParams()
+    console.log(profileId)
     const { user } = useContext(AuthContext)
     
-    profile.getOneUser(profileId)
+    userProfile.getOneUser(profileId.id)
     .then((user)=>
     {if(user.type === "mentor")
         {return (
         <>
-            <Navigation></Navigation>
+            
             <h2>{user.type}</h2>
             <img src={user.profileImg} alt={user.username}></img>
             <h2>{user.username}</h2>
@@ -29,11 +43,11 @@ const ProfilePage = () => {
                 <p>{user.aboutMe}</p>
             </container>
             {/* Add questions component */}
-            <Footer></Footer>
+           
         </>)}
         else {return( 
         <>
-            <Navigation></Navigation>
+            
             <h2>{user.type}</h2>
             <img src={user.profileImg} alt={user.username}></img>
             <h2>{user.username}</h2>
@@ -42,7 +56,7 @@ const ProfilePage = () => {
                 <p>{user.aboutMe}</p>
             </container>
              {/* Add questions component */}
-            <Footer></Footer>
+           
         </>)}
     
     } 
