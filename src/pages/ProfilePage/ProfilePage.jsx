@@ -1,53 +1,63 @@
 import { useContext } from "react"
+import { useEffect } from "react"
+import { useState } from "react"
 
 import { AuthContext } from "../../context/auth.context"
 import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
-import Navigation from "../../components/Navigation/Navigation"
-import Footer from "../../components/Footer/Footer"
-import Skills from "../../components/Skills/chips/skills"
 
+import Skills from "../../components/Skills/skills"
+import "../../pages/ProfilePage/profilePage.css"
 
 const ProfilePage = () => {
+    const [userProfile, setuserProfile] = useState([]);
     const profileId = useParams()
+
+    useEffect(()=>{
+        profile.getOneUser(profileId.id)
+        .then((user)=>{
+            console.log("user from card", user)
+            setuserProfile(user.data)})
+        .catch((err)=>console.log(err))
+        
+    },[profileId.id])
+
+
+    
+    console.log(profileId)
     const { user } = useContext(AuthContext)
     
-    profile.getOneUser(profileId)
-    .then((user)=>
-    {if(user.type === "mentor")
+ 
+    if(userProfile.type === "mentor")
         {return (
         <>
-            <Navigation></Navigation>
-            <h2>{user.type}</h2>
-            <img src={user.profileImg} alt={user.username}></img>
-            <h2>{user.username}</h2>
-            <p>{user.email}</p>
-            <p>{user.ocuppation}</p>
-            <p>{user.company}</p>
-            <Skills skillList={user.skills}></Skills>
-            <container>
-                <p>{user.aboutMe}</p>
-            </container>
+            
+            <h2>{userProfile.type}</h2>
+            <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
+            <h2>{userProfile.username}</h2>
+            <p>{userProfile.email}</p>
+            <p>{userProfile.ocuppation}</p>
+            <p>{userProfile.company}</p>
+            <Skills skillList={userProfile.skills}></Skills>
+            <div>
+                <p>{userProfile.aboutMe}</p>
+            </div>
             {/* Add questions component */}
-            <Footer></Footer>
+           
         </>)}
-        else {return( 
+    else {return( 
         <>
-            <Navigation></Navigation>
-            <h2>{user.type}</h2>
-            <img src={user.profileImg} alt={user.username}></img>
-            <h2>{user.username}</h2>
-            <p>{user.email}</p>
-            <container>
-                <p>{user.aboutMe}</p>
-            </container>
+            
+            <h2>{userProfile.type}</h2>
+            <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
+            <h2>{userProfile.username}</h2>
+            <p>{userProfile.email}</p>
+            <div>
+                <p>{userProfile.aboutMe}</p>
+            </div>
              {/* Add questions component */}
-            <Footer></Footer>
+           
         </>)}
-    
-    } 
-        
-        )
     
 }
 
