@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import question from "../../services/question.service" 
 import { useState } from "react"
-import "../../pages/QuestionPage/QuestionPage.css"
+import "../../components/QuestionCard/QuestionCard.css"
 
 
 
@@ -24,6 +24,7 @@ const Question = () => {
         return(
             <div key={question._id} className="questionCard">
                 <h2>{question.title}</h2>
+                <p>{question.description}</p>
                {/* <Link to={`/question/${question._id}`}>
                     <button>question</button>
         </Link>*/}
