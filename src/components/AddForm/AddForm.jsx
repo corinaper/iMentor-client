@@ -1,10 +1,13 @@
-import { useState } from "react"
+import './AddForm.css'
+import { useState, useNavigate } from "react"
 import uploadService from "../../services/upload.service"
 import questionService from "../../services/question.services"
+import axios from 'axios'
+
 
 
 function AddForm(props) {
-    const [image, setImage] = useState("")
+    const [image, setImage] = useState(false)
 
     const startingFormState = {
         title: '',        
@@ -14,34 +17,45 @@ function AddForm(props) {
 
     const [formState, setFormState] = useState(startingFormState)
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = (event)=>{   // revisar!!
+      
       event.preventDefault()
-      console.log("formState: ", formState)
-      setFormState(startingFormState)
-      //uploadService.uploadImage()
-      questionService.createQuestion(formState)
+
+        axios
+            .post(`${process.env.REACT_APP_SERVER_URL}/questions`, formState)
+            .then(({ data }) => {
+              console.log(data) // aquí hauràs de fer servir useNavigate per anar a la pàgina de la nova pregunta
+            }) 
+            .catch((error) => {
+                console.log(error);
+            })
   
     }
   
     const handleInputChange = (event)=>{
-      let value
-      if(event.target.type === "checkbox") value = event.target.checked
-      else value = event.target.value
-      // const newFormState = Oject.assign({}, formState, {[event.target.name]: value}})
-      const newFormState = {...formState, [event.target.name]: value}
+      const {name, value } = event.currentTarget
+      const newFormState = {...formState, [name]: value}
       setFormState(newFormState)
     } 
 
-
-
     function handleFileUpload(event) {
-        event.preventDefault();
+
+      setImage(true)
+
         const uploadData = new FormData();
-        
-        uploadData.append("file", event.target.files[0])
+        uploadData.append("imageData", event.target.files[0])
+
+        uploadService
+        .uploadImage(uploadData)
+        .then(({data}) => {
+          setImage(false)
+          setFormState({ ...formState, image: data.cloudinary_url })
+        })
+        .catch((err) => console.log(err))
+        /*
         uploadData.append("upload_preset","fzk9q9ld")
         uploadService.uploadImage(uploadData)
-        .then(fileUrl => setImage(fileUrl))
+        .then(fileUrl => setImage(fileUrl))*/
 
     }
 
@@ -49,22 +63,28 @@ function AddForm(props) {
 
     return (
 
+      <div>
+        
+        <h1 className='ask' >Ask Questions</h1>
+
         <form>
             
-            <label htmlFor="name">Title:</label>
-            <input type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} />
+            <label htmlFor="name">Title:</label> <br />
+            <input className='titleRectangle' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> <br /><br />
             
-            <label htmlFor="text">Text:</label>
-            <input type="text" id="text" name="text" value={formState.text} onChange={handleInputChange} />
+            <label htmlFor="text"></label> <br />
+            <input  className='codeRectangle' placeholder="Post your Code Here" type="text" id="text" name="text" value={formState.text} onChange={handleInputChange} /> <br /><br />
 
-            <input type="file" onChange={(e) => handleFileUpload(e)} value={image} />
-            
-            <button type="submit" value="Post" onChange={handleSubmit}>Submit</button>
+            <input type="file" name='image' onChange={handleFileUpload} /> <br /><br />
+          
+            <button className='questionButton' type="submit" value="Post" onChange={handleSubmit}>Post Topic</button>
 
 
         
         </form>
 
+
+        </div>
     )
 }
 
