@@ -44,6 +44,24 @@
   border-radius: 9px;
 }
 
+.upload{
+    display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 0px 16px;
+
+  position: absolute;
+  width: 322px;
+  height: 52px;
+  left: calc(50% - 322px / 2 + 0.5px);
+  top: calc(50% - 52px / 2 + 143px);
+
+  background: #32c3ff;
+  border: 1px solid #96d1df;
+  border-radius: 5px;
+}
+
 .questionButton {
   display: flex;
   flex-direction: row;

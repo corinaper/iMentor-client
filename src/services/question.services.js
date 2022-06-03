@@ -29,7 +29,7 @@ class Questions {
     }
 
     createQuestion = (question) => {
-        return this.app.post(`/questions"`, question)
+        return this.app.post("/questions", question)
     }
     
     editQuestion = (question, id) => {

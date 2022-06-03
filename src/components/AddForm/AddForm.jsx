@@ -1,28 +1,27 @@
 import './AddForm.css'
-import { useState, useNavigate } from "react"
+import { useState, useContext } from "react"
 import uploadService from "../../services/upload.service"
 import questionService from "../../services/question.services"
-import axios from 'axios'
+import { AuthContext } from "../../context/auth.context"
 
 
 
 function AddForm(props) {
-    const [image, setImage] = useState(false)
-
+    const [imageUrl, setImageUrl] = useState(false)
+    const { user } = useContext(AuthContext)
     const startingFormState = {
         title: '',        
-        text:'',        
-        image:''
+        description:'',        
+        imageUrl:'',
+        owner: {user}
       }
 
     const [formState, setFormState] = useState(startingFormState)
 
-    const handleSubmit = (event)=>{   // revisar!!
-      
-      event.preventDefault()
+    const handleSubmit = (event)=>{   // revisar!!      
+      event.preventDefault()      
 
-        axios
-            .post(`${process.env.REACT_APP_SERVER_URL}/questions`, formState)
+      questionService.createQuestion(formState)
             .then(({ data }) => {
               console.log(data) // aquí hauràs de fer servir useNavigate per anar a la pàgina de la nova pregunta
             }) 
@@ -40,7 +39,7 @@ function AddForm(props) {
 
     function handleFileUpload(event) {
 
-      setImage(true)
+      setImageUrl(true)
 
         const uploadData = new FormData();
         uploadData.append("imageData", event.target.files[0])
@@ -48,8 +47,8 @@ function AddForm(props) {
         uploadService
         .uploadImage(uploadData)
         .then(({data}) => {
-          setImage(false)
-          setFormState({ ...formState, image: data.cloudinary_url })
+          setImageUrl(data.cloudinary_url)
+          setFormState({ ...formState, imageUrl: data.cloudinary_url })
         })
         .catch((err) => console.log(err))
         /*
@@ -65,19 +64,30 @@ function AddForm(props) {
 
       <div>
         
-        <h1 className='ask' >Ask Questions</h1>
+        <h1 className='ask'>Ask Questions</h1> 
 
-        <form>
+        <br /><br />
+
+        <form onSubmit={handleSubmit}>
             
             <label htmlFor="name">Title:</label> <br />
             <input className='titleRectangle' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> <br /><br />
             
-            <label htmlFor="text"></label> <br />
-            <input  className='codeRectangle' placeholder="Post your Code Here" type="text" id="text" name="text" value={formState.text} onChange={handleInputChange} /> <br /><br />
+            <label htmlFor="text"></label> <br /> <br />
+            <input  className='codeRectangle' placeholder="Post your Code Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} /> <br /><br />
 
-            <input type="file" name='image' onChange={handleFileUpload} /> <br /><br />
+            <input type="file" className='upload' name='imageUrl' onChange={(e) => handleFileUpload(e, setImageUrl)} multiple/>
+            { imageUrl && (
+              <>
+            <img src={imageUrl} alt="profile" style={{'maxWidth': '40vw'}}/>  
+              </> )} <br /><br />
+
+            {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
           
-            <button className='questionButton' type="submit" value="Post" onChange={handleSubmit}>Post Topic</button>
+            <button className='questionButton' type="submit" value="Post" >Post Topic</button>
+
+          
+  
 
 
         
