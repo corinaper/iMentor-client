@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import mentors from "../../services/mentor.service" 
 import { useState } from "react"
+import "../../pages/MentorPage/mentor.css"
 
 
 
@@ -22,15 +23,15 @@ const Mentors = () => {
         {mentorsList.map((mentor)=>{
         return(
             <div key={mentor._id} className="mentorCard">
-                <img src={mentor.profileImg} alt={mentor.username}></img>
+                <img className="mentorImage" src={mentor.profileImg} alt={mentor.username}></img>
                 <h2>{mentor.username}</h2>
                 <p>{mentor.aboutMe}</p>
-                {/* <Link to={`/profile/${mentor._id}`}>
+                <Link to={`/profile/${mentor._id}`}>
                     <button>Profile</button>
                 </Link>
-                <Link>
+                <Link to={"/"}>
                 <button>Contact</button>
-                </Link> */}
+                </Link>
             </div>
         )
     }) }
