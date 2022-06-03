@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import IndexPage from "../pages/HomePage/HomePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import MentorPage from "../pages/MentorPage/mentorpage"
+import EditProfilePage from "../pages/ProfilePage/EditProfilePage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
@@ -31,6 +32,10 @@ const AppRoutes = () => {
 
             <Route path="/profile/:id" element={<PrivateRoute />}>
                 <Route path="" element={<ProfilePage />} />
+            </Route>
+
+            <Route path="/profile/edit" element={<PrivateRoute />}>
+                <Route path="" element={<EditProfilePage />} />
             </Route>
 
 
