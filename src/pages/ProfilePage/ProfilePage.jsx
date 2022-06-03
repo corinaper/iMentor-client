@@ -7,11 +7,12 @@ import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
 
 import Skills from "../../components/Skills/skills"
-
+import "../../pages/ProfilePage/profilePage.css"
 
 const ProfilePage = () => {
     const [userProfile, setuserProfile] = useState([]);
- 
+    const profileId = useParams()
+
     useEffect(()=>{
         profile.getOneUser(profileId.id)
         .then((user)=>{
@@ -22,46 +23,41 @@ const ProfilePage = () => {
     },[profileId.id])
 
 
-    const profileId = useParams()
+    
     console.log(profileId)
     const { user } = useContext(AuthContext)
     
-    userProfile.getOneUser(profileId.id)
-    .then((user)=>
-    {if(user.type === "mentor")
+ 
+    if(userProfile.type === "mentor")
         {return (
         <>
             
-            <h2>{user.type}</h2>
-            <img src={user.profileImg} alt={user.username}></img>
-            <h2>{user.username}</h2>
-            <p>{user.email}</p>
-            <p>{user.ocuppation}</p>
-            <p>{user.company}</p>
-            <Skills skillList={user.skills}></Skills>
-            <container>
-                <p>{user.aboutMe}</p>
-            </container>
+            <h2>{userProfile.type}</h2>
+            <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
+            <h2>{userProfile.username}</h2>
+            <p>{userProfile.email}</p>
+            <p>{userProfile.ocuppation}</p>
+            <p>{userProfile.company}</p>
+            <Skills skillList={userProfile.skills}></Skills>
+            <div>
+                <p>{userProfile.aboutMe}</p>
+            </div>
             {/* Add questions component */}
            
         </>)}
-        else {return( 
+    else {return( 
         <>
             
-            <h2>{user.type}</h2>
-            <img src={user.profileImg} alt={user.username}></img>
-            <h2>{user.username}</h2>
-            <p>{user.email}</p>
-            <container>
-                <p>{user.aboutMe}</p>
-            </container>
+            <h2>{userProfile.type}</h2>
+            <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
+            <h2>{userProfile.username}</h2>
+            <p>{userProfile.email}</p>
+            <div>
+                <p>{userProfile.aboutMe}</p>
+            </div>
              {/* Add questions component */}
            
         </>)}
-    
-    } 
-        
-        )
     
 }
 
