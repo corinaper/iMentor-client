@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
 import Navigation from "../../components/Navigation/Navigation"
 import Footer from "../../components/Footer/Footer"
-import Skills from "../../components/Skills/chips/skills"
+import Skills from "../../components/Skills/skills"
 
 
 const ProfilePage = () => {
