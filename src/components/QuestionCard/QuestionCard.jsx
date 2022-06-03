@@ -8,7 +8,7 @@ import "../../components/QuestionCard/QuestionCard.css"
 
 const Question = () => {
     const [questionList, setQuestionList] = useState([]);
- 
+
     useEffect(()=>{
         question.getAllQuestions()
         .then((question)=>{
@@ -23,6 +23,7 @@ const Question = () => {
         {questionList.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
+                <p>{question.owner}</p>
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
                {/* <Link to={`/question/${question._id}`}>
