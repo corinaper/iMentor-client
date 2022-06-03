@@ -31,7 +31,7 @@ const ProfilePage = () => {
     if(userProfile.type === "mentor")
         {return (
         <>
-            
+            <h2>{userProfile.course}</h2>
             <h2>{userProfile.type}</h2>
             <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
             <h2>{userProfile.username}</h2>
