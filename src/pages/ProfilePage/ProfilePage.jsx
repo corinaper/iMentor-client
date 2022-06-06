@@ -25,7 +25,7 @@ const ProfilePage = () => {
 
     
     console.log(profileId)
-    const { user } = useContext(AuthContext)
+    const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext)
     
  
     if(userProfile.type === "mentor")
@@ -42,6 +42,11 @@ const ProfilePage = () => {
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
+            <li>
+                <button className="nav-logoutbtn" onClick={logOutUser}>
+                   Logout
+                </button>
+            </li>
             {/* Add questions component */}
            
         </>)}
@@ -55,6 +60,11 @@ const ProfilePage = () => {
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
+            <li>
+                <button className="nav-logoutbtn" onClick={logOutUser}>
+                   Logout
+                </button>
+            </li>
              {/* Add questions component */}
            
         </>)}
