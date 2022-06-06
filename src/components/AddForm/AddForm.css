@@ -1,0 +1,81 @@
+
+.ask {
+  position: absolute;
+  width: 127px;
+  height: 24px;
+  left: 30px;
+  top: 85px;
+
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height */
+
+  letter-spacing: 0.04em;
+
+  color: #212552;
+}
+
+.titleRectangle {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 321px;
+  height: 37px;
+
+  background: #ffffff;
+  border: 1px solid #32c3ff;
+  border-radius: 9px;
+}
+
+.codeRectangle {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 320px;
+  height: 123px;
+  left: 27px;
+  top: 191px;
+
+  background: #ffffff;
+  border: 1px solid #32c3ff;
+  border-radius: 9px;
+}
+
+.upload{
+    display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 0px 16px;
+
+  position: absolute;
+  width: 322px;
+  height: 52px;
+  left: calc(50% - 322px / 2 + 0.5px);
+  top: calc(50% - 52px / 2 + 143px);
+
+  background: #32c3ff;
+  border: 1px solid #96d1df;
+  border-radius: 5px;
+}
+
+.questionButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 16px;
+
+  position: absolute;
+  width: 322px;
+  height: 52px;
+  left: calc(50% - 322px / 2 + 0.5px);
+  top: calc(50% - 52px / 2 + 243px);
+
+  background: #32c3ff;
+  border: 1px solid #96d1df;
+  border-radius: 5px;
+}
