@@ -26,6 +26,11 @@ const ProfilePage = () => {
 
 
     
+<<<<<<< HEAD
+=======
+    console.log(profileId)
+    const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext)
+>>>>>>> fd83ae5c00e7b9b6a8a06cfa1422a2c2ce34e87a
     
     const { user } = useContext(AuthContext)
     console.log(user._id, userProfile._id)
@@ -50,6 +55,11 @@ const ProfilePage = () => {
                 <p>{userProfile.aboutMe}</p>
             </div>
             <QuestionCard></QuestionCard>
+            <li>
+                <button className="nav-logoutbtn" onClick={logOutUser}>
+                   Logout
+                </button>
+            </li>
            
         </>)}
     else {return( 
@@ -66,6 +76,11 @@ const ProfilePage = () => {
                 <p>{userProfile.aboutMe}</p>
             </div>
             <QuestionCard></QuestionCard>
+            <li>
+                <button className="nav-logoutbtn" onClick={logOutUser}>
+                   Logout
+                </button>
+            </li>
            
         </>)}
     

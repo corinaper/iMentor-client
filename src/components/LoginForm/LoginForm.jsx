@@ -25,7 +25,7 @@ const Loginform = () => {
                 storeToken(data.authToken)
                 authenticateUser()
                 
-                navigate('/')
+                navigate('/mentors')
             })
             .catch(err => console.log(err))
     }
