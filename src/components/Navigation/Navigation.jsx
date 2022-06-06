@@ -8,7 +8,8 @@ import { AuthContext } from '../../context/auth.context'
 const Navigation = () => {
 
     const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
- 
+    
+ if (user)
     return (
         <Navbar className='navbar' bg="white" variant="white" >
 
