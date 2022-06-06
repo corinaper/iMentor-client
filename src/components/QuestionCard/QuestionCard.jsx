@@ -11,9 +11,9 @@ const Question = () => {
 
     useEffect(()=>{
         question.getAllQuestions()
-        .then((question)=>{
-            console.log("question from card", question)
-            setQuestionList(question.data)})
+        .then((questions)=>{
+            const reversedQuestions = questions.data.reverse()
+            setQuestionList(reversedQuestions)})
         .catch((err)=>console.log(err))
         
     },[])
@@ -23,12 +23,9 @@ const Question = () => {
         {questionList.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
-                <p>{question.owner}</p>
+                {/*<p>{question.owner}</p>*/}
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
-               {/* <Link to={`/question/${question._id}`}>
-                    <button>question</button>
-        </Link>*/}
             </div>
         )
     }) }
