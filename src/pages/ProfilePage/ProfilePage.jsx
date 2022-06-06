@@ -47,10 +47,10 @@ const ProfilePage = () => {
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
-            <QuestionCard></QuestionCard>
             <div>
-                {user._id===userProfile._id && <Link to={"/profile/edit"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
+                {user._id===userProfile._id && <Link to={"/"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
             </div>
+            <QuestionCard></QuestionCard>
            
         </>)}
     else {return( 
@@ -66,10 +66,10 @@ const ProfilePage = () => {
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
-            <QuestionCard></QuestionCard>
             <div>
-                {user._id===userProfile._id && <Link to={"/profile/edit"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
+                {user._id===userProfile._id && <Link to={"/"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
             </div>
+            <QuestionCard></QuestionCard>
            
            
         </>)}
