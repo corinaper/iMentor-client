@@ -1,5 +1,5 @@
 import './Question.css'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useContext, useParams, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
@@ -9,6 +9,7 @@ import axios from 'axios'
 const Question = ( ) => {
     const { id } = useParams()
     const [ question, setQuestion ] = useState(null)
+    const [ newComment, setNewComment ] = useState({})
     
     useEffect(() => {
         axios
@@ -19,6 +20,23 @@ const Question = ( ) => {
             .catch(error => console.log(error))
     }, [id])
 
+    const handleInput = (event) => {
+        const inputComments = event.target.Comments;
+        const value = event.target.value
+
+        setNewComment((newComment) => {
+            return {...newComment, [inputComments]: value};
+        })
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        axios
+        .post(`REACT_APP_API_URL=http://localhost:5005/api`, newComment)
+        .then((newData) => Navigate(`/questions/:id/comment/add`))
+        .catch((error) => console.log(error))
+    }
+
     return (
         <div className='questionContainer'>
             {question ? 
@@ -26,17 +44,25 @@ const Question = ( ) => {
                     <div className='questionTop'>
                         <h3>{question.title}</h3>
                         <p>{question.description}</p>
-                        <p>{question.Comments}</p>
+                        <p>{question.code}</p>
                     </div>
                     
                     <div className='postComment'>
-                        <input type="text" name="comment" />
-                        <input type="button" name="comment" />
+                        <form action="submit" onSubmit={handleSubmit}>
+                            <input type="text" name="comment" onChange={handleInput}/>
+                            <button type="submit">Post</button>
+                        </form>
                     </div>
 
                     <div className='showComment'>
-                        <img src={img} alt="profile pic" />
-                        <p>{question.Comments}</p>
+                        {question.Comments.map(comment => (
+                            <div className='commentBox'>
+                                <img src={question.user.profileImg} alt="profile pic" />
+                                <h3>{question.user.username}</h3>
+                                <p>{question.text}</p>
+                            </div>
+                        )
+                        )}
                     </div>
                 </div>
             : <Spinner />}
