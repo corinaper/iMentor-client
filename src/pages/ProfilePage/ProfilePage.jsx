@@ -12,6 +12,7 @@ import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
 
 const ProfilePage = () => {
+    const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext)
     const [userProfile, setuserProfile] = useState([]);
     const profileId = useParams()
 
@@ -25,10 +26,6 @@ const ProfilePage = () => {
     },[profileId.id])
 
 
-    
-    console.log(profileId)
-    const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext)
-    
     console.log(user._id, userProfile._id)
  
     if(userProfile.type === "mentor")
@@ -51,11 +48,9 @@ const ProfilePage = () => {
                 <p>{userProfile.aboutMe}</p>
             </div>
             <QuestionCard></QuestionCard>
-            <li>
-                <button className="nav-logoutbtn" onClick={logOutUser}>
-                   Logout
-                </button>
-            </li>
+            <div>
+                {user._id===userProfile._id && <Link to={"/profile/edit"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
+            </div>
            
         </>)}
     else {return( 
@@ -72,11 +67,10 @@ const ProfilePage = () => {
                 <p>{userProfile.aboutMe}</p>
             </div>
             <QuestionCard></QuestionCard>
-            <li>
-                <button className="nav-logoutbtn" onClick={logOutUser}>
-                   Logout
-                </button>
-            </li>
+            <div>
+                {user._id===userProfile._id && <Link to={"/profile/edit"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
+            </div>
+           
            
         </>)}
     
