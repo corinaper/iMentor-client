@@ -10,11 +10,13 @@ import uploadService from "../../services/upload.service"
 const EditProfilePage = () => {
 const { user } = useContext(AuthContext)
 console.log(user)
+const [formState, setFormState] = useState()
+const [userType, setUserType] = useState()
 
 useEffect(()=>{
     Profile.getOneUser(user._id)
     .then((user)=>{
-        
+        console.log("user",user.data)
         setFormState(user.data)
         setUserType(user.data.userType)})
     .catch((err)=>console.log(err))
@@ -22,8 +24,7 @@ useEffect(()=>{
 },[user])
 
 
-const [formState, setFormState] = useState()
-const [userType, setUserType] = useState()
+
 
 const [image, setImage] = useState(false)
 
@@ -56,11 +57,25 @@ function handleFileUpload(event) {
 
 function handleType(){
     if(userType==="mentor")
-    setUserType("mentee")
-    else setUserType("mentor")
+    {setUserType("mentee")
+    setFormState({ ...formState, userType: "mentee" })
+console.log(formState)}
+    else 
+    {setUserType("mentor")
+    setFormState({ ...formState, userType: "mentor" })
+    console.log(formState)}
 }
 
+function skillChange(e){
+    const skillId = e.target.id
+    const newForm = {...formState}
+   
+    if(!newForm.skills.includes(skillId))
+    newForm.skills.push(skillId)
+    else newForm.skills.splice(newForm.skills.indexOf(skillId),1)
+    setFormState(newForm)
     
+}
     
     return (
         <>
@@ -73,7 +88,7 @@ function handleType(){
             </select>
 
         <label className="switch">
-        {userType === "mentor" ?  <input type="checkbox" checked />
+        {userType === "mentor" ?  <input type="checkbox" checked onClick={handleType}/>
         : <input type="checkbox" onClick={handleType}/>}
             <span className="slider round"></span>
         </label>
@@ -85,14 +100,14 @@ function handleType(){
             
             {userType === "mentor" &&
             <>
-            <input type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
-            <input type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
+            <input placeholder="Current position" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
+            <input placeholder="Company name" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
 
-            <Skills></Skills>
+            <Skills function={skillChange}></Skills>
             </>}
 
             <div>
-                <input type="text" id="name" name="username" value={formState?.aboutMe} onChange={handleInputChange} />
+                <textarea placeholder="About Me" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
             </div>
            
             <button className='questionButton' type="submit" value="Post" >Save Changes</button>

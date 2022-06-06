@@ -17,7 +17,7 @@ const Question = ( ) => {
                 setQuestion(response.data)
             })
             .catch(error => console.log(error))
-    }, [])
+    }, [id])
 
     return (
         <div className='questionContainer'>
