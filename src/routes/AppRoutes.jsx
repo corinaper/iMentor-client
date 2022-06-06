@@ -22,6 +22,7 @@ const AppRoutes = () => {
             <Route path="/questions" element={<PrivateRoute />}>
                 <Route path="" element={<QuestionPage />} />
             </Route>
+
             
             {/* <Route path="/mentors" element={<PrivateRoute />}> */}
                 <Route path="/mentors" element={<MentorPage />} />
