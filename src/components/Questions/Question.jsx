@@ -1,9 +1,9 @@
 import './Question.css'
-import { Link, Navigate } from 'react-router-dom'
-import { useContext, useParams, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { useContext, useState, Navigate } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
-import Spinner from '../Spinner/Spinner'
+import questions from '../../services/question.service'
 import axios from 'axios'
 
 const Question = ( ) => {
@@ -12,13 +12,14 @@ const Question = ( ) => {
     const [ newComment, setNewComment ] = useState({})
     
     useEffect(() => {
-        axios
-            .get(`${process.env.REACT_APP_API_URL}/questions/${id}`)
-            .then(response => {
-                setQuestion(response.data)
-            })
-            .catch(error => console.log(error))
-    }, [id])
+        questions.getOneQuestion(id)
+        .then(response => {
+            setQuestion(response.data)
+            console.log(response)
+        })
+         .catch(error => console.log(error))
+        }, [id])
+     
 
     const handleInput = (event) => {
         const inputComments = event.target.Comments;
@@ -39,12 +40,12 @@ const Question = ( ) => {
 
     return (
         <div className='questionContainer'>
-            {question ? 
-                <div className='questionContent'>
+        
+        <div className='questionContent'>
                     <div className='questionTop'>
-                        <h3>{question.title}</h3>
-                        <p>{question.description}</p>
-                        <p>{question.code}</p>
+                        <h3>{question?.title}</h3>
+                        <p>{question?.description}</p>
+                        <p>{question?.Comments}</p>
                     </div>
                     
                     <div className='postComment'>
@@ -55,7 +56,7 @@ const Question = ( ) => {
                     </div>
 
                     <div className='showComment'>
-                        {question.Comments.map(comment => (
+                        {question?.Comments.map(comment => (
                             <div className='commentBox'>
                                 <img src={question.user.profileImg} alt="profile pic" />
                                 <h3>{question.user.username}</h3>
@@ -64,10 +65,13 @@ const Question = ( ) => {
                         )
                         )}
                     </div>
-                </div>
-            : <Spinner />}
+                    </div>
+                    
         </div>
     )
 }
 
-export default Question;
+
+
+
+export default Question

@@ -15,6 +15,10 @@ class Question {
         
     }
 
+    getOneQuestion = (id) => {
+        return this.app.get(`/questions/${id}`)
+    }
+
 
 }
 

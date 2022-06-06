@@ -8,6 +8,7 @@ import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
 import QuestionPage from "../pages/QuestionPage/QuestionPage"
 import AddForm from "../components/AddForm/AddForm"
+import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
 
 
 const AppRoutes = () => {
@@ -32,7 +33,7 @@ const AppRoutes = () => {
             <Route path="/addform" element={<AddForm/>} />
 
             <Route path="/questions/:id" element={<PrivateRoute />}>
-                {/* <Route path="" element={<MentorPage />} /> */}
+                <Route path="" element={<QuestionDetailsPage />} />
             </Route>
 
             <Route path="/profile/:id" element={<PrivateRoute />}>
