@@ -44,7 +44,8 @@ const ProfilePage = () => {
             <p>{userProfile.email}</p>
             <p>{userProfile.ocuppation}</p>
             <p>{userProfile.company}</p>
-            <Skills skillList={userProfile.skills}></Skills>
+            {userProfile.skills.map((skill)=>
+            {return(<span key={skill._id}>{skill.name}</span>)})}
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
