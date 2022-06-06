@@ -8,7 +8,6 @@ const QuestionPage = () => {
     return (
         <>
         
-        <Skills></Skills>
        <Questions></Questions>
        
        </>
