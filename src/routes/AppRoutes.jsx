@@ -7,6 +7,7 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
 import QuestionPage from "../pages/QuestionPage/QuestionPage"
+import AddForm from "../components/AddForm/AddForm"
 
 
 const AppRoutes = () => {

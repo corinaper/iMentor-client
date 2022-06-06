@@ -39,8 +39,6 @@ function AddForm(props) {
 
     function handleFileUpload(event) {
 
-      setImageUrl(true)
-
         const uploadData = new FormData();
         uploadData.append("imageData", event.target.files[0])
 
