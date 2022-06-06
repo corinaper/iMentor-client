@@ -26,6 +26,7 @@ const Question = () => {
                 {/* <p>{question.owner.imageUrl}</p> */}
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
+                <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />;
             </div>
         )
     }) }
