@@ -11,7 +11,6 @@ const QuestionPage = () => {
         <Link to={`/addform`}>
             <button>Add a post</button>
         </Link>
-        <Skills></Skills>
        <Questions></Questions>
        
        </>
