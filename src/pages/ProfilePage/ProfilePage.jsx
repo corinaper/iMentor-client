@@ -1,10 +1,12 @@
 import { useContext } from "react"
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 import { AuthContext } from "../../context/auth.context"
 import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
+import QuestionCard from "../../components/QuestionCard/QuestionCard"
 
 import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
@@ -16,7 +18,7 @@ const ProfilePage = () => {
     useEffect(()=>{
         profile.getOneUser(profileId.id)
         .then((user)=>{
-            console.log("user from card", user)
+            // console.log("user from card", user)
             setuserProfile(user.data)})
         .catch((err)=>console.log(err))
         
@@ -24,14 +26,18 @@ const ProfilePage = () => {
 
 
     
-    console.log(profileId)
-    const { user } = useContext(AuthContext)
     
+    const { user } = useContext(AuthContext)
+    console.log(user._id, userProfile._id)
  
     if(userProfile.type === "mentor")
         {return (
         <>
-            <h2>{userProfile.course}</h2>
+           <div>
+                <h2>{userProfile.course}</h2>
+                {user._id===userProfile._id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
+            </div>
+            
             <h2>{userProfile.type}</h2>
             <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
             <h2>{userProfile.username}</h2>
@@ -42,20 +48,23 @@ const ProfilePage = () => {
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
-            {/* Add questions component */}
+            <QuestionCard></QuestionCard>
            
         </>)}
     else {return( 
         <>
             
-            <h2>{userProfile.type}</h2>
+            <div>
+                <h2>{userProfile.course}</h2>
+                {user._id===userProfile._id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
+            </div>
             <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
             <h2>{userProfile.username}</h2>
             <p>{userProfile.email}</p>
             <div>
                 <p>{userProfile.aboutMe}</p>
             </div>
-             {/* Add questions component */}
+            <QuestionCard></QuestionCard>
            
         </>)}
     

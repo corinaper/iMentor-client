@@ -17,7 +17,7 @@ const Skills = () => {
         
             skills.getAllSkills()
             .then((skills)=>{
-                console.log("skills from card", skills)
+                // console.log("skills from card", skills)
                 setSkillsList (skills.data)})
             .catch((err)=>console.log(err))
             
@@ -28,7 +28,7 @@ const Skills = () => {
         
         skills.get5Skills()
         .then((skills)=>{
-            console.log("skills from card", skills)
+            // console.log("skills from card", skills)
             setSkillsList (skills.data)})
         .catch((err)=>console.log(err))
         
