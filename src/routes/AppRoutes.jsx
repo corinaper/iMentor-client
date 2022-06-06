@@ -44,7 +44,7 @@ const AppRoutes = () => {
             </Route>
 
 
-            <Route path="*" element={<h1>Esto es un 404, melón</h1>} />
+            <Route path="*" element={<h1>Super-duper error 404</h1>} />
         </Routes>
     )
 }
