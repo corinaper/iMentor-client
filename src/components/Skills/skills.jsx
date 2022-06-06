@@ -8,7 +8,6 @@ const Skills = () => {
     useEffect(()=>{
         skills.get5Skills()
         .then((skills)=>{
-            console.log("skills from card", skills)
             setSkillsList (skills.data)})
         .catch((err)=>console.log(err))
         
@@ -44,9 +43,9 @@ const Skills = () => {
             
     }) }
         {skillsList.length === 5 ?
-            <button onClick={showAll} className="showMore">+</button>
+            <div onClick={showAll} className="showMore">+</div>
             :
-            <button onClick={showLess} className="showLess">-</button>}
+            <div onClick={showLess} className="showLess">-</div>}
     
     </>)
     

@@ -14,6 +14,10 @@ class Profile {
         return this.app.get(`/profile/${id}`)
     }
 
+    editUser=(id, info)=>{
+        return this.app.post(`/profile/${id}/edit`, info)
+    }
+
 
 }
 
