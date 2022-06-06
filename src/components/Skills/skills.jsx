@@ -39,7 +39,7 @@ const Skills = (props) => {
         <>
     {skillsList.map((skill)=>{
         return(
-            <span key={skill._id} onClick={props.function}>{skill.name}</span>)
+            <span key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>)
             
     }) }
         {skillsList.length === 5 ?

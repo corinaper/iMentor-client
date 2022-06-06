@@ -3,6 +3,7 @@ import { useState, useContext } from "react"
 import uploadService from "../../services/upload.service"
 import questionService from "../../services/question.services"
 import { AuthContext } from "../../context/auth.context"
+import Skills from "../../components/Skills/skills"
 
 
 
@@ -13,7 +14,8 @@ function AddForm(props) {
         title: '',        
         description:'',        
         imageUrl:'',
-        owner: {user}
+        owner: {user},
+        skills:[]
       }
 
     const [formState, setFormState] = useState(startingFormState)
@@ -56,6 +58,17 @@ function AddForm(props) {
 
     }
 
+    function skillChange(e){
+      const skillId = e.target.id
+      const newForm = {...formState}
+     
+      if(!newForm.skills.includes(skillId))
+      newForm.skills.push(skillId)
+      else newForm.skills.splice(newForm.skills.indexOf(skillId),1)
+      setFormState(newForm)
+      console.log(newForm.skills)
+  }
+
 
 
     return (
@@ -79,6 +92,7 @@ function AddForm(props) {
               <>
             <img src={imageUrl} alt="profile" style={{'maxWidth': '40vw'}}/>  
               </> )} <br /><br />
+            <Skills function={skillChange}></Skills>
 
             {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
           

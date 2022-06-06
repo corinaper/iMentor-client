@@ -8,7 +8,6 @@ const MentorPage = () => {
     return (
         <>
         
-       <Skills></Skills>
        <Mentors></Mentors>
        
        </>

@@ -66,7 +66,16 @@ console.log(formState)}
     console.log(formState)}
 }
 
-
+function skillChange(e){
+    const skillId = e.target.id
+    const newForm = {...formState}
+   
+    if(!newForm.skills.includes(skillId))
+    newForm.skills.push(skillId)
+    else newForm.skills.splice(newForm.skills.indexOf(skillId),1)
+    setFormState(newForm)
+    
+}
     
     return (
         <>
@@ -94,11 +103,11 @@ console.log(formState)}
             <input placeholder="Current position" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
             <input placeholder="Company name" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
 
-            <Skills></Skills>
+            <Skills function={skillChange}></Skills>
             </>}
 
             <div>
-                <input placeholder="About Me" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
+                <textarea placeholder="About Me" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
             </div>
            
             <button className='questionButton' type="submit" value="Post" >Save Changes</button>
