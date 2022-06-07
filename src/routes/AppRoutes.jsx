@@ -11,6 +11,7 @@ import AddForm from "../components/AddForm/AddForm"
 import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
 import ChatListPage from "../pages/ChatPageList/ChatPageList";
 import ChatPage from "../pages/ChatPage/ChatPage";
+import EditQuestionPage from "../pages/EditQuestion/EditQuestion"
 
 
 const AppRoutes = () => {
@@ -36,6 +37,10 @@ const AppRoutes = () => {
 
             <Route path="/questions/:id" element={<PrivateRoute />}>
                 <Route path="" element={<QuestionDetailsPage />} />
+            </Route>
+
+            <Route path="/question/:id/edit" element={<PrivateRoute />}>
+                <Route path="" element={<EditQuestionPage />} />
             </Route>
 
             <Route path="/profile/:id" element={<PrivateRoute />}>

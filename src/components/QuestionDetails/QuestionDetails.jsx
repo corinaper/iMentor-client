@@ -20,7 +20,10 @@ const Question = ( ) => {
         .then(response => {
             setQuestion(response.data)})
             .then(()=>User.getOneUser(user._id))
-            .then((user)=>setdatabaseUser(user.data))
+            .then((user)=>{
+                console.log("use effect user", user.data)
+                setdatabaseUser(user.data)})
+            
           
         
          .catch(error => console.log(error))
@@ -40,6 +43,7 @@ const Question = ( ) => {
         questions.createComment(newComment,id)
         .then((newquestion) => {
             setQuestion(newquestion.data)
+            setNewComment({comment:""})
             console.log(newquestion.data)
         }
              
@@ -52,10 +56,11 @@ const Question = ( ) => {
         navigate('/questions')
     }
 
+
     return (
         <div className='questionContainer'>
          <div>
-                {databaseUser?.questions.includes(question?._id) && 
+                {databaseUser?._id === question?.owner._id && 
                 <>
                 <Link to={`/question/${question?._id}/edit`}><button>Edit</button></Link>
                 <button onClick={deleteQuestion}>Delete</button>
@@ -66,6 +71,7 @@ const Question = ( ) => {
                     <div className='questionTop'>
                         <h3>{question?.title}</h3>
                         <p>{question?.description}</p>
+                        <img src={question?.imageUrl} alt=""></img>
                         
                     </div>
                     
