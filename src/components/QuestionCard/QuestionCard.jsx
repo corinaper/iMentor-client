@@ -42,9 +42,11 @@ const Question = () => {
         return(
             <div key={question._id} className="questionCard">
                 {/* <p>{question.owner.imageUrl}</p> */}
+                <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
-                <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />;
+                <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />
+                </Link>
             </div>
         )
     }) }
