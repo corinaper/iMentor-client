@@ -20,7 +20,7 @@ class Questions {
         })
     }
 
-    getAllQuestion = () => {
+    getAllQuestions = () => {
         return this.app.get('/questions')
     }
 
@@ -38,9 +38,13 @@ class Questions {
     
     deleteQuestion = (id) => {
         return this.app.post(`/questions/${id}/delete`)
-    }}
+    }
 
+    createComment = (comment, id) => {
+        return this.app.post(`/questions/${id}/comment/add`, comment)
+    }
 
+}
 
 const questions = new Questions()
 

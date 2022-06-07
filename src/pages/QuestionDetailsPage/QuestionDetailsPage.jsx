@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import Question from '../../components/Questions/Question'
+import Question from '../../components/QuestionDetails/QuestionDetails'
 
 
 

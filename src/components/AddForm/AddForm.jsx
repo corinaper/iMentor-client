@@ -29,10 +29,11 @@ function AddForm(props) {
             .then(({ data }) => {
               console.log(data) // aquí hauràs de fer servir useNavigate per anar a la pàgina de la nova pregunta
             }) 
-            navigate('/questions')
+            
             .catch((error) => {
                 console.log(error);
             })
+            navigate('/questions')
   
     }
   

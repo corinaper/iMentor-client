@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import question from "../../services/question.service" 
+import questions from "../../services/question.services" 
 import { useState } from "react"
 import "../../components/QuestionCard/QuestionCard.css"
 import Skills from "../../components/Skills/skills"
@@ -12,7 +12,7 @@ const Question = () => {
     const [filteredList, setfilteredList] = useState([]);
 
     useEffect(()=>{
-        question.getAllQuestions()
+        questions.getAllQuestions()
         .then((questions)=>{
             const reversedQuestions = questions.data.reverse()
             setQuestionList(reversedQuestions)
@@ -35,13 +35,14 @@ const Question = () => {
 
     }
 
+
     return (
         <>
         <Skills function={filterQuestions}></Skills>
         {filteredList.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
-                {/* <p>{question.owner.imageUrl}</p> */}
+                <img className="profileImg" src={question.owner.profileImg} alt=""></img>
                 <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
