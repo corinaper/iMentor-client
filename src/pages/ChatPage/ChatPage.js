@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/auth.context";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import apiService from "../../services/api.service";
+import chatService from "../../services/chat.service";
 import { Link } from "react-router-dom";
 import socket from "../../components/Socket/Socket";
 export default function ChatList() {
@@ -19,7 +19,7 @@ export default function ChatList() {
     const getAllMessages = () => {
 
         // Send the token through the request "Authorization" Headers
-        apiService
+        chatService
             .getAll(`chats/${id}/${otherId}`)
             .then((response) => {
                 setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
@@ -60,7 +60,7 @@ export default function ChatList() {
     const addNewMessage = () => {
 
         if(newMessage){
-        apiService.createOne(`chats/newMessage/${chat._id}`, { content: newMessage, sender: id, receiver: otherId })
+        chatService.createOne(`chats/newMessage/${chat._id}`, { content: newMessage, sender: id, receiver: otherId })
             .then(response => {
                 socket.emit('newMessage', [response.data.sender, response.data.receiver])
                 setNewMessage("")
@@ -78,7 +78,7 @@ export default function ChatList() {
                     </div>
                     <div className="message-box">
                         <textarea onChange={e => setNewMessage(e.target.value)} value={newMessage} onKeyDown={onEnterPress}></textarea>
-                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue"}}></i></button>
+                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue"}}>submit</i></button>
                     </div>
                 </div>
             </div>
