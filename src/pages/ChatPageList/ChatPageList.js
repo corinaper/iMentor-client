@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/auth.context";
 
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import apiService from "../../services/api.service";
+import chatService from "../../services/chat.service";
 import { Link, useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap"
 import socket from "../../components/Socket/Socket";
@@ -21,7 +21,7 @@ export default function ChatList() {
     const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
-    apiService
+    chatService
       .getOne("chats", id)
       .then((response) => setChats(response.data))
       .catch((error) => console.log(error));
