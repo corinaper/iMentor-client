@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import question from "../../services/question.service" 
+import questions from "../../services/question.services" 
 import { useState } from "react"
 import "../../components/QuestionCard/QuestionCard.css"
 import Skills from "../../components/Skills/skills"
@@ -12,7 +12,7 @@ const Question = () => {
     const [filteredList, setfilteredList] = useState([]);
 
     useEffect(()=>{
-        question.getAllQuestions()
+        questions.getAllQuestions()
         .then((questions)=>{
             const reversedQuestions = questions.data.reverse()
             setQuestionList(reversedQuestions)
