@@ -1,14 +1,15 @@
 import axios from "axios";
 
-class ApiService {
+class chatService {
   constructor() {
+    
     this.api = axios.create({
       baseURL: process.env.REACT_APP_API_URL,
     });
 
-    // Automatically set JWT token in the headers for every request
+            // Automatically set JWT token in the headers for every request
     this.api.interceptors.request.use((config) => {
-      // Retrieve the JWT token from the local storage
+            // Retrieve the JWT token from the local storage
       const storedToken = localStorage.getItem("authToken");
 
       if (storedToken) {
@@ -19,36 +20,36 @@ class ApiService {
     });
   }
 
-  // POST /api/projects
+  // POST /chat/projects 
   createOne = (resource, requestBody) => {
     return this.api.post(`/${resource}`, requestBody);
   };
 
-  // GET /api/projects
+  // GET /chat/projects
   getAll = (resource) => {
     return this.api.get(`/${resource}`);
   };
 
-  // GET /api/projects/:id
+  // GET /chat/projects/:id
   getOne = (resource, id) => {
     return this.api.get(`/${resource}/${id}`);
   };
 
-  // PUT /api/projects/:id
+  // PUT /chat/projects/:id
   updateOne = (resource, id, requestBody) => {
     return this.api.put(`/${resource}/${id}`, requestBody);
   };
 
-  // DELETE /api/projects/:id
+  // DELETE /chat/projects/:id
   deleteOne = (resource, id) => {
     return this.api.delete(`/${resource}/${id}`);
   };
 }
 
 // Create one instance (object) of the service
-const apiService = new ApiService();
-
-export default apiService;
 
 
-// invoke with apiService.getOne("users", id)
+export default chatService;
+
+
+// invoke with chatService.getOne("users", id)
