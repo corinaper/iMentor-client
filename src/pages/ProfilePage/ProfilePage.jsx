@@ -50,7 +50,7 @@ const ProfilePage = () => {
             <div>
                 {user._id===userProfile._id && <Link to={"/"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
             </div>
-            {userProfile.questions.map((question)=>{
+            {userProfile.questions?.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
                 <img className="profileImg" src={question.owner.profileImg} alt=""></img>
@@ -78,7 +78,7 @@ const ProfilePage = () => {
             <div>
                 {user._id===userProfile._id && <Link to={"/"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
             </div>
-            {userProfile.questions.map((question)=>{
+            {userProfile.questions?.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
                 <img className="profileImg" src={question.owner.profileImg} alt=""></img>

@@ -1,7 +1,8 @@
 import { useContext } from "react"
 import { useEffect } from "react"
-import { useState, useNavigate } from "react"
+import { useState} from "react"
 import { AuthContext } from "../../context/auth.context"
+import { useNavigate } from 'react-router-dom'
 import Profile from "../../services/profile.service"
 import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
@@ -12,6 +13,7 @@ const { user } = useContext(AuthContext)
 console.log(user)
 const [formState, setFormState] = useState()
 const [userType, setUserType] = useState()
+const navigate = useNavigate()
 
 useEffect(()=>{
     Profile.getOneUser(user._id)
@@ -30,9 +32,10 @@ const [image, setImage] = useState(false)
 
 
 
-const handleSubmit = (event)=>{   // revisar!!     
+const handleSubmit = (event)=>{
       event.preventDefault()
         Profile.editUser(user._id, formState)
+        navigate(`/profile/${user._id}`)
     }
 
 const handleInputChange = (event)=>{
@@ -49,7 +52,7 @@ function handleFileUpload(event) {
         .uploadImage(uploadData)
         .then(({data}) => {
           setImage(false)
-          setFormState({ ...formState, image: data.cloudinary_url })
+          setFormState({ ...formState,  profileImg: data.cloudinary_url })
         })
         .catch((err) => console.log(err))
        
