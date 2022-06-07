@@ -19,7 +19,7 @@ class ApiService {
     });
   }
 
-  // POST /api/projects
+  // POST /api/projects 
   createOne = (resource, requestBody) => {
     return this.api.post(`/${resource}`, requestBody);
   };

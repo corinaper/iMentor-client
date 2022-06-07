@@ -42,6 +42,7 @@ export default function ChatList() {
 }, []);
 
   return (
+    
     <div className="general-container">
 
       <h1 className="page-title">Chats List</h1>
@@ -92,3 +93,4 @@ export default function ChatList() {
     </div>
   );
 }
+  
