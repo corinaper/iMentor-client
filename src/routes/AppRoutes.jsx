@@ -10,6 +10,8 @@ import QuestionPage from "../pages/QuestionPage/QuestionPage"
 import AddForm from "../components/AddForm/AddForm"
 import Question from "../components/Questions/Question"
 import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
+import ChatListPage from "../pages/ChatPageList/ChatPageList";
+import ChatPage from "../pages/ChatPage/ChatPage";
 
 
 
@@ -45,6 +47,11 @@ const AppRoutes = () => {
             <Route path="/profile/edit" element={<PrivateRoute />}>
                 <Route path="" element={<EditProfilePage />} />
             </Route>
+
+            <Route path="/chats/:id" element={<PrivateRoute> <ChatListPage /> </PrivateRoute>} />        
+
+            <Route path="/chats/:id/:otherId" element={<PrivateRoute> <ChatPage /> </PrivateRoute>} />        
+        
 
 
             <Route path="*" element={<h1>Super-duper error 404</h1>} />

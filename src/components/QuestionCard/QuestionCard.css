@@ -2,3 +2,8 @@
     text-align: center;
     padding-bottom: 40px;
 }
+
+.linkToQuestionDetails {
+    text-decoration: none;
+    color: black;
+}

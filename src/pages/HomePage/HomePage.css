@@ -88,9 +88,8 @@ top: 114px;
 }
 
 .carussell {
-    position: absolute;
-width: 241px;
-height: 179px;
-left: 63px;
-top: 268px;
+    margin-top:16%;
+    width: 100%;
+
+
 }
