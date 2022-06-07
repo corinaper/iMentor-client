@@ -3,38 +3,41 @@ import { useParams } from 'react-router-dom'
 import { useContext, useState, Navigate } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
-import questions from '../../services/question.service'
-import axios from 'axios'
+import questions from '../../services/question.services'
+import "./Question.css"
 
 const Question = ( ) => {
     const { id } = useParams()
     const [ question, setQuestion ] = useState(null)
-    const [ newComment, setNewComment ] = useState({})
+    const [ newComment, setNewComment ] = useState({comment:""})
     
     useEffect(() => {
         questions.getOneQuestion(id)
         .then(response => {
             setQuestion(response.data)
-            console.log(response)
+            console.log(response.data)
         })
          .catch(error => console.log(error))
         }, [id])
      
 
     const handleInput = (event) => {
-        const inputComments = event.target.Comments;
+        // const inputComments = event.target.comment;
         const value = event.target.value
-
-        setNewComment((newComment) => {
-            return {...newComment, [inputComments]: value};
-        })
+        
+        setNewComment({comment:value}) 
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios
-        .post(`REACT_APP_API_URL=http://localhost:5005/api`, newComment)
-        .then((newData) => Navigate(`/questions/:id/comment/add`))
+     
+        questions.createComment(newComment,id)
+        .then((newquestion) => {
+            setQuestion(newquestion.data)
+            console.log(newquestion.data)
+        }
+             
+        )
         .catch((error) => console.log(error))
     }
 
@@ -45,7 +48,7 @@ const Question = ( ) => {
                     <div className='questionTop'>
                         <h3>{question?.title}</h3>
                         <p>{question?.description}</p>
-                        <p>{question?.Comments}</p>
+                        
                     </div>
                     
                     <div className='postComment'>
@@ -56,13 +59,14 @@ const Question = ( ) => {
                     </div>
 
                     <div className='showComment'>
-                        {question?.Comments.map(comment => (
-                            <div className='commentBox'>
-                                <img src={question.user.profileImg} alt="profile pic" />
-                                <h3>{question.user.username}</h3>
-                                <p>{question.text}</p>
-                            </div>
-                        )
+                        {question?.Comments.map(comment => 
+                         {  return(
+                             <div key={comment._id} className='commentBox'>
+                                <img className="profileImg" src={comment.user.profileImg} alt="profile pic" />
+                                <h3>{comment.user.username}</h3>
+                                <p>{comment.text}</p>
+                            </div>) }
+                        
                         )}
                     </div>
                     </div>
