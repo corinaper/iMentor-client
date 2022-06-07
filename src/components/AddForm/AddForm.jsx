@@ -4,6 +4,7 @@ import uploadService from "../../services/upload.service"
 import questionService from "../../services/question.services"
 import { AuthContext } from "../../context/auth.context"
 import Skills from "../../components/Skills/skills"
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -19,6 +20,7 @@ function AddForm(props) {
       }
 
     const [formState, setFormState] = useState(startingFormState)
+    const navigate = useNavigate()
 
     const handleSubmit = (event)=>{   // revisar!!      
       event.preventDefault()      
@@ -27,9 +29,11 @@ function AddForm(props) {
             .then(({ data }) => {
               console.log(data) // aquí hauràs de fer servir useNavigate per anar a la pàgina de la nova pregunta
             }) 
+            
             .catch((error) => {
                 console.log(error);
             })
+            navigate('/questions')
   
     }
   
@@ -95,12 +99,8 @@ function AddForm(props) {
             <Skills function={skillChange}></Skills>
 
             {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
-          
+            {/*<Link to={"/question"}><button className="questionButton" onClick={handleSubmit} value="Post">Post Topic</button></Link>*/}
             <button className='questionButton' type="submit" value="Post" >Post Topic</button>
-
-          
-  
-
 
         
         </form>

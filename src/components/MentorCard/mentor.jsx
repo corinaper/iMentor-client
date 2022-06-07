@@ -27,10 +27,10 @@ const Mentors = () => {
         skillList.push(e.target.id)
         else{skillList.splice(skillList.indexOf(e.target.id),1)}
 
-        const newList = [...mentorsList]
-        newList.filter((mentor)=>skillList.some(skill=>
-            mentor.skills.includes(skill)))
+        const newList = mentorsList.filter((mentor)=>skillList.some(skill=>mentor.skills.includes(skill)))
+        if (newList.length>0)
         setfilteredList(newList)
+        else setfilteredList(mentorsList)
 
         console.log(newList)
 
