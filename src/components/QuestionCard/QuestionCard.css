@@ -6,3 +6,8 @@
 .profileImg{
     width: 10%;
 }
+
+.linkToQuestionDetails {
+    text-decoration: none;
+    color: black;
+}
