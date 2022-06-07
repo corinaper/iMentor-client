@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #32C3FF;
+  --secondary-color: #212552;
+  --tertiary-color: #F1F1F1;
+
+  --chat-color: rgba(50, 195, 255, 0.1);
+  --black-color: #131213;
+
+  --ff-ss: 'SF Pro Display', sans-serif;
+  --ff-size: 16px;
+
+  --w: 80%;
+}

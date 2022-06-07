@@ -1,3 +1,5 @@
+@import '../../components/App.css';
+
 .link-to-signup {
         text-align: center;
         position: absolute;
@@ -13,6 +15,7 @@
         line-height: 19px;
         /* identical to box height */
         
+        color: var(--primary-color);
         
     color: #32C3FF;
 }

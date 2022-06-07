@@ -1,43 +1,54 @@
 @import url('http://fonts.cdnfonts.com/css/sf-pro-display');
 
+.homeContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    width: 7.5rem;
+    top: 8%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.carrouselContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 11rem;
+}
 
 .signup-button {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
 
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px 16px;
+    position: absolute;
+    width: 322px;
+    height: 52px;
+    left: calc(50% - 322px/2 - 0.5px);
+    top: calc(50% - 52px/2 + 220px);
 
-position: absolute;
-width: 322px;
-height: 52px;
-left: calc(50% - 322px/2 - 0.5px);
-top: calc(50% - 52px/2 + 220px);
+    background: #32C3FF;
+    border: none;
+    border-radius: 0.32rem;
 
-background: #32C3FF;
-border: 1px solid #96D1DF;
-border-radius: 5px;
+    /*text inside button*/
+    font-family: 'SF Pro Display';
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    
+    /* identical to box height */
+    color: #FFFFFF;
 
-/*text inside button*/
-
-font-family: 'SF Pro Display';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height */
-
-
-color: #FFFFFF;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
+    /* Inside auto layout */   
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 
 .login-button {
@@ -79,17 +90,8 @@ order: 0;
 flex-grow: 0;
 }
 
-.logo {
-    position: absolute;
-width: 114.24px;
-height: 68px;
-left: 130px;
-top: 114px;
-}
-
-.carussell {
-    margin-top:16%;
-    width: 100%;
-
-
+.carrousel {
+    display: flex;
+    justify-content: center;
+    width: 75%;
 }

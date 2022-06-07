@@ -4,21 +4,22 @@ import './HomePage.css'
 const IndexPage = () => {
 
     return (
-    <div>
+    <div className='homeContainer'>
         <img src='https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654165990/iMentor/logo_wxclwz.png' alt="Logo" className='logo'/>
-        <br/>
-        <h1 className='carussell'>Pictures here</h1>
-        <img src="https://res.cloudinary.com/dkipxchhu/image/upload/v1654593243/IMG_20220607_110835_yleh4h.jpg" alt="carussell" className='carussell'/>
-        <br/>
+        
+        <div className='carrouselContainer'>
+            <img src="https://res.cloudinary.com/dkipxchhu/image/upload/v1654593243/IMG_20220607_110835_yleh4h.jpg" alt="carrousel" className='carrousel'/>
+        </div>
 
-        <Link to="/login">
-            <button className='login-button'>Login</button>
-        </Link>
-        <br/>
-        <br/>
-        <Link to="/signup">
-            <button className='signup-button'>Sign Up</button>
-        </Link>
+        <div>
+            <Link to="/login">
+                <button className='login-button'>Login</button>
+            </Link>
+
+            <Link to="/signup">
+                <button className='signup-button'>Sign Up</button>
+            </Link>
+        </div>
     </div>
     )
 }
