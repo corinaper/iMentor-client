@@ -1,24 +1,30 @@
 import './Question.css'
-import { useParams } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useContext, useState, Navigate } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
 import questions from '../../services/question.services'
 import "./Question.css"
+import User from "../../services/profile.service"
 
 const Question = ( ) => {
     const { id } = useParams()
+    const { user } = useContext(AuthContext)
     const [ question, setQuestion ] = useState(null)
     const [ newComment, setNewComment ] = useState({comment:""})
+    const [databaseUser, setdatabaseUser] = useState()
+    const navigate = useNavigate()
     
     useEffect(() => {
         questions.getOneQuestion(id)
         .then(response => {
-            setQuestion(response.data)
-            console.log(response.data)
-        })
+            setQuestion(response.data)})
+            .then(()=>User.getOneUser(user._id))
+            .then((user)=>setdatabaseUser(user.data))
+          
+        
          .catch(error => console.log(error))
-        }, [id])
+        }, [id, user])
      
 
     const handleInput = (event) => {
@@ -41,8 +47,20 @@ const Question = ( ) => {
         .catch((error) => console.log(error))
     }
 
+    const deleteQuestion =()=>{
+        questions.deleteQuestion(question._id)
+        navigate('/questions')
+    }
+
     return (
         <div className='questionContainer'>
+         <div>
+                {databaseUser?.questions.includes(question?._id) && 
+                <>
+                <Link to={`/question/${question?._id}/edit`}><button>Edit</button></Link>
+                <button onClick={deleteQuestion}>Delete</button>
+                </>}
+            </div>
         
         <div className='questionContent'>
                     <div className='questionTop'>

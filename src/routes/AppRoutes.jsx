@@ -48,11 +48,13 @@ const AppRoutes = () => {
                 <Route path="" element={<EditProfilePage />} />
             </Route>
 
-            <Route path="/chats/:id" element={<PrivateRoute> <ChatListPage /> </PrivateRoute>} />        
+            <Route path="/chats/:id" element={<PrivateRoute />}>
+                <Route path="" element={<ChatListPage />} />
+            </Route>
 
-            <Route path="/chats/:id/:otherId" element={<PrivateRoute> <ChatPage /> </PrivateRoute>} />        
-        
-
+            <Route path="/chats/:id/:otherId" element={<PrivateRoute />}>
+                <Route path="" element={<ChatPage />} />
+            </Route>        
 
             <Route path="*" element={<h1>Super-duper error 404</h1>} />
         </Routes>

@@ -35,13 +35,14 @@ const Question = () => {
 
     }
 
+
     return (
         <>
         <Skills function={filterQuestions}></Skills>
         {filteredList.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
-                {/* <p>{question.owner.imageUrl}</p> */}
+                <img className="profileImg" src={question.owner.profileImg} alt=""></img>
                 <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>

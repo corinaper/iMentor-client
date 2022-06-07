@@ -3,6 +3,10 @@
     padding-bottom: 40px;
 }
 
+.profileImg{
+    width: 10%;
+}
+
 .linkToQuestionDetails {
     text-decoration: none;
     color: black;

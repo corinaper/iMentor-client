@@ -19,7 +19,7 @@ const ProfilePage = () => {
     useEffect(()=>{
         profile.getOneUser(profileId.id)
         .then((user)=>{
-            // console.log("user from card", user)
+            console.log("user from card", user.data)
             setuserProfile(user.data)})
         .catch((err)=>console.log(err))
         
@@ -50,7 +50,16 @@ const ProfilePage = () => {
             <div>
                 {user._id===userProfile._id && <Link to={"/"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
             </div>
-            <QuestionCard></QuestionCard>
+            {userProfile.questions?.map((question)=>{
+        return(
+            <div key={question._id} className="questionCard">
+                <img className="profileImg" src={question.owner.profileImg} alt=""></img>
+                <h2>{question.title}</h2>
+                <p>{question.description}</p>
+                <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />;
+            </div>
+        )
+        }) }
            
         </>)}
     else {return( 
@@ -69,7 +78,16 @@ const ProfilePage = () => {
             <div>
                 {user._id===userProfile._id && <Link to={"/"}><button className="nav-logoutbtn" onClick={logOutUser}>Log out</button></Link>}
             </div>
-            <QuestionCard></QuestionCard>
+            {userProfile.questions?.map((question)=>{
+        return(
+            <div key={question._id} className="questionCard">
+                <img className="profileImg" src={question.owner.profileImg} alt=""></img>
+                <h2>{question.title}</h2>
+                <p>{question.description}</p>
+                <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />;
+            </div>
+        )
+        }) }
            
            
         </>)}
