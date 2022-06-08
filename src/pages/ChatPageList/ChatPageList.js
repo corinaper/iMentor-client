@@ -21,6 +21,7 @@ export default function ChatList() {
     const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
+
     chatService
       .getOne("chats", id)
       .then((response) => setChats(response.data))

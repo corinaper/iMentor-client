@@ -4,12 +4,17 @@ import mentors from "../../services/mentor.service"
 import { useState } from "react"
 import "../../pages/MentorPage/mentor.css"
 import Skills from "../../components/Skills/skills"
+import { useContext } from 'react'
+import { AuthContext } from '../../context/auth.context'
 
 const skillList = []
 
 const Mentors = () => {
     const [mentorsList, setMentorsList] = useState([]);
     const [filteredList, setfilteredList] = useState([]);
+
+    const { user } = useContext(AuthContext)
+    
  
     useEffect(()=>{
         mentors.getAllMentors()
@@ -48,7 +53,7 @@ const Mentors = () => {
                 <Link to={`/profile/${mentor._id}`}>
                     <button>Profile</button>
                 </Link>
-                <Link to={"/"}>
+                <Link to={`/chats/${user._id}/${mentor._id}`}>
                 <button>Contact</button>
                 </Link>
             </div>
