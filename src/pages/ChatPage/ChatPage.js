@@ -33,7 +33,7 @@ export default function ChatList() {
                 .getAll(`chats/${id}/${otherId}`)
                 .then((response) => {
                     setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
-                    setMessages(response.data.messagess)
+                    setMessages(response.data.messages)
                     setChat(response.data)
                 })
                 .catch((error) => console.log(error));
@@ -43,7 +43,7 @@ export default function ChatList() {
                     .then(response => {
                         setChat(response.data) 
                         setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
-                        setMessages(response.data.messagess)
+                        setMessages(response.data.messages)
                     })
             }
     };
