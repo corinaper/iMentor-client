@@ -39,16 +39,14 @@ const Question = ( ) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-     
+        if(newComment.comment){
         questions.createComment(newComment,id)
         .then((newquestion) => {
             setQuestion(newquestion.data)
-            setNewComment({comment:""})
             console.log(newquestion.data)
-        }
-             
-        )
-        .catch((error) => console.log(error))
+        })
+        .then(()=>setNewComment({comment:""}))
+        .catch((error) => console.log(error))}
     }
 
     const deleteQuestion =()=>{
