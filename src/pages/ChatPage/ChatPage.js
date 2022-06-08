@@ -42,7 +42,9 @@ export default function ChatList() {
                     .createChat(id, otherId)
                     .then(response => {
                         setChat(response.data) 
-                        console.log(response)})
+                        setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
+                        setMessages(response.data.messagess)
+                    })
             }
     };
 
@@ -86,9 +88,9 @@ export default function ChatList() {
     }
     
 
-        return !messages.length ? (
+      return !messages.length ? (
             <div className="chat-page centered">
-                    <h2>{receiver.name}</h2>
+                    <h2>{receiver.username}</h2>
                 <div className="chat-box">
                     
                     <div className="chat-display-box">
@@ -101,7 +103,7 @@ export default function ChatList() {
             </div>
         ):(
             <div className="chat-page  centered">
-                    <h2>{receiver.name}</h2>
+                    <h2>{receiver.username}</h2>
                 <div className="chat-box">
                     
                     <div className="chat-display-box">
@@ -136,7 +138,7 @@ export default function ChatList() {
                     </div>
                     <div className="message-box">
                         <textarea onChange={e => setNewMessage(e.target.value)} value={newMessage} onKeyDown={onEnterPress}></textarea>
-                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue", cursor:"pointer"}}></i></button>
+                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue", cursor:"pointer"}}>submit</i></button>
                     </div>
                 </div>
             </div>
