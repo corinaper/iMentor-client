@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
@@ -13,22 +13,24 @@ const Loginform = () => {
 
     const navigate = useNavigate()
 
-    const { storeToken, authenticateUser } = useContext(AuthContext)
+    const { storeToken, authenticateUser, user } = useContext(AuthContext)
    
 
     const handleSubmit = e => {
         e.preventDefault()
-
+        
         authService
             .login(loginData)
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                
-                navigate('/mentors')
             })
             .catch(err => console.log(err))
     }
+
+    useEffect(()=>{ 
+       if(user) navigate('/mentors')
+    },[user])
 
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
