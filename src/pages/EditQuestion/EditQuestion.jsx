@@ -14,6 +14,7 @@ const { user } = useContext(AuthContext)
 console.log(user)
 const [formState, setFormState] = useState()
 const [imageUrl, setImageUrl] = useState(false)
+const [error, setError] = useState()
 const navigate = useNavigate()
 
 useEffect(()=>{
@@ -28,8 +29,10 @@ useEffect(()=>{
 
 const handleSubmit = (event)=>{
       event.preventDefault()
+      if(formState.title && formState.description){
         questions.editQuestion(formState, id)
-            navigate(`/questions/${id}`)
+            navigate(`/questions/${id}`)}
+      else{setError("Please fill out the empty fields")}
         
         
     }
@@ -95,7 +98,7 @@ return (
       
       </form>
 
-
+      {error && <p>{error}</p>}
       </div>
   )
 

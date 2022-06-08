@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-function AddForm(props) {
+function AddForm() {
     const [imageUrl, setImageUrl] = useState(false)
     const { user } = useContext(AuthContext)
     const startingFormState = {
@@ -20,11 +20,12 @@ function AddForm(props) {
       }
 
     const [formState, setFormState] = useState(startingFormState)
+    const [error, setError] = useState()
     const navigate = useNavigate()
 
     const handleSubmit = (event)=>{        
       event.preventDefault()      
-
+      if(formState.title && formState.description){
       questionService.createQuestion(formState)
             .then(( data ) => {
               console.log(data.data) 
@@ -34,8 +35,9 @@ function AddForm(props) {
             .catch((error) => {
                 console.log(error);
             })
+          }
+          else{setError("Please fill out the empty fields")}
             
-  
     }
   
     const handleInputChange = (event)=>{
@@ -99,13 +101,11 @@ function AddForm(props) {
               </> )} <br /><br />
             <Skills function={skillChange}></Skills>
 
-            {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
-            {/*<Link to={"/question"}><button className="questionButton" onClick={handleSubmit} value="Post">Post Topic</button></Link>*/}
-            <button className='questionButton' type="submit" value="Post" >Post Topic</button>
+            <button className='questionButton' type="submit" value="Post" >Post Question</button>
 
         
         </form>
-
+              {error && <p>{error}</p>}
 
         </div>
     )
