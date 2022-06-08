@@ -3,6 +3,7 @@ import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import "../../components/LoginForm/LoginForm.css"
+import  Spinner from "../Spinner/Spinner"
 
 const Loginform = () => {
 
@@ -10,6 +11,7 @@ const Loginform = () => {
         password: '',
         email: ''
     })
+    const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
 
@@ -18,7 +20,7 @@ const Loginform = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        
+        setLoading(true)
         authService
             .login(loginData)
             .then(({ data }) => {
@@ -40,7 +42,7 @@ const Loginform = () => {
     const { password, email } = loginData
 
     return ( 
-
+        <>
         <form onSubmit={handleSubmit} className="loginForm">
             
             <div className="labelInput">
@@ -75,6 +77,9 @@ const Loginform = () => {
             </div>
 
         </form>
+        {loading && 
+        <Spinner></Spinner>}
+        </>
     )
 }
 

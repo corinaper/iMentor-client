@@ -22,18 +22,19 @@ function AddForm(props) {
     const [formState, setFormState] = useState(startingFormState)
     const navigate = useNavigate()
 
-    const handleSubmit = (event)=>{   // revisar!!      
+    const handleSubmit = (event)=>{        
       event.preventDefault()      
 
       questionService.createQuestion(formState)
-            .then(({ data }) => {
-              console.log(data) // aquí hauràs de fer servir useNavigate per anar a la pàgina de la nova pregunta
+            .then(( data ) => {
+              console.log(data.data) 
+              navigate(`/questions/${data?.data._id}`)
             }) 
             
             .catch((error) => {
                 console.log(error);
             })
-            navigate('/questions')
+            
   
     }
   
