@@ -8,6 +8,17 @@ class Profile {
             baseURL: `${process.env.REACT_APP_API_URL}`
         })
 
+        this.app.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
+
     }
 
     getOneUser = (id) => {
