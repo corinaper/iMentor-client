@@ -8,7 +8,7 @@ const QuestionPage = () => {
 
     return (
         <>
-        <Link to={`/addform`}>
+        <Link to={`/addquestion`}>
             <button>Add a post</button>
         </Link>
        <Questions></Questions>

@@ -1,8 +1,8 @@
 import React from 'react';
-import spinner from '../../../public/spin.gif';
+
 
 function Spinner() {
-    return <img src={spinner} alt="spinner" />;
+    return <img src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654681443/iMentor/spin_drfhne.gif" alt="spinner" />;
 }
 
 export default Spinner;

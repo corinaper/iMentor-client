@@ -52,12 +52,14 @@ const ProfilePage = () => {
             </div>
             {userProfile.questions?.map((question)=>{
         return(
+            <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
             <div key={question._id} className="questionCard">
                 <img className="profileImg" src={question.owner.profileImg} alt=""></img>
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
                 <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />;
             </div>
+            </Link>
         )
         }) }
            
@@ -80,12 +82,14 @@ const ProfilePage = () => {
             </div>
             {userProfile.questions?.map((question)=>{
         return(
+            <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
             <div key={question._id} className="questionCard">
                 <img className="profileImg" src={question.owner.profileImg} alt=""></img>
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
                 <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />;
             </div>
+            </Link>
         )
         }) }
            

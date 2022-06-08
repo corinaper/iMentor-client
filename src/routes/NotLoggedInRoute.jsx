@@ -7,7 +7,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 const NotLoggedInRoute = () => {
 
     const { isLoggedIn } = useContext(AuthContext)
-    
+
     if (isLoggedIn) {
         
         return <Navigate to="/mentors" />
