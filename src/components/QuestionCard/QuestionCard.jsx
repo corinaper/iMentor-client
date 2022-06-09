@@ -39,7 +39,7 @@ const Question = () => {
     return (
         <>
         <Skills function={filterQuestions}></Skills>
-        {filteredList.map(({_id,owner, title,description,imageUrl})=>{
+        {filteredList.map(({_id,owner, title,description})=>{
             const shortDescription = description.slice(0, 100)+'...'
         return(
             <div key={_id} className="questionCard">

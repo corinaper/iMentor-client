@@ -1,6 +1,6 @@
 import './Question.css'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useContext, useState, Navigate } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
 import questions from '../../services/question.services'
