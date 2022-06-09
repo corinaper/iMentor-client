@@ -70,16 +70,16 @@ const ProfilePage = () => {
            
         </div>)}
     else {return( 
-        <div className="padding-bottom">
+        <div className="menteerProfile">
             
             <div>
-                <h2>{userProfile.course}</h2>
+                <h1>{userProfile.course}</h1>
                 {user._id===userProfile._id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
             </div>
             <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
             <h2>{userProfile.username}</h2>
             <p>{userProfile.email}</p>
-            <div>
+            <div className="aboutMe">
                 <p>{userProfile.aboutMe}</p>
             </div>
             <div>
