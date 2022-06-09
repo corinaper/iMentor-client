@@ -80,24 +80,25 @@ function AddForm() {
 
     return (
 
-      <div>
+      <div className='addContainer'>
         
         <h1 className='ask'>Ask Questions</h1> 
 
-        <br /><br />
+        <br />
 
         <form onSubmit={handleSubmit}>
             
-            <label htmlFor="name">Title:</label> <br />
-            <input className='titleRectangle' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> <br /><br />
+            <label htmlFor="name"></label> <br /> <br />
+            <input className='titleRectangle' placeholder='     Topic Title' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> 
             
             <label htmlFor="text"></label> <br /> <br />
-            <input  className='codeRectangle' placeholder="Post your Code Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} /> <br /><br />
+            <input  className='codeRectangle' placeholder="     Post your Code Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} /> <br /><br />
 
+            
             <input type="file" className='upload' name='imageUrl' onChange={(e) => handleFileUpload(e, setImageUrl)} multiple/>
             { imageUrl && (
               <>
-            <img src={imageUrl} alt="profile" style={{'maxWidth': '40vw'}}/>  
+            <img src={imageUrl} alt="profile" className='prevwImg' />  
               </> )} <br /><br />
             <Skills function={skillChange}></Skills>
 

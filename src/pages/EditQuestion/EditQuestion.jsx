@@ -8,6 +8,7 @@ import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
 import uploadService from "../../services/upload.service"
 import '../EditQuestion/EditQuestion.css'
+import AddForm from "../../components/AddForm/AddForm"
 
 const EditQuestionPage = () => {
 const {id} = useParams()
@@ -57,26 +58,27 @@ function skillChange(e){
     setFormState(newForm)
 }
 return (
-    <div>
-      <h1 className='ask'>Ask Questions</h1>
-      <br /><br />
-      <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Title:</label> <br />
-          <input className='titleRectangle' type="text" id="name" name="title" value={formState?.title} onChange={handleInputChange} /> <br /><br />
-          <label htmlFor="text"></label> <br /> <br />
-          <input  className='codeRectangle' placeholder="Post your Code Here" type="text" id="text" name="description" value={formState?.description} onChange={handleInputChange} /> <br /><br />
-          <input type="file" className='upload' name='imageUrl' onChange={(e) => handleFileUpload(e, setImageUrl)} multiple/>
-          { formState?.imageUrl && (
-            <>
-          <img src={formState?.imageUrl} alt="profile" style={{'maxWidth': '40vw'}}/>
-            </> )} <br /><br />
-          <Skills function={skillChange}></Skills>
-          {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
-          {/*<Link to={"/question"}><button className="questionButton" onClick={handleSubmit} value="Post">Post Topic</button></Link>*/}
-          <button className='questionButton' type="submit" value="Post" >Save</button>
-      </form>
-      {error && <p>{error}</p>}
-      </div>
+    // <div>
+    //   <h1 className='ask'>Ask Questions</h1>
+    //   <br /><br />
+    //   <form onSubmit={handleSubmit}>
+    //       <label htmlFor="name">Title:</label> <br />
+    //       <input className='titleRectangle' type="text" id="name" name="title" value={formState?.title} onChange={handleInputChange} /> <br /><br />
+    //       <label htmlFor="text"></label> <br /> <br />
+    //       <input  className='codeRectangle' placeholder="Post your Code Here" type="text" id="text" name="description" value={formState?.description} onChange={handleInputChange} /> <br /><br />
+    //       <input type="file" className='upload' name='imageUrl' onChange={(e) => handleFileUpload(e, setImageUrl)} multiple/>
+    //       { formState?.imageUrl && (
+    //         <>
+    //       <img src={formState?.imageUrl} alt="profile" style={{'maxWidth': '40vw'}}/>
+    //         </> )} <br /><br />
+    //       <Skills function={skillChange}></Skills>
+    //       {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
+    //       {/*<Link to={"/question"}><button className="questionButton" onClick={handleSubmit} value="Post">Post Topic</button></Link>*/}
+    //       <button className='questionButton' type="submit" value="Post" >Save</button>
+    //   </form>
+    //   {error && <p>{error}</p>}
+    //   </div>
+    <AddForm />
   )
 }
 export default EditQuestionPage
