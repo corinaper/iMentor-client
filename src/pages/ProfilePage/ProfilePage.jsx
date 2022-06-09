@@ -7,7 +7,8 @@ import { useParams } from "react-router-dom";
 import profile from "../../services/profile.service";
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
 import Skills from "../../components/Skills/skills";
-import "../../pages/ProfilePage/profilePage.css";
+import "./ProfilePage.css";
+
 const ProfilePage = () => {
   const { isLoggedIn, user, logOutUser, authenticateUser } =
     useContext(AuthContext);
@@ -25,8 +26,8 @@ const ProfilePage = () => {
   console.log(user._id, userProfile._id);
   if (userProfile.type === "mentor") {
     return (
-      <>
-        <div>
+      <div className="mentorProfileContainer">
+        <div className="">
           <h2>{userProfile.course}</h2>
           {user._id === userProfile._id && (
             <Link to={"/profile/edit"}>
@@ -84,11 +85,11 @@ const ProfilePage = () => {
             </Link>
           );
         })}
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div className="menteerContainer">
         <div>
           <h2>{userProfile.course}</h2>
           {user._id === userProfile._id && (
@@ -104,10 +105,10 @@ const ProfilePage = () => {
         ></img>
         <h2>{userProfile.username}</h2>
         <p>{userProfile.email}</p>
-        <div>
+        <div className="aboutMe">
           <p>{userProfile.aboutMe}</p>
         </div>
-        <div>
+        <div className="logoutContainer">
           {user._id === userProfile._id && (
             <Link to={"/"}>
               <button className="nav-logoutbtn" onClick={logOutUser}>
@@ -141,7 +142,7 @@ const ProfilePage = () => {
             </Link>
           );
         })}
-      </>
+      </div>
     );
   }
 };

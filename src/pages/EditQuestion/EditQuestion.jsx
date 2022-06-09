@@ -5,7 +5,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../context/auth.context"
 import questions from "../../services/question.services"
 import Skills from "../../components/Skills/skills"
-import "../../pages/ProfilePage/profilePage.css"
+import "../../pages/ProfilePage/ProfilePage.css"
 import uploadService from "../../services/upload.service"
 
 const EditQuestionPage = () => {

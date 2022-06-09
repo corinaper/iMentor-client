@@ -31,13 +31,23 @@ body {
 
   padding: 1.2em 1.3em;
   margin-top: 8rem;
-  z-index: -2;
 
   background-color: white;
   border: 0.125rem solid #32C3FF;
   border-radius: 0.64rem;
 
   text-align: center;
+}
+
+.mentorCard img {
+  position: relative;
+  border-radius: 50%;
+  width: 5rem;
+
+  transform: translateY(-4rem);
+  z-index: 0;
+
+  border: 0.2rem solid white;
 }
 
 .profile-main {
@@ -51,17 +61,6 @@ body {
   font-weight: 600;
   
   padding-bottom: 0.5rem;
-}
-
-.mentorImage {
-  position: relative;
-  border-radius: 50%;
-  width: 5rem;
-
-  transform: translateY(-4rem);
-  z-index: -1;
-
-  border: 0.2rem solid white;
 }
 
 .mentor-name {
