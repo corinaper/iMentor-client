@@ -5,9 +5,8 @@ import { AuthContext } from "../../context/auth.context"
 import { useNavigate } from 'react-router-dom'
 import Profile from "../../services/profile.service"
 import Skills from "../../components/Skills/skills"
-import "../../pages/ProfilePage/profilePage.css"
 import uploadService from "../../services/upload.service"
-import '../ProfilePage/EditProfilePage.css'
+import './EditProfilePage.css'
 
 const EditProfilePage = () => {
 const { user } = useContext(AuthContext)
@@ -70,45 +69,80 @@ function skillChange(e){
     setFormState(newForm)
 }
     return (
-        <>
-        <form onSubmit={handleSubmit}>
+        
+        <div className="edContainer">
+        
+        <img className="userImage" src={formState?.profileImg} alt={formState?.username}></img>
+        
+        <form className="fomid" onSubmit={handleSubmit}>
+            <div className="formidinside" >
+            
             <select id="course" name="course" onChange={handleInputChange}>
+               
                 {!formState?.course &&
+                
                 <option value="" selected>Select a course</option>}
                 {formState?.course === "Web Development" ?
+                
                 <option value="Web Development" selected>Web Development</option>
                 :
+                
                 <option value="Web Development">Web Development</option>}
                 {formState?.course === "UX/UI" ?
+                
                 <option value="UX/UI" selected>UX/UI</option>
                 :
+                
                 <option value="UX/UI">UX/UI</option>}
                 {formState?.course === "Data Analytics" ?
+                
                 <option value="Data Analytics" selected>Data Analytics</option>
                 :
+                
                 <option value="Data Analytics">Data Analytics</option>}
+            
             </select>
+            
+
+
         <label className="switch">
+        
         {userType === "mentor" ?  <input type="checkbox" checked onClick={handleType}/>
         : <input type="checkbox" onClick={handleType}/>}
             <span className="slider round"></span>
+        
+        
         </label>
-            <input type="file" className='upload' name='profileImg' onChange={handleFileUpload} /> <br /><br />
-            <img className="userImage" src={formState?.profileImg} alt={formState?.username}></img>
-            <input type="text" id="name" name="username" value={formState?.username} onChange={handleInputChange} />
-            <p>{formState?.email}</p>
+            
+            
+            
+            <input type="text" id="name" name="username" className="imputs" value={formState?.username} onChange={handleInputChange} />
+            <p className="par" >{formState?.email}</p>
             {userType === "mentor" &&
+           
             <>
-            <input placeholder="Current position" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
-            <input placeholder="Company name" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
+            
+            <input placeholder="Current position" className="imputs" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
+            
+            <input placeholder="Company name" className="imputs" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
             <Skills function={skillChange}></Skills>
             </>}
-            <div>
-                <textarea placeholder="About Me" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
+
+            <textarea placeholder="About Me" className="about" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
+            
+            <input type="file" className="file"  name='profileImg' onChange={handleFileUpload} /> <br /><br />
+
+            <button  className="uploadbtn" type="submit" value="Post">Save Changes</button>
+          
             </div>
-            <button className='questionButton' type="submit" value="Post" >Save Changes</button>
           </form>
+          
           {error && <p>{error}</p>  }
-        </>)
+
+          
+          
+          </div>
+    )
+        
 }
 export default EditProfilePage
