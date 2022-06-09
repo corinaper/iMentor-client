@@ -1,1 +1,36 @@
- 
+.page-title{
+
+}
+
+
+.chat-card {
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #32C3FF;
+    border-radius: 9px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    }
+
+.chat-img-container{
+    width: 39.89px;
+    height: 38.55px;
+    left: 50px;
+    top: 115px;
+    border-radius: 100%;
+}
+.chat-img{
+    border-radius: 100%;
+}
+
+.chat-preview-content{
+    width: 215px;
+    height: 57px;
+    left: 116px;
+    top: 112px;
+}
+
+.general-container{
+    margin-bottom: 100px;
+}
