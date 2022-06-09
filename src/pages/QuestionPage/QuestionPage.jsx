@@ -9,9 +9,11 @@ const QuestionPage = () => {
 
     return (
         <div className="questionContainer">
+        <h2>Feed</h2>
         <Link to={`/addquestion`}>
             <button className="addPostBtn">Add a post</button>
         </Link>
+        
        <Questions></Questions>
        
        </div>

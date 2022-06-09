@@ -5,6 +5,12 @@
     padding: 1.2em 1.3em;
     border-bottom: 0.125rem solid rgba(0, 0, 0, 0.5);
 }
+
+.questionContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .question-main {
     display: flex;
     flex-direction: column;
@@ -12,9 +18,26 @@
     height: 100%;
 }
 .profileImg{
-    width: 8vw;
+    border-radius: 100%;
 }
 .linkToQuestionDetails {
     text-decoration: none;
     color: black;
+}
+
+.whiteButton {
+    background-color: white;
+    color: #32C3FF;
+    border: 0.125rem solid #32C3FF;
+    border-radius: 0.32rem;
+    padding: 0.6rem 2rem;
+    font-size: 0.7rem;
+    margin-top: 10px;
+  }
+
+.buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    text-decoration-line: none;
 }
