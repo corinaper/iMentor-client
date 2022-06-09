@@ -50,8 +50,16 @@ export default function ChatList() {
 
     // We set this effect will run only once, after the initial render
     // by setting the empty dependency array - []
+
+    
     useEffect(() => {
+        /*setInterval(()=> {
         getAllMessages();
+        }, 1000);*/
+        const interval = setInterval(() => {
+            getAllMessages();
+          }, 750);
+          return () => clearInterval(interval);
     }, []);
 
     const divRef = useRef(null)
