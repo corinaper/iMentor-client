@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import chatService from "../../services/chat.service";
 import { Link } from "react-router-dom";
 import socket from "../../components/Socket/Socket";
+import '../ChatPage/ChatPage.css'
 
 export default function ChatList() {
 

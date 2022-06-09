@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
-
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import chatService from "../../services/chat.service";
 import { Link, useNavigate } from "react-router-dom";
 import { Card, Button } from "react-bootstrap"
 import socket from "../../components/Socket/Socket";
+import '../ChatPageList/ChatPageList.css'
 
 export default function ChatList() {
 
