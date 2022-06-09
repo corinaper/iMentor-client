@@ -7,6 +7,8 @@ import Profile from "../../services/profile.service"
 import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
 import uploadService from "../../services/upload.service"
+import '../ProfilePage/EditProfilePage.css'
+
 const EditProfilePage = () => {
 const { user } = useContext(AuthContext)
 console.log(user)

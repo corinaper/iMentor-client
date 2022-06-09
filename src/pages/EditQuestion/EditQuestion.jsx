@@ -7,6 +7,8 @@ import questions from "../../services/question.services"
 import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
 import uploadService from "../../services/upload.service"
+import '../EditQuestion/EditQuestion.css'
+
 const EditQuestionPage = () => {
 const {id} = useParams()
 const { user } = useContext(AuthContext)
