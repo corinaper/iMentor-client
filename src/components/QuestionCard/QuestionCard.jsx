@@ -50,7 +50,6 @@ const Question = () => {
                 <p>{shortDescription}</p>
                 </Link>
                 </div>
-            </div>
         )
     }) }
     </div>)
