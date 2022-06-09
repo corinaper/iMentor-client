@@ -71,12 +71,13 @@ function skillChange(e){
     return (
         
         <div className="edContainer">
-        
-        <img className="userImage" src={formState?.profileImg} alt={formState?.username}></img>
-        
+                
         <form className="fomid" onSubmit={handleSubmit}>
             <div className="formidinside" >
             
+            <img className="userImage" src={formState?.profileImg} alt={formState?.username}></img>
+
+
             <select id="course" name="course" onChange={handleInputChange}>
                
                 {!formState?.course &&
@@ -116,7 +117,7 @@ function skillChange(e){
             
             
             
-            <input type="text" id="name" name="username" className="imputs" value={formState?.username} onChange={handleInputChange} />
+            <input type="text" id="name" name="username" placeholder="Name" className="imputs" value={formState?.username} onChange={handleInputChange} />
             <p className="par" >{formState?.email}</p>
             {userType === "mentor" &&
            
@@ -130,7 +131,7 @@ function skillChange(e){
 
             <textarea placeholder="About Me" className="about" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
             
-            <input type="file" className="file"  name='profileImg' onChange={handleFileUpload} /> <br /><br />
+            <input type="file" className="file" placeholder="Upload Image" name='profileImg' onChange={handleFileUpload} /> 
 
             <button  className="uploadbtn" type="submit" value="Post">Save Changes</button>
           

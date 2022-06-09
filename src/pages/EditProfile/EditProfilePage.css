@@ -17,6 +17,16 @@
 
 }
 
+.file{
+  width: 90%;
+  height: 52px;
+  left: calc(50% - 322px / 2 + 0.5px);
+  top: calc(50% - 52px / 2 + 143px);
+  background: #32C3FF;
+  border: 1px solid #96D1DF;
+  border-radius: 5px;
+}
+
 .about{
   width: 90%;
   height: 52px;
@@ -55,25 +65,16 @@
 
 }
 
-/* .file{
-  width: 80%;
-  height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 143px);
-  background: #32C3FF;
-  border: 1px solid #96D1DF;
-  border-radius: 5px;
-}
-
 .uploadbtn{
-  width: 80%;
+  width: 90%;
   height: 52px;
   left: calc(50% - 322px / 2 + 0.5px);
   top: calc(50% - 52px / 2 + 243px);
   background: #32C3FF;
+  text-decoration: ;
   border: 1px solid #96D1DF;
   border-radius: 5px;
-} */
+} 
 
 
 /* The switch - the box around the slider */
