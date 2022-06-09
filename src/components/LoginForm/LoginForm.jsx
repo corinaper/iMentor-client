@@ -42,10 +42,9 @@ const Loginform = () => {
 
         <form onSubmit={handleSubmit} className="loginForm">
             
-            <div className="labelInput">
-                <label className="login-email" htmlFor="input-email">Email</label>
-                    <input
-                        id="imput-email" 
+            <div className="labelInput login-email">
+                <label htmlFor="input-email">Email</label>
+                    <input 
                         type="text"
                         name="email"
                         value={email}
@@ -54,10 +53,9 @@ const Loginform = () => {
                         />
             </div>
 
-            <div className="labelInput">
-                <label className='login-password' htmlFor="input-password">Password</label>
+            <div className="labelInput login-password">
+                <label htmlFor="input-password">Password</label>
                     <input
-                        id="imput-password"
                         type="password"
                         name="password"
                         value={password}
@@ -68,7 +66,7 @@ const Loginform = () => {
             </div>
 
             <div className="loginBtn">
-                <button className="login-btn" type="submit">
+                <button type="submit">
                     Login
                 </button>
             </div>

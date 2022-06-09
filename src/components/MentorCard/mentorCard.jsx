@@ -2,15 +2,16 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import mentors from "../../services/mentor.service" 
 import { useState } from "react"
+import "./mentorCard.css"
 import "../../pages/MentorPage/mentor.css"
-import Skills from "../../components/Skills/skills"
+import Skills from "../Skills/skills"
 
 const skillList = []
 
 const Mentors = () => {
     const [mentorsList, setMentorsList] = useState([]);
     const [filteredList, setfilteredList] = useState([]);
- 
+
     useEffect(()=>{
         mentors.getAllMentors()
         .then((mentors)=>{
@@ -37,24 +38,38 @@ const Mentors = () => {
     }
 
     return (
-        <>
-        <Skills function={filterMentors}></Skills>
+        <div className="mentorCardContainer">
+            <Skills function={filterMentors}></Skills>
+
         {filteredList.map((mentor)=>{
         return(
             <div key={mentor._id} className="mentorCard">
-                <img className="mentorImage" src={mentor.profileImg} alt={mentor.username}></img>
-                <h2>{mentor.username}</h2>
-                <p>{mentor.aboutMe}</p>
-                <Link to={`/profile/${mentor._id}`}>
-                    <button>Profile</button>
-                </Link>
-                <Link to={"/"}>
-                <button>Contact</button>
-                </Link>
+    
+                    <img className="mentorImage" src={mentor.profileImg} alt={mentor.username}></img>
+                
+
+                <div className="profile-main">
+                    <h2 className="mentor-name">{mentor.username}</h2>
+                    <p className="mentor-body">{mentor.aboutMe}</p>
+                </div>
+                
+                <div className="mentorBtns">
+                    <div className="mentorProfileBtn">
+                        <Link to={`/profile/${mentor._id}`}>
+                            <button>Profile</button>
+                        </Link>
+                    </div>
+                    
+                    <div className="mentorContactBtn">
+                        <Link to={"/"}>
+                            <button>Contact</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
         )
     }) }
-    </>)
+    </div>)
     
 }
 

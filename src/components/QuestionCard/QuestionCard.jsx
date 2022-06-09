@@ -37,21 +37,23 @@ const Question = () => {
 
 
     return (
-        <>
+        <div classname="questionContainer">
         <Skills function={filterQuestions}></Skills>
         {filteredList.map((question)=>{
         return(
             <div key={question._id} className="questionCard">
                 <img className="profileImg" src={question.owner.profileImg} alt=""></img>
+                <div className="question-main">
                 <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
                 <h2>{question.title}</h2>
                 <p>{question.description}</p>
                 <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />
                 </Link>
+                </div>
             </div>
         )
     }) }
-    </>)
+    </div>)
 }
 
 export default Question
