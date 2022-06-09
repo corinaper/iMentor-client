@@ -6,6 +6,7 @@ import "../../pages/MentorPage/mentor.css"
 import Skills from "../../components/Skills/skills"
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
+import '../MentorCard/mentor.css'
 
 const skillList = []
 
@@ -42,25 +43,39 @@ const Mentors = () => {
     }
 
     return (
-        <>
-        <Skills function={filterMentors}></Skills>
+        <div className="padding-bottom">
+            <div className='mentorCardContainer'>
+        <Skills function={filterMentors}></Skills> 
         {filteredList.map(({_id, profileImg, username, aboutMe})=>{
             const shortAboutMe = aboutMe.slice(0, 100)+'...'
         return(
             <div key={_id} className="mentorCard">
                 <img className="mentorImage" src={profileImg} alt={username}></img>
-                <h2>{username}</h2>
-                <p>{shortAboutMe}</p>
-                <Link to={`/profile/${_id}`}>
-                    <button>Profile</button>
-                </Link>
+
+            <div className="profile-main">
+                <h2 className="mentor-name">{username}</h2>
+                <p className="mentor-body">{shortAboutMe}</p>
+            </div>
+                
+            <div className="mentorBtns">
+                <div className="mentorProfileBtn">
+                    <Link to={`/profile/${_id}`}>
+                        <button>Profile</button>
+                    </Link>
+                </div>
+            </div>
+
+            <div className="mentorContactBtn">
                 <Link to={`/chats/${user._id}/${_id}`}>
-                <button>Contact</button>
+                    <button>Contact</button>
                 </Link>
+            </div>
             </div>
         )
     }) }
-    </>)
+    </div>
+    </div>
+    )
     
 }
 

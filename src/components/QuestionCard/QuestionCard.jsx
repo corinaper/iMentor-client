@@ -37,7 +37,9 @@ const Question = () => {
 
 
     return (
-        <>
+        <div className="margin-bottom">
+        <div className="questionContainer">
+
         <Skills function={filterQuestions}></Skills>
         {filteredList.map(({_id,owner, title,description})=>{
             const shortDescription = description.slice(0, 100)+'...'
@@ -52,7 +54,8 @@ const Question = () => {
             </div>
         )
     }) }
-    </>)
+    </div>
+    </div>)
 }
 
 export default Question

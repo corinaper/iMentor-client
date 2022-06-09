@@ -13,7 +13,9 @@ const Navigation = () => {
     return (
         <Navbar className='navbar' bg="white" variant="white" >
 
-            <h5>iMentor</h5><Link to={`/chats/${user._id}`}><button>Chat List</button></Link>
+            <h5>iMentor</h5>
+            
+            <Link to={`/chats/${user._id}`}><img className='img' src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654785964/iMentor/Vector_paufg6.png" alt=""/></Link>
 
         </Navbar>
       

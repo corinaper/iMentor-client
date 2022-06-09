@@ -12,9 +12,15 @@ return(
      
     <footer className='footer'>
         
-        <Link to="/questions" className="nav-link">Questions</Link>
-         <Link to="/mentors" className="nav-link">Mentor</Link>
-          <Link to={`/profile/${user._id}`}  className="nav-link">Profile</Link>
+        <Link to="/questions" className="nav-link">
+            <img src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654784636/iMentor/post_dcmeoh.png" alt=""/>
+        </Link>
+         <Link to="/mentors" className="nav-link">
+         <img src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654784636/iMentor/mentor_lub2qh.png" alt=""/>
+         </Link>
+          <Link to={`/profile/${user._id}`}  className="nav-link">
+          <img src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654784636/iMentor/profile_ha2cmd.png" alt=""/>
+          </Link>
          
     </footer>
 

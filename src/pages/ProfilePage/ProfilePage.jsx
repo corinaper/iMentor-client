@@ -2,14 +2,13 @@ import { useContext } from "react"
 import { useEffect } from "react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-
 import { AuthContext } from "../../context/auth.context"
 import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
 import QuestionCard from "../../components/QuestionCard/QuestionCard"
-
 import Skills from "../../components/Skills/skills"
 import "../../pages/ProfilePage/profilePage.css"
+
 
 const ProfilePage = () => {
     const { isLoggedIn, user, logOutUser, authenticateUser } = useContext(AuthContext)
@@ -30,7 +29,7 @@ const ProfilePage = () => {
  
     if(userProfile.type === "mentor")
         {return (
-        <>
+        <div className="padding-bottom">
            <div>
                 <h2>{userProfile.course}</h2>
                 {user._id===userProfile._id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
@@ -63,9 +62,9 @@ const ProfilePage = () => {
         )
         }) }
            
-        </>)}
+        </div>)}
     else {return( 
-        <>
+        <div className="padding-bottom">
             
             <div>
                 <h2>{userProfile.course}</h2>
@@ -82,6 +81,7 @@ const ProfilePage = () => {
             </div>
             {userProfile.questions?.map((question)=>{
         return(
+
             <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
             <div key={question._id} className="questionCard">
                 <img className="profileImg" src={question.owner.profileImg} alt=""></img>
@@ -94,7 +94,7 @@ const ProfilePage = () => {
         }) }
            
            
-        </>)}
+        </div>)}
     
 }
 

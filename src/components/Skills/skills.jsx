@@ -1,6 +1,7 @@
 import skills from "../../services/skills.service" 
 import { useState } from "react"
 import { useEffect } from "react"
+import "../Skills/skills.css"
 
 const Skills = (props) => {
     const [skillsList, setSkillsList] = useState([]);
@@ -36,10 +37,10 @@ const Skills = (props) => {
 }
  
     return (
-        <>
+        <div className="divChips">
     {skillsList.map((skill)=>{
         return(
-            <span key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>)
+            <span className="chips" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>)
             
     }) }
         {skillsList.length === 5 ?
@@ -47,7 +48,7 @@ const Skills = (props) => {
             :
             <div onClick={showLess} className="showLess">-</div>}
     
-    </>)
+    </div>)
     
 }
 

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-
 import Question from '../../components/QuestionDetails/QuestionDetails'
-
+import '../QuestionDetailsPage/QuestionDetails.css'
 
 
 const QuestionDetails = () => {

@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
 import questions from '../../services/question.services'
 import "./Question.css"
-import User from "../../services/profile.service"
+import User from "../../services/profile.service" 
 
 const Question = ( ) => {
     const { id } = useParams()
