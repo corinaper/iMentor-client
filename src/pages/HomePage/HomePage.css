@@ -1,95 +1,104 @@
-@import url('http://fonts.cdnfonts.com/css/sf-pro-display');
+:root {
+    --primary-color: #32C3FF;
+    --secondary-color: #212552;
+    --tertiary-color: #F1F1F1;
 
+    --chat-color: rgba(50, 195, 255, 0.1);
+    --black-color: #131213;
+    --white-color: #fff;
 
-.signup-button {
+    --ff-ss: 'SF Pro Display', sans-serif;
+    --ff-size: 16px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px 16px;
-
-position: absolute;
-width: 322px;
-height: 52px;
-left: calc(50% - 322px/2 - 0.5px);
-top: calc(50% - 52px/2 + 220px);
-
-background: #32C3FF;
-border: 1px solid #96D1DF;
-border-radius: 5px;
-
-/*text inside button*/
-
-font-family: 'SF Pro Display';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height */
-
-
-color: #FFFFFF;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
 }
 
-.login-button {
-    box-sizing: border-box;
+.homeContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0px 16px;
-
-position: absolute;
-width: 322px;
-height: 52px;
-left: calc(50% - 322px/2 - 0.5px);
-top: calc(50% - 52px/2 + 297px);
-
-background: #FFFFFF;
-border: 2px solid #32C3FF;
-border-radius: 5px;
-
-/*text inside button*/
-
-font-family: 'SF Pro Display';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-/* identical to box height */
-
-
-color: #32C3FF;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
-.logo {
-    position: absolute;
-width: 114.24px;
-height: 68px;
-left: 130px;
-top: 114px;
+.homeContainer > img {
+    display: flex;
+    justify-content: center;
+
+    padding-bottom: 4rem;
+    margin-top: 10rem;
+    width: 7.5rem;
 }
 
-.carussell {
-    margin-top:16%;
+.carrouselContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.carrouselContainer > img {
+    width: 75%;
+}
+
+.homeBtns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
     width: 100%;
 
-
+    padding-top: 2.5rem;
+    margin-bottom: 8rem;
 }
+
+.signupBtn-Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.9rem 1.1rem;
+    width: 82%;
+
+    background-color: #32C3FF;
+    border: none;
+    border-radius: 0.32rem;
+}
+
+.signupBtn-Home * button {
+    font-family: 'SF Pro Display';
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+
+    background-color: #32C3FF;
+    color: white;
+    border: none;
+}
+
+.loginBtn-Home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    width: 82%;
+
+    background-color: white;
+    border: 0.125rem solid #32C3FF;
+    border-radius: 0.32rem;
+}
+
+.loginBtn-Home * button {
+    font-family: 'SF Pro Display';
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+
+    background-color: white;
+    color: #32C3FF;
+    border: none;
+}
+

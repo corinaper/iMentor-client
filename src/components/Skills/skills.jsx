@@ -1,4 +1,5 @@
 import skills from "../../services/skills.service" 
+import './skills.css'
 import { useState } from "react"
 import { useEffect } from "react"
 
@@ -34,21 +35,25 @@ const Skills = (props) => {
         
     
 }
- 
+
     return (
-        <>
+        <div className="chipsContainer">
+            <div className="divChips">
     {skillsList.map((skill)=>{
         return(
-            <span key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>)
-            
-    }) }
-        {skillsList.length === 5 ?
+            <button className="chips">
+                <span key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>
+            </button>
+    )})}
+        </div>
+        <div className="plusMinus">
+    {skillsList.length === 5 ?
             <div onClick={showAll} className="showMore">+</div>
             :
-            <div onClick={showLess} className="showLess">-</div>}
-    
-    </>)
-    
+            <div onClick={showLess} className="showLess">-</div>
+    }
+        </div>
+    </div>)
 }
 
 export default Skills

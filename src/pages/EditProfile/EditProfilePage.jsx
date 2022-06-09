@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth.context"
 import { useNavigate } from 'react-router-dom'
 import Profile from "../../services/profile.service"
 import Skills from "../../components/Skills/skills"
-import "../../pages/ProfilePage/profilePage.css"
+import "./EditProfilePage.css"
 import uploadService from "../../services/upload.service"
 
 const EditProfilePage = () => {

@@ -5,17 +5,15 @@ import './SignupPage.css'
 const SignupPage = () => {
 
     return (
-        <>    
-        <Link to="/">
-            <img src='https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654165990/iMentor/logo_wxclwz.png' alt="Logo" className='logo'/>
-        </Link>
-            <SignupForm />
-            <div className='link-to-login'>
-            <Link to="/login" >
-            <p>Already got a user?</p> 
+        <div className='signupContainer'>   
+            <div className='logo-signup'>
+            <Link to="/">
+                <img src='https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654165990/iMentor/logo_wxclwz.png' alt="Logo" />
             </Link>
-            </div>
-        </>
+            </div> 
+        
+            <SignupForm />
+        </div>
     )
 }
 

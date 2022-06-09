@@ -53,10 +53,9 @@ const SignupForm = () => {
                 />
             </div>
 
-            <div className="labelInput">
-                <label className="email" htmlFor="input-email">Email</label>
+            <div className="labelInput email">
+                <label htmlFor="input-email">Email</label>
                 <input 
-                    id="input-email"
                     type="text"
                     name="email"
                     value={email}
@@ -65,10 +64,9 @@ const SignupForm = () => {
                 />
             </div>
 
-            <div className="labelInput">
-                <label className="password" htmlFor="input-password">Password</label>
-                <input 
-                    id="input-password"
+            <div className="labelInput password">
+                <label htmlFor="input-password">Password</label>
+                <input
                     type="password"
                     name="password"
                     value={password}
@@ -79,9 +77,9 @@ const SignupForm = () => {
             </div>
 
             <div className="signupBtn">
-                <button className="signUpButton" type="submit">
+                <button type="submit">
                     Sign Up
-                </button>
+            </button>
             </div>
 
         </form>

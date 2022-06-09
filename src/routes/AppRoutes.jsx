@@ -1,18 +1,20 @@
 import { Routes, Route } from "react-router-dom"
 import IndexPage from "../pages/HomePage/HomePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
-import MentorPage from "../pages/MentorPage/mentorpage"
-import EditProfilePage from "../pages/ProfilePage/EditProfilePage"
+import MentorPage from "../pages/MentorPage/mentor"
+import EditProfilePage from "../pages/EditProfile/EditProfilePage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
 import QuestionPage from "../pages/QuestionPage/QuestionPage"
 import AddForm from "../components/AddForm/AddForm"
+import Question from "../components/QuestionDetails/QuestionDetails"
 import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
 import ChatListPage from "../pages/ChatPageList/ChatPageList";
 import ChatPage from "../pages/ChatPage/ChatPage";
 import EditQuestionPage from "../pages/EditQuestion/EditQuestion"
 import NotLoggedInRoute from "./NotLoggedInRoute"
+
 
 
 const AppRoutes = () => {

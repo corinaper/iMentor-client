@@ -1,10 +1,22 @@
 .questionCard {
-    text-align: center;
-    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+
+    width: 82%;
+    padding: 1.2em 1.3em;
+
+    border-bottom: 0.125rem solid rgba(0, 0, 0, 0.5);
+}
+
+.question-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .profileImg{
-    width: 10%;
+    width: 8vw;
 }
 
 .linkToQuestionDetails {
