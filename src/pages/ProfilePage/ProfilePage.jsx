@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import profile from "../../services/profile.service";
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
 import Skills from "../../components/Skills/skills";
-import "./ProfilePage.css";
+import "../../pages/ProfilePage/profilePage.css";
 
 const ProfilePage = () => {
   const { isLoggedIn, user, logOutUser, authenticateUser } =
