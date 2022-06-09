@@ -8,13 +8,12 @@ const QuestionPage = () => {
 
     return (
         <div className="questionContainer">
-            <Link to={`/addform`}>
-                <button className="addPostBtn">Add a post</button>
-            </Link>
-
-            <Questions />
-    
-        </div>
+        <Link to={`/addquestion`}>
+            <button className="addPostBtn">Add a post</button>
+        </Link>
+       <Questions></Questions>
+       
+       </div>
     )
 }
 

@@ -12,6 +12,8 @@ import Question from "../components/QuestionDetails/QuestionDetails"
 import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
 import ChatListPage from "../pages/ChatPageList/ChatPageList";
 import ChatPage from "../pages/ChatPage/ChatPage";
+import EditQuestionPage from "../pages/EditQuestion/EditQuestion"
+import NotLoggedInRoute from "./NotLoggedInRoute"
 
 
 
@@ -19,10 +21,18 @@ const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<IndexPage />} />
             
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<NotLoggedInRoute/>}>
+                <Route path="" element={<IndexPage />} />
+            </Route>
+            
+            <Route path="/signup" element={<NotLoggedInRoute/>}>
+                <Route path="" element={<SignupPage />} />
+            </Route>
+
+            <Route path="/login" element={<NotLoggedInRoute/>}>
+                <Route path="" element={<LoginPage />} />
+            </Route>
             
 
             <Route path="/questions" element={<PrivateRoute />}>
@@ -30,14 +40,20 @@ const AppRoutes = () => {
             </Route>
 
             
-            {/* <Route path="/mentors" element={<PrivateRoute />}> */}
-                <Route path="/mentors" element={<MentorPage />} />
-            {/* </Route> */}
+            <Route path="/mentors" element={<PrivateRoute />}>
+                <Route path="" element={<MentorPage />} />
+            </Route> 
 
-            <Route path="/addform" element={<AddForm/>} />
+            <Route path="/addquestion" element={<PrivateRoute />}>
+            <Route path="" element={<AddForm/>} />
+            </Route> 
 
             <Route path="/questions/:id" element={<PrivateRoute />}>
                 <Route path="" element={<QuestionDetailsPage />} />
+            </Route>
+
+            <Route path="/question/:id/edit" element={<PrivateRoute />}>
+                <Route path="" element={<EditQuestionPage />} />
             </Route>
 
             <Route path="/profile/:id" element={<PrivateRoute />}>

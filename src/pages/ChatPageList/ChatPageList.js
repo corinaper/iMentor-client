@@ -21,6 +21,7 @@ export default function ChatList() {
     const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
+
     chatService
       .getOne("chats", id)
       .then((response) => setChats(response.data))
@@ -61,22 +62,22 @@ export default function ChatList() {
 
 
                 <div className="chat-message-preview">
-                  {(chat.messagess[chat.messagess.length - 1]?.sender == id) && 
+                  {(chat.messages[chat.messages.length - 1]?.sender == id) && 
                   
-                  <p className="message-preview-content">You: {chat.messagess[chat.messagess.length - 1]?.content}</p>
-                  
-                  }
-                  
-                  {(chat.messagess[chat.messagess.length - 1]?.sender == otherUser._id) &&
-                  
-                  <p className="message-preview-content">{otherUser.name}: {chat.messagess[chat.messagess.length - 1]?.content}</p>
+                  <p className="message-preview-content">You: {chat.messages[chat.messages.length - 1]?.content}</p>
                   
                   }
-                  {((Math.floor((new Date().getTime() - new Date(chat.messagess[chat.messagess.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0 && chat.messagess.length > 0) && 
-                  <p className="chat-message-time">{`${(Math.floor((new Date().getTime() - new Date(chat.messagess[chat.messagess.length - 1].createdAt).getTime()) / (1000 * 3600 * 24)))} days ago`}</p>}
                   
-                  {!((Math.floor((new Date().getTime() - new Date(chat.messagess[chat.messagess.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0) && chat.messagess.length > 0 && 
-                  <p className="chat-message-time">{`At ${new Date(chat.messagess[chat.messagess.length - 1]?.createdAt).getHours()}:${new Date(chat.messagess[chat.messagess.length - 1]?.createdAt).getMinutes()}`}</p>}
+                  {(chat.messages[chat.messages.length - 1]?.sender == otherUser._id) &&
+                  
+                  <p className="message-preview-content">{otherUser.name}: {chat.messages[chat.messages.length - 1]?.content}</p>
+                  
+                  }
+                  {((Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0 && chat.messages.length > 0) && 
+                  <p className="chat-message-time">{`${(Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1].createdAt).getTime()) / (1000 * 3600 * 24)))} days ago`}</p>}
+                  
+                  {!((Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0) && chat.messages.length > 0 && 
+                  <p className="chat-message-time">{`At ${new Date(chat.messages[chat.messages.length - 1]?.createdAt).getHours()}:${new Date(chat.messages[chat.messages.length - 1]?.createdAt).getMinutes()}`}</p>}
                   
                 </div>
 

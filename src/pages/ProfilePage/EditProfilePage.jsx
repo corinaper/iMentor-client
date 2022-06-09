@@ -13,6 +13,7 @@ const { user } = useContext(AuthContext)
 console.log(user)
 const [formState, setFormState] = useState()
 const [userType, setUserType] = useState()
+const [error, setError] = useState(null)
 const navigate = useNavigate()
 
 useEffect(()=>{
@@ -34,8 +35,12 @@ const [image, setImage] = useState(false)
 
 const handleSubmit = (event)=>{
       event.preventDefault()
-        Profile.editUser(user._id, formState)
-        navigate(`/profile/${user._id}`)
+      if(formState.username && formState.course)
+       {Profile.editUser(user._id, formState)
+        navigate(`/profile/${user._id}`)}
+        else{
+            setError("Please fill out the empty fields")
+        }
     }
 
 const handleInputChange = (event)=>{
@@ -84,10 +89,24 @@ function skillChange(e){
         <>
         <form onSubmit={handleSubmit}>
 
-            <select id="course" name="course">
-                <option value="Web Development">Web Development</option>
-                <option value="UX/UI">UX/UI</option>
-                <option value="Data Analytics">Data Analytics</option>
+            <select id="course" name="course" onChange={handleInputChange}>
+                {!formState?.course && 
+                <option value="" selected>Select a course</option>}
+                {formState?.course === "Web Development" ? 
+                <option value="Web Development" selected>Web Development</option>
+                :
+                <option value="Web Development">Web Development</option>}
+
+                {formState?.course === "UX/UI" ? 
+                <option value="UX/UI" selected>UX/UI</option>
+                :
+                <option value="UX/UI">UX/UI</option>}
+
+                {formState?.course === "Data Analytics" ? 
+                <option value="Data Analytics" selected>Data Analytics</option>
+                :
+                <option value="Data Analytics">Data Analytics</option>}
+
             </select>
 
         <label className="switch">
@@ -114,7 +133,9 @@ function skillChange(e){
             </div>
            
             <button className='questionButton' type="submit" value="Post" >Save Changes</button>
-          </form>   
+          </form> 
+          {error && <p>{error}</p>  }
+          
         </>)
 }
 

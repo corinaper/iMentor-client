@@ -1,8 +1,9 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import "../../components/LoginForm/LoginForm.css"
+import  Spinner from "../Spinner/Spinner"
 
 
 const Loginform = () => {
@@ -11,25 +12,38 @@ const Loginform = () => {
         password: '',
         email: ''
     })
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
 
     const navigate = useNavigate()
 
-    const { storeToken, authenticateUser } = useContext(AuthContext)
+    const { storeToken, authenticateUser, user } = useContext(AuthContext)
    
 
     const handleSubmit = e => {
         e.preventDefault()
-
+        
         authService
             .login(loginData)
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
-                
-                navigate('/mentors')
+                setLoading(true)
+                setError(false)
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                setError(true)
+                setLoginData({
+                    password: '',
+                    email: ''
+                }) 
+                console.log("this is the login error",err)})
     }
+
+    useEffect(()=>{ 
+       if(user && user.course) navigate('/mentors')
+       else if (user && !user.course) navigate(`/profile/${user._id}`)
+    },[user])
 
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
@@ -39,7 +53,7 @@ const Loginform = () => {
     const { password, email } = loginData
 
     return ( 
-
+        <>
         <form onSubmit={handleSubmit} className="loginForm">
             
             <div className="labelInput login-email">
@@ -72,6 +86,11 @@ const Loginform = () => {
             </div>
 
         </form>
+        {error && 
+        <p>Incorrect login details</p>}
+        {loading &&
+        <Spinner></Spinner>}
+        </>
     )
 }
 

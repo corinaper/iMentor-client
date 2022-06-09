@@ -11,17 +11,23 @@ const SignupForm = () => {
         email: ''
     })
 
+    const [errorMessage, setErrorMessage] = useState(null)
+
     const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
-
+        
         authService
             .signup(signupData)
             .then(res => {
-                navigate('/mentors')
+                navigate('/login')
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setErrorMessage(err.response.data.message)
+            })
+        
     }
 
     const handleInputChange = e => {
@@ -32,11 +38,13 @@ const SignupForm = () => {
     const { username, password, email } = signupData
 
     return (
-            <form onSubmit={handleSubmit} className="signupForm">
+        <>
+        <form onSubmit={handleSubmit} className="signupForm">
 
-            <div className="labelInput username">
-                <label htmlFor="input-username">Name</label>
-                <input
+            <div className="labelInput">
+                <label className="username" htmlFor="input-username">Name</label>
+                <input 
+                    id="input-username"
                     type="text"
                     name="username"
                     value={username}
@@ -74,7 +82,9 @@ const SignupForm = () => {
             </button>
             </div>
 
-            </form> 
+        </form>
+        {errorMessage && <p>{errorMessage}</p>}
+        </>
     )
 } 
 

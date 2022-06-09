@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import chatService from "../../services/chat.service";
 import { Link } from "react-router-dom";
 import socket from "../../components/Socket/Socket";
+
 export default function ChatList() {
 
     const [newMessage, setNewMessage] = useState("");
@@ -15,24 +16,50 @@ export default function ChatList() {
     const [chat, setChat] = useState({})
 
     const { id, otherId } = useParams()
-
+    
+    // Send the token through the request "Authorization" Headers
+    async function chats() {
+    const chat = await chatService.getAll(`chats/${id}/${otherId}`)
+    return chat;    
+    }
     const getAllMessages = () => {
 
-        // Send the token through the request "Authorization" Headers
-        chatService
-            .getAll(`chats/${id}/${otherId}`)
-            .then((response) => {
-                setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
-                setMessages(response.data.messagess)
-                setChat(response.data)
-            })
-            .catch((error) => console.log(error));
+        
+        console.log("CHATS ", chats())
+
+        if(chats().data)
+            {
+                chatService
+                .getAll(`chats/${id}/${otherId}`)
+                .then((response) => {
+                    setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
+                    setMessages(response.data.messages)
+                    setChat(response.data)
+                })
+                .catch((error) => console.log(error));
+            }else{
+                chatService
+                    .createChat(id, otherId)
+                    .then(response => {
+                        setChat(response.data) 
+                        setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
+                        setMessages(response.data.messages)
+                    })
+            }
     };
 
     // We set this effect will run only once, after the initial render
     // by setting the empty dependency array - []
+
+    
     useEffect(() => {
+        /*setInterval(()=> {
         getAllMessages();
+        }, 1000);*/
+        const interval = setInterval(() => {
+            getAllMessages();
+          }, 750);
+          return () => clearInterval(interval);
     }, []);
 
     const divRef = useRef(null)
@@ -48,19 +75,18 @@ export default function ChatList() {
             }
         })
     }, []);
-
     const onEnterPress = (e) => {
         if(e.keyCode == 13 && e.shiftKey == false) {
-          e.preventDefault();
-          addNewMessage();
+            e.preventDefault();
+            addNewMessage();
         }
-      }
-
-
+    }
+    
+    
     const addNewMessage = () => {
-
+        
         if(newMessage){
-        chatService.createOne(`chats/newMessage/${chat._id}`, { content: newMessage, sender: id, receiver: otherId })
+            chatService.createOne(`chats/newMessage/${chat._id}`, { content: newMessage, sender: id, receiver: otherId })
             .then(response => {
                 socket.emit('newMessage', [response.data.sender, response.data.receiver])
                 setNewMessage("")
@@ -68,10 +94,11 @@ export default function ChatList() {
         }
         
     }
+    
 
-        return !messages.length ? (
+      return !messages.length ? (
             <div className="chat-page centered">
-                    <h2>{receiver.name}</h2>
+                    <h2>{receiver.username}</h2>
                 <div className="chat-box">
                     
                     <div className="chat-display-box">
@@ -84,7 +111,7 @@ export default function ChatList() {
             </div>
         ):(
             <div className="chat-page  centered">
-                    <h2>{receiver.name}</h2>
+                    <h2>{receiver.username}</h2>
                 <div className="chat-box">
                     
                     <div className="chat-display-box">
@@ -119,7 +146,7 @@ export default function ChatList() {
                     </div>
                     <div className="message-box">
                         <textarea onChange={e => setNewMessage(e.target.value)} value={newMessage} onKeyDown={onEnterPress}></textarea>
-                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue", cursor:"pointer"}}></i></button>
+                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue", cursor:"pointer"}}>submit</i></button>
                     </div>
                 </div>
             </div>

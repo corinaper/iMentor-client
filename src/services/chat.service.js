@@ -44,12 +44,18 @@ class chatService {
   deleteOne = (resource, id) => {
     return this.api.delete(`/${resource}/${id}`);
   };
+
+  createChat = (user1, user2) => {
+    return this.api.post(`/chats/create/${user1}/${user2}`);
+  };
+
 }
 
 // Create one instance (object) of the service
 
+const chat = new chatService()
 
-export default chatService;
+export default chat;
 
 
 // invoke with chatService.getOne("users", id)
