@@ -39,15 +39,15 @@ const Question = () => {
     return (
         <>
         <Skills function={filterQuestions}></Skills>
-        {filteredList.map((question)=>{
+        {filteredList.map(({_id,owner, title,description,imageUrl})=>{
+            const shortDescription = description.slice(0, 100)+'...'
         return(
-            <div key={question._id} className="questionCard">
-                <img className="profileImg" src={question.owner.profileImg} alt=""></img>
-                <p>{question.owner.username}</p>
-                <Link to={`/questions/${question._id}`} className="linkToQuestionDetails">
-                <h2>{question.title}</h2>
-                <p>{question.description}</p>
-                <img  width="150" height="150" src={question.imageUrl} alt='questionsImage' />
+            <div key={_id} className="questionCard">
+                <img className="profileImg" src={owner.profileImg} alt=""></img>
+                <p>{owner.username}</p>
+                <Link to={`/questions/${_id}`} className="linkToQuestionDetails">
+                <h2>{title}</h2>
+                <p>{shortDescription}</p>
                 </Link>
             </div>
         )

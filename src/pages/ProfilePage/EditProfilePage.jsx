@@ -90,6 +90,8 @@ function skillChange(e){
         <form onSubmit={handleSubmit}>
 
             <select id="course" name="course" onChange={handleInputChange}>
+                {!formState?.course && 
+                <option value="" selected>Select a course</option>}
                 {formState?.course === "Web Development" ? 
                 <option value="Web Development" selected>Web Development</option>
                 :

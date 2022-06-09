@@ -44,16 +44,17 @@ const Mentors = () => {
     return (
         <>
         <Skills function={filterMentors}></Skills>
-        {filteredList.map((mentor)=>{
+        {filteredList.map(({_id, profileImg, username, aboutMe})=>{
+            const shortAboutMe = aboutMe.slice(0, 100)+'...'
         return(
-            <div key={mentor._id} className="mentorCard">
-                <img className="mentorImage" src={mentor.profileImg} alt={mentor.username}></img>
-                <h2>{mentor.username}</h2>
-                <p>{mentor.aboutMe}</p>
-                <Link to={`/profile/${mentor._id}`}>
+            <div key={_id} className="mentorCard">
+                <img className="mentorImage" src={profileImg} alt={username}></img>
+                <h2>{username}</h2>
+                <p>{shortAboutMe}</p>
+                <Link to={`/profile/${_id}`}>
                     <button>Profile</button>
                 </Link>
-                <Link to={`/chats/${user._id}/${mentor._id}`}>
+                <Link to={`/chats/${user._id}/${_id}`}>
                 <button>Contact</button>
                 </Link>
             </div>
