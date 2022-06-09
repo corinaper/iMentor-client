@@ -1,3 +1,61 @@
 .profileImg{
     width: 10%;
-} 
+}  
+
+.title{
+    position: absolute;
+    background: #FFFFFF;
+    border: 1px solid #32C3FF;
+    border-radius: 9px;
+
+
+    left: 30px;
+    top: 105px;
+    text-align: center;
+}
+
+.description{
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    top: 145px;
+
+    background: #FFFFFF;
+    border: 1px solid #32C3FF;
+    border-radius: 9px;
+    text-align: center;
+}
+
+.post{
+    width: 76px;
+    height: 44px;
+    left: calc(50% - 76px/2 + 118.5px);
+    top: calc(50% - 44px/2 + 107px);
+
+    background: #32C3FF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+}
+
+.showComment{
+    left: 18px;
+top: 561px;
+
+background: #F0F0F0;
+border-radius: 21px;
+
+}
+
+.comment-area{
+    width: 223px;
+height: 52.11px;
+    background: #FFFFFF;
+border: 1px solid #32C3FF;
+border-radius: 9px;
+}
+
+.postComment{
+    display: flex;
+    justify-content: center;
+}
