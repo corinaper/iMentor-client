@@ -1,12 +1,28 @@
 footer {
-    background-color: #d1d1d1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2.5rem 0;
+
+    background-color: #f1f1f1;
     color: black;
     font-size: .7em;
     position: fixed;
     bottom: 0;
     width: 100%;
-    padding: 3px;
+
+}
+
+footer ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 2rem;
+
+    list-style-type: none;
+}
+
+footer li {
+    list-style-type: none;
 }

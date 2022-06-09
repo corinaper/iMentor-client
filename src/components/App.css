@@ -4,17 +4,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: var(--ff-ss);
-  font-size: var(--ff-size);
+  font-family: 'SF Pro Display', sans-serif;
+  font-size: 1rem;
 }
 
 h1, h2, h3 {
-  margin: 0;
-  font-family: var(--ff-ss);
-  color: var();
+  margin: 0;;
 }
 
 
