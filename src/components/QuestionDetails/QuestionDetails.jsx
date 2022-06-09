@@ -14,7 +14,7 @@ const Question = ( ) => {
     const [ newComment, setNewComment ] = useState({comment:""})
     const [databaseUser, setdatabaseUser] = useState()
     const navigate = useNavigate()
-    
+     
     useEffect(() => {
         questions.getOneQuestion(id)
         .then(response => {
@@ -67,16 +67,16 @@ const Question = ( ) => {
         
         <div className='questionContent'>
                     <div className='questionTop'>
-                        <h3>{question?.title}</h3>
-                        <p>{question?.description}</p>
+                        <h3 className='title'>{question?.title}</h3>
+                        <p className='description'>{question?.description}</p>
                         <img src={question?.imageUrl} alt=""></img>
                         
                     </div>
                     
                     <div className='postComment'>
                         <form action="submit" onSubmit={handleSubmit}>
-                            <input type="text" name="comment" onChange={handleInput}/>
-                            <button type="submit">Post</button>
+                            <input className='comment-area' type="text" name="comment" onChange={handleInput}/>
+                            <button className='post' type="submit">Post</button>
                         </form>
                     </div>
 
