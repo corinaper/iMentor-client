@@ -33,7 +33,7 @@ export default function ChatList() {
                 chatService
                 .getAll(`chats/${id}/${otherId}`)
                 .then((response) => {
-                    setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
+                    setReceiver(response.data.user1._id === id ? response.data.user2 : response.data.user1)
                     setMessages(response.data.messages)
                     setChat(response.data)
                 })
@@ -43,7 +43,7 @@ export default function ChatList() {
                     .createChat(id, otherId)
                     .then(response => {
                         setChat(response.data) 
-                        setReceiver(response.data.user1._id == id ? response.data.user2 : response.data.user1)
+                        setReceiver(response.data.user1._id === id ? response.data.user2 : response.data.user1)
                         setMessages(response.data.messages)
                     })
             }
@@ -77,7 +77,7 @@ export default function ChatList() {
         })
     }, []);
     const onEnterPress = (e) => {
-        if(e.keyCode == 13 && e.shiftKey == false) {
+        if(e.keyCode === 13 && e.shiftKey === false) {
             e.preventDefault();
             addNewMessage();
         }
@@ -98,10 +98,10 @@ export default function ChatList() {
     
 
       return !messages.length ? (
-            <div className="chat-page centered">
+            <div className="chat-page ">
+                    <img src={receiver.profileImg} alt="" className="userImage"></img>
                     <h2>{receiver.username}</h2>
                 <div className="chat-box">
-                    
                     <div className="chat-display-box">
                     </div>
                     <div className="message-box">
@@ -111,8 +111,11 @@ export default function ChatList() {
                 </div>
             </div>
         ):(
-            <div className="chat-page  centered">
+            <div className="chat-page  ">
+            <div className="userDetails">
+                    <img src={receiver.profileImg} alt="" className="userImage"></img>
                     <h2>{receiver.username}</h2>
+            </div>
                 <div className="chat-box">
                     
                     <div className="chat-display-box">
@@ -122,7 +125,7 @@ export default function ChatList() {
                             const daysPassed = Math.floor((new Date().getTime() - messageDate.getTime()) / (1000 * 3600 * 24))
                             const messageFooter = daysPassed > 0 ? `${daysPassed} days ago` : `At ${messageDate.getHours()}:${messageDate.getMinutes()}`
 
-                            return message.sender._id === id ? (
+                            return message.sender === id ? (
 
                                 <div key={message._id} className="my-message-div-container">
                                     <div className="my-message-div">
@@ -147,7 +150,7 @@ export default function ChatList() {
                     </div>
                     <div className="message-box">
                         <textarea onChange={e => setNewMessage(e.target.value)} value={newMessage} onKeyDown={onEnterPress}></textarea>
-                        <button type="submit" onClick={addNewMessage}><i className="fa fa-send" style={{color:"blue", cursor:"pointer"}}>submit</i></button>
+                        <button type="submit" onClick={addNewMessage} className="sendMessage"><img src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654785964/iMentor/Vector_paufg6.png" alt=""></img></button>
                     </div>
                 </div>
             </div>

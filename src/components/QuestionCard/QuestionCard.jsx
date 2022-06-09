@@ -45,12 +45,16 @@ const Question = () => {
             const shortDescription = description.slice(0, 100)+'...'
         return(
             <div key={_id} className="questionCard">
+            <div className="userInfo">
                 <img className="profileImg" src={owner.profileImg} alt=""></img>
                 <p>{owner.username}</p>
-                <Link to={`/questions/${_id}`} className="linkToQuestionDetails">
+            </div>
+                <div className="linkToQuestionDetails">
                 <h2>{title}</h2>
                 <p>{shortDescription}</p>
-                </Link>
+                </div>
+                <Link to={`/questions/${_id}`} className="buttonContainer"><button className="whiteButton">Read more</button></Link>
+                
                 </div>
         )
     }) }
