@@ -29,8 +29,8 @@ const ProfilePage = () => {
  
     if(userProfile.type === "mentor")
         {return (
-        <div className="padding-bottom">
-           <div>
+        <div className="mentorProfileContainer">
+            <div className="editBox">
                 <h2>{userProfile.course}</h2>
                 {user._id===userProfile._id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
             </div>
@@ -70,14 +70,17 @@ const ProfilePage = () => {
            
         </div>)}
     else {return( 
-        <div className="menteerProfile">
+        <div className="menteerBox">
+        <div className="menteerContainer">
             
-            <div>
-                <h1>{userProfile.course}</h1>
+            <div className="courseName">
+                <span>{userProfile.course}</span>
                 {user._id===userProfile._id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
             </div>
             <img className="userImage" src={userProfile.profileImg} alt={userProfile.username}></img>
-            <h2>{userProfile.username}</h2>
+            <div className="usernameBox">
+                <h2>{userProfile.username}</h2>
+            </div>
             <p>{userProfile.email}</p>
             <div className="aboutMe">
                 <p>{userProfile.aboutMe}</p>
@@ -106,6 +109,7 @@ const ProfilePage = () => {
         }) }
            
            
+        </div>
         </div>)}
     
 }
