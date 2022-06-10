@@ -1,4 +1,11 @@
-.ask {
+.addContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+/* .ask {
   position: absolute;
   width: 127px;
   height: 24px;
@@ -9,37 +16,37 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  /* identical to box height */
   letter-spacing: 0.04em;
   color: #212552;
-}
-.titleRectangle {
+} */
+
+
+ .titleRectangle {
   box-sizing: border-box;
-  position: absolute;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
   width: 321px;
-  height: 37px;
+  height: 100px;
   background: #FFFFFF;
   border: 1px solid #32C3FF;
   border-radius: 9px;
-}
-.codeRectangle {
+} 
+
+ .codeRectangle {
   box-sizing: border-box;
-  position: absolute;
-  width: 320px;
-  height: 123px;
-  left: 27px;
-  top: 191px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  width: 321px;
+  height: 100px;
   background: #FFFFFF;
   border: 1px solid #32C3FF;
   border-radius: 9px;
-}
-.upload{
-    display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: center;
-  padding: 0px 16px;
-  position: absolute;
+} 
+
+ .upload{
+
   width: 322px;
   height: 52px;
   left: calc(50% - 322px / 2 + 0.5px);
@@ -47,14 +54,19 @@
   background: #32C3FF;
   border: 1px solid #96D1DF;
   border-radius: 5px;
+} 
+
+input[type=file]::file-selector-button{
+  display: none;
+  
+  
+
 }
-.questionButton {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 16px;
-  position: absolute;
+
+
+
+ .questionButton {
+  
   width: 322px;
   height: 52px;
   left: calc(50% - 322px / 2 + 0.5px);
@@ -62,6 +74,12 @@
   background: #32C3FF;
   border: 1px solid #96D1DF;
   border-radius: 5px;
+}  
+
+.prevwImg{
+  display: flex;  
+  width: 100px;
+  
 }
 
 
