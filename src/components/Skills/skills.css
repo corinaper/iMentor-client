@@ -34,6 +34,17 @@
     color: white;
 
   }
+
+  .chips-selected{
+    background-color: #32C3FF;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 1.25rem;
+    margin: 1rem 0.2rem 0.5rem 0.2rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    border: 0.125rem solid #6F6F6F;
+  }
   
   .showMore {
     display: flex;

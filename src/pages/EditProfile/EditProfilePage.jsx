@@ -101,7 +101,7 @@ function skillChange(e){
             <>
             <input placeholder="Current position" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
             <input placeholder="Company name" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
-            <Skills function={skillChange}></Skills>
+            <Skills function={skillChange} filtering={formState.skills}></Skills>
             </>}
             <div>
                 <textarea placeholder="About Me" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
