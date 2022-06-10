@@ -13,3 +13,11 @@
   display: flex;
   gap: 10px;
 }
+
+.feed{
+  color: white;
+}
+
+.questionContainer{
+  margin-bottom: 75px;
+}

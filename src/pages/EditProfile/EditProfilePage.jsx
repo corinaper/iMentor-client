@@ -122,6 +122,7 @@ function skillChange(e){
             {userType === "mentor" &&
            
             <>
+
             
             <input placeholder="Current position" className="imputs" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
             

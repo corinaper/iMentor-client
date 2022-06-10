@@ -40,7 +40,7 @@ const Question = () => {
         <div className="margin-bottom">
         <div className="questionContainer">
 
-        <Skills function={filterQuestions}></Skills>
+        <Skills function={filterQuestions} filtering={skillList}></Skills>
         {filteredList.map(({_id,owner, title,description})=>{
             const shortDescription = description.slice(0, 100)+'...'
         return(

@@ -58,6 +58,7 @@ function skillChange(e){
     setFormState(newForm)
 }
 return (
+
     // <div>
     //   <h1 className='ask'>Ask Questions</h1>
     //   <br /><br />
@@ -79,6 +80,7 @@ return (
     //   {error && <p>{error}</p>}
     //   </div>
     <AddForm />
+
   )
 }
 export default EditQuestionPage

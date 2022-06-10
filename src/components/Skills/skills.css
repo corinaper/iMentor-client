@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    position: fixed;
+    position: absolute;
     top: 8%;
     width: 100%;
     background-color: white;
@@ -34,13 +34,24 @@
     color: white;
 
   }
+
+  .chips-selected{
+    background-color: #32C3FF;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 1.25rem;
+    margin: 1rem 0.2rem 0.5rem 0.2rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    border: 0.125rem solid #6F6F6F;
+  }
   
   .showMore {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
-    top: 15%;
+    position: absolute;
+    top: 95%;
     background-color: white;
     color: #32C3FF;
     font-size: 1.8rem;

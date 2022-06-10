@@ -100,7 +100,7 @@ function AddForm() {
               <>
             <img src={imageUrl} alt="profile" className='prevwImg' />  
               </> )} <br /><br />
-            <Skills function={skillChange}></Skills>
+            <Skills function={skillChange} filtering={formState.skills}></Skills>
 
             <button className='questionButton' type="submit" value="Post" >Post Question</button>
 
