@@ -70,7 +70,7 @@ return (
             <>
           <img src={formState?.imageUrl} alt="profile" style={{'maxWidth': '40vw'}}/>
             </> )} <br /><br />
-          <Skills function={skillChange}></Skills>
+          <Skills function={skillChange} filtering={formState?.skills}></Skills>
           {/* <input type="file" className='upload' name='imageUrl' onChange={handleFileUpload} /> <br /><br /> */}
           {/*<Link to={"/question"}><button className="questionButton" onClick={handleSubmit} value="Post">Post Topic</button></Link>*/}
           <button className='questionButton' type="submit" value="Post" >Save</button>

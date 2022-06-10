@@ -41,7 +41,10 @@ const Skills = (props) => {
         <div className="divChips">
     {skillsList.map((skill)=>{
         return(
-            <span className="chips" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>)
+            props.filtering?.includes(skill._id) ?
+            <span className="chips-selected" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span> :
+            <span className="chips" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>
+            )
             
     }) }
         {skillsList.length === 5 ?
