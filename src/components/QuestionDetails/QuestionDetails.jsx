@@ -56,8 +56,9 @@ const Question = ( ) => {
 
 
     return (
-        <div className='questionContainer'>
-         <div>
+        <div className='questionContainer'> 
+            
+            <div>
                 {databaseUser?._id === question?.owner._id && 
                 <>
                 <Link to={`/question/${question?._id}/edit`}><button>Edit</button></Link>
