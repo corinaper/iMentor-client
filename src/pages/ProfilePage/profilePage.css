@@ -2,6 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.courseName {
+  padding-bottom: 1rem;
+}
+
+.courseName * button {
+  padding: 0.5rem 1rem;
+
+  background-color: #32C3FF;
+  color: white;
+
+  border: none;
+  border-radius: 0.32rem;
+
+  font-size: 1rem;
+}
+
+.menteerBox {
+  display: flex;
   justify-content: center;
   
   width: 100%;
@@ -45,4 +65,75 @@
 .aboutMe p {
   letter-spacing: 0.01rem;
   line-height: 1.5rem;
+}
+
+.menteerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 82%;
+}
+
+.courseName {
+  padding-bottom: 1.25rem;
+}
+
+.courseName > span {
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  letter-spacing: 0.35rem;
+
+  color: #212552;
+}
+
+.usernameBox {
+  padding: 1rem 0;
+}
+
+.menteerContainer > h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  letter-spacing: 0.1rem;
+
+  padding-bottom: 0.5rem;
+
+  color: #212552;
+}
+
+.menteerContainer img {
+  width: 5rem;  
+}
+
+.menteerContainer > p {
+  font-size: 0.94rem;
+  font-weight: 400;
+
+  letter-spacing: 0.1rem;
+
+  padding: 0.6rem 0;
+
+  color: rgba(37, 37, 37, 0.7);
+}
+
+.aboutMe {
+  font-size: 1rem;
+
+  letter-spacing: 0.04rem;
+  line-height: 1.5rem;
+}
+
+.nav-logoutbtn {
+  padding: 0.5rem 1rem;
+
+  background-color: white;
+  color: #32C3FF;
+
+  border: 0.125rem solid #32C3FF;
+
+  border-radius: 0.32rem;
+
+  font-size: 1rem;
 }

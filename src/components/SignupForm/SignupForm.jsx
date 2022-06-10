@@ -41,7 +41,7 @@ const SignupForm = () => {
         <>
         <form onSubmit={handleSubmit} className="signupForm">
 
-            <div className="labelInput">
+            <div className="labelInput username">
                 <label className="username" htmlFor="input-username">Name</label>
                 <input 
                     id="input-username"
