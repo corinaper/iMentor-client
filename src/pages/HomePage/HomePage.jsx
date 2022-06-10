@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './HomePage.css'
 
+
 const IndexPage = () => {
 
     return (
@@ -10,7 +11,7 @@ const IndexPage = () => {
 
         
         <div className='carrouselContainer'>
-            <img src="https://res.cloudinary.com/dkipxchhu/image/upload/v1654593243/IMG_20220607_110835_yleh4h.jpg" alt="carrousel"/>
+            <img src="https://res.cloudinary.com/dkipxchhu/image/upload/v1654846584/argaret_jlnzo7.png" alt="carrousel"/>
         </div>
 
         <div className='homeBtns'>
