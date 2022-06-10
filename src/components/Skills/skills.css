@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    position: fixed;
+    position: absolute;
     top: 8%;
     width: 100%;
     background-color: white;
@@ -39,8 +39,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
-    top: 15%;
+    position: absolute;
+    top: 95%;
     background-color: white;
     color: #32C3FF;
     font-size: 1.8rem;
