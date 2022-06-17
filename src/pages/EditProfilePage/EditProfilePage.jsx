@@ -4,7 +4,7 @@ import { useState} from "react"
 import { AuthContext } from "../../context/auth.context"
 import { useNavigate } from 'react-router-dom'
 import Profile from "../../services/profile.service"
-import Skills from "../../components/Skills/skills"
+import Skills from "../../components/Skills/Skills"
 import uploadService from "../../services/upload.service"
 import './EditProfilePage.css'
 

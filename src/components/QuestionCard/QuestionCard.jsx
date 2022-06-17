@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import questions from "../../services/question.services" 
 import { useState } from "react"
 import "../../components/QuestionCard/QuestionCard.css"
-import Skills from "../../components/Skills/skills"
+import Skills from "../../components/Skills/Skills"
 
 const skillList = []
 

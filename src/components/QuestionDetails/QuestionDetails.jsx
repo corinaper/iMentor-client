@@ -1,10 +1,9 @@
-import './Question.css'
+import './QuestionDetails.css'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useEffect } from 'react'
 import questions from '../../services/question.services'
-import "./Question.css"
 import User from "../../services/profile.service" 
 
 const Question = ( ) => {

@@ -2,12 +2,11 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import mentors from "../../services/mentor.service" 
 import { useState } from "react"
-import "./mentorCard.css"
-import "../../pages/MentorPage/mentor.css"
-import Skills from "../../components/Skills/skills"
+import "./MentorCard.css"
+import Skills from "../Skills/Skills"
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
-import '../MentorCard/mentor.css'
+import '../MentorCard/MentorCard.css'
 
 const skillList = []
 

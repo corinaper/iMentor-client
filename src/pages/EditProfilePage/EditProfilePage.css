@@ -61,17 +61,12 @@
   margin-bottom: 1.25rem;
 }
 
-#course{
-
-}
-
 .uploadbtn{
   width: 90%;
   height: 52px;
   left: calc(50% - 322px / 2 + 0.5px);
   top: calc(50% - 52px / 2 + 243px);
   background: #32C3FF;
-  text-decoration: ;
   border: 1px solid #96D1DF;
   border-radius: 5px;
 } 

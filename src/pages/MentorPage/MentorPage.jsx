@@ -1,4 +1,4 @@
-import Mentors from "../../components/MentorCard/mentorCard"
+import Mentors from "../../components/MentorCard/MentorCard"
 import Footer from "../../components/Footer/Footer";
 
 const MentorPage = () => {

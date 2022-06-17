@@ -1,14 +1,14 @@
 import { useContext } from "react"
 import { useEffect } from "react"
 import { useState} from "react"
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { AuthContext } from "../../context/auth.context"
 import questions from "../../services/question.services"
-import Skills from "../../components/Skills/skills"
-import "../../pages/ProfilePage/profilePage.css"
+import Skills from "../../components/Skills/Skills"
+import "../../pages/ProfilePage/ProfilePage.css"
 import uploadService from "../../services/upload.service"
-import '../EditQuestion/EditQuestion.css'
-import AddForm from "../../components/AddForm/AddForm"
+import './EditQuestionPage.css'
+import AddQuestion from "../../components/AddQuestion/AddQuestion"
 
 const EditQuestionPage = () => {
 const {id} = useParams()
@@ -79,7 +79,7 @@ return (
     //   </form>
     //   {error && <p>{error}</p>}
     //   </div>
-    <AddForm />
+    <AddQuestion />
 
   )
 }

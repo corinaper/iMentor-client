@@ -1,18 +1,18 @@
 import { Routes, Route } from "react-router-dom"
 import IndexPage from "../pages/HomePage/HomePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
-import MentorPage from "../pages/MentorPage/mentor"
-import EditProfilePage from "../pages/EditProfile/EditProfilePage"
+import MentorPage from "../pages/MentorPage/MentorPage"
+import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
 import QuestionPage from "../pages/QuestionPage/QuestionPage"
-import AddForm from "../components/AddForm/AddForm"
+import AddQuestion from "../components/AddQuestion/AddQuestion"
 import Question from "../components/QuestionDetails/QuestionDetails"
 import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
 import ChatListPage from "../pages/ChatPageList/ChatPageList";
 import ChatPage from "../pages/ChatPage/ChatPage";
-import EditQuestionPage from "../pages/EditQuestion/EditQuestion"
+import EditQuestionPage from "../pages/EditQuestionPage/EditQuestionPage"
 import NotLoggedInRoute from "./NotLoggedInRoute"
 
 
@@ -45,7 +45,7 @@ const AppRoutes = () => {
             </Route> 
 
             <Route path="/addquestion" element={<PrivateRoute />}>
-            <Route path="" element={<AddForm/>} />
+            <Route path="" element={<AddQuestion/>} />
             </Route> 
 
             <Route path="/questions/:id" element={<PrivateRoute />}>

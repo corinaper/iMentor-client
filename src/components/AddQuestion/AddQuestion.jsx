@@ -1,14 +1,14 @@
-import './AddForm.css'
+import './AddQuestion.css'
 import { useState, useContext } from "react"
 import uploadService from "../../services/upload.service"
 import questionService from "../../services/question.services"
 import { AuthContext } from "../../context/auth.context"
-import Skills from "../../components/Skills/skills"
+import Skills from "../Skills/Skills"
 import { useNavigate } from 'react-router-dom'
 
 
 
-function AddForm() {
+function AddQuestion() {
     const [imageUrl, setImageUrl] = useState(false)
     const { user } = useContext(AuthContext)
     const startingFormState = {
@@ -112,4 +112,4 @@ function AddForm() {
     )
 }
 
-export default AddForm
+export default AddQuestion

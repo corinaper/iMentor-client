@@ -6,8 +6,8 @@ import { AuthContext } from "../../context/auth.context"
 import { useParams } from "react-router-dom"
 import profile from "../../services/profile.service"
 import QuestionCard from "../../components/QuestionCard/QuestionCard"
-import Skills from "../../components/Skills/skills"
-import "../../pages/ProfilePage/profilePage.css"
+import Skills from "../../components/Skills/Skills"
+import "../../pages/ProfilePage/ProfilePage.css"
 
 
 const ProfilePage = () => {
