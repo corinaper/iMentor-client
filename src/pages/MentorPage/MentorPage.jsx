@@ -6,7 +6,6 @@ const MentorPage = () => {
     return (
         <div className="mentorsContainer">
             <Mentors />
-            <Footer />
         </div>
     )
 }

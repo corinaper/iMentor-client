@@ -2,9 +2,6 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import "./Footer.css";
-import postimg from "../../../src/images/post.png"
-import mentorimg from "../../../src/images/mentor.png"
-import profileimg from "../../../src/images/profile.png"
 
 const Footer = () => {
 

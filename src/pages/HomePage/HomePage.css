@@ -1,18 +1,3 @@
-:root {
-    --primary-color: #32C3FF;
-    --secondary-color: #212552;
-    --tertiary-color: #F1F1F1;
-
-    --chat-color: rgba(50, 195, 255, 0.1);
-    --black-color: #131213;
-    --white-color: #fff;
-
-    --ff-ss: 'SF Pro Display', sans-serif;
-    --ff-size: 16px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .homeContainer{
     display: flex;
