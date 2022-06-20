@@ -1,7 +1,8 @@
-.menteerProfile {
+.mentorProfileContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: auto;
 }
 
 .courseName {
