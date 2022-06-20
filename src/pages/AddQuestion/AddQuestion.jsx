@@ -3,7 +3,7 @@ import { useState, useContext } from "react"
 import uploadService from "../../services/upload.service"
 import questionService from "../../services/question.services"
 import { AuthContext } from "../../context/auth.context"
-import Skills from "../Skills/Skills"
+import Skills from "../../components/Skills/Skills"
 import { useNavigate } from 'react-router-dom'
 
 

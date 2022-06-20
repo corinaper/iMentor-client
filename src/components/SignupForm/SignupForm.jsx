@@ -1,6 +1,6 @@
 import { useState } from "react"
 import authService from "../../services/auth.service"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import './SignupForm.css'
 
 const SignupForm = () => {
@@ -76,6 +76,8 @@ const SignupForm = () => {
                 />
             </div>
 
+            {errorMessage && <p className="error">{errorMessage}</p>}
+
             <div className="signupBtn">
                 <button type="submit">
                     Sign Up
@@ -83,7 +85,8 @@ const SignupForm = () => {
             </div>
 
         </form>
-        {errorMessage && <p>{errorMessage}</p>}
+        <p id="loginLink">Already have an account? <Link to={"/login"}>Login</Link></p>
+        
         </>
     )
 } 

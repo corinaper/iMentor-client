@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import authService from "../../services/auth.service"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import "../../components/LoginForm/LoginForm.css"
 import  Spinner from "../Spinner/Spinner"
+import profile from "../../services/profile.service.js"
 
 
 const Loginform = () => {
@@ -31,19 +32,29 @@ const Loginform = () => {
                 setLoading(true)
                 setError(false)
             })
+            .then(()=>
+                profile.getOneUser(user?._id)
+                .then((user)=>console.log("course", user.course)))
             .catch(err => {
                 setError(true)
                 setLoginData({
-                    password: '',
+                    ...loginData, 
                     email: ''
                 }) 
                 console.log("this is the login error",err)})
     }
 
-    useEffect(()=>{ 
-       if(user && user.course) navigate('/mentors')
-       else if (user && !user.course) navigate(`/profile/${user._id}`)
-    },[user])
+    // useEffect(()=>{ 
+    //     profile.getOneUser(user?._id)
+    //     .then((user)=>{
+    //         console.log(user)
+    //     //     if(user && user.course){
+    //     //     navigate('/mentors')}
+
+    //     //    else if (user && !user.course) {
+    //     //    navigate(`/profile/${user._id}`)}
+    //     })
+    // },[user])
 
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
@@ -79,15 +90,18 @@ const Loginform = () => {
                     />
             </div>
 
-            <div className="loginBtn">
+            {error && 
+        <p className="error">Incorrect login details</p>}
+        <div className="loginBtn">
                 <button type="submit">
                     Login
                 </button>
             </div>
 
         </form>
-        {error && 
-        <p>Incorrect login details</p>}
+        
+        <p>Don't have an account? <Link to={"/signup"}>SignUp</Link></p>
+        
         {loading &&
         <Spinner></Spinner>}
         </>

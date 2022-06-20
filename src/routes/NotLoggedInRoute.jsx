@@ -5,13 +5,13 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 const NotLoggedInRoute = () => {
 
-    const { isLoggedIn } = useContext(AuthContext)
-
-    if (isLoggedIn) { 
-        return <Navigate to="/mentors" />
-    }
-
+    const { isLoggedIn, user} = useContext(AuthContext)
+ 
+        
+    if (isLoggedIn ) { 
+        return <Navigate to={`/profile/${user?._id}`} />}
     return <Outlet />
+    
 }
 
 export default NotLoggedInRoute

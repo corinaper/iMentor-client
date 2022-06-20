@@ -13,7 +13,8 @@ const LoginPage = () => {
         </Link>
         </div>
 
-        <Loginform />    
+        <Loginform />
+            
     </div>
     )
 }

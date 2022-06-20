@@ -10,15 +10,15 @@ import './EditProfilePage.css'
 
 const EditProfilePage = () => {
 const { user } = useContext(AuthContext)
-console.log(user)
 const [formState, setFormState] = useState()
 const [userType, setUserType] = useState()
 const [error, setError] = useState(null)
 const navigate = useNavigate()
+
 useEffect(()=>{
     Profile.getOneUser(user._id)
     .then((user)=>{
-        console.log("user",user.data)
+        console.log("from editProfile",user.data)
         setFormState(user.data)
         setUserType(user.data.userType)})
     .catch((err)=>console.log(err))
@@ -37,6 +37,7 @@ const handleInputChange = (event)=>{
       const {name, value } = event.currentTarget
       const newFormState = {...formState, [name]: value}
       setFormState(newFormState)
+      console.log(formState)
     }
 function handleFileUpload(event) {
       setImage(true)
@@ -62,9 +63,10 @@ console.log(formState)}
 }
 function skillChange(e){
     const skillId = e.target.id
+    console.log("skill id", skillId)
     const newForm = {...formState}
     if(!newForm.skills.includes(skillId))
-    newForm.skills.push(skillId)
+    {newForm.skills.push(skillId)}
     else newForm.skills.splice(newForm.skills.indexOf(skillId),1)
     setFormState(newForm)
 }
@@ -127,7 +129,7 @@ function skillChange(e){
             <input placeholder="Current position" className="imputs" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
             
             <input placeholder="Company name" className="imputs" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
-            <Skills function={skillChange}></Skills>
+            <Skills function={skillChange} filtering={formState?.skills}></Skills>
             </>}
 
             <textarea placeholder="About Me" className="about" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
