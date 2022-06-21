@@ -37,28 +37,38 @@ const Question = () => {
 
 
     return (
-        <div className="margin-bottom">
-        <div className="questionContainer">
+       
+        <div>
 
         <Skills function={filterQuestions} filtering={skillList}></Skills>
-        {filteredList.map(({_id,owner, title,description})=>{
+        <Link to={`/addquestion`}>
+            <button className="addPostBtn">Add a post</button>
+        </Link>
+        {filteredList.map(({_id, owner, title, description, comments})=>{
             const shortDescription = description.slice(0, 100)+'...'
         return(
             <div key={_id} className="questionCard">
-            <div className="userInfo">
-                <img className="profileImg" src={owner.profileImg} alt=""></img>
-                <p>{owner.username}</p>
+            <div className="flex">
+                <Link to={`/profile/${owner._id}`} className="nomargin">
+                    <img className="profileImg" src={owner.profileImg} alt=""></img>
+                </Link>
+                <h3 className="nomargin">{owner.username}</h3>
             </div>
-                <div className="linkToQuestionDetails">
-                <h2>{title}</h2>
+            <div className="linkToQuestionDetails">
+                <p>{title}</p>
                 <p>{shortDescription}</p>
+            </div>
+            <div className="flex space-between">
+                <div className="flex comments">
+                    <img src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655752346/iMentor/comment_1_wafgsd.png" alt=""></img>
+                    <div>{comments.length}</div>
                 </div>
-                <Link to={`/questions/${_id}`} className="buttonContainer"><button className="whiteButton">Read more</button></Link>
-                
+                <Link to={`/questions/${_id}`} className="whiteButton buttonSizeS">Read more</Link>
+            </div>  
+
                 </div>
         )
     }) }
-    </div>
     </div>)
 }
 

@@ -8,13 +8,9 @@ const QuestionPage = () => {
 
 
     return (
-        <div className="questionContainer">
-        <h2 className='feed'>Feed</h2>
-        <Link to={`/addquestion`}>
-            <button className="addPostBtn">Add a post</button>
-        </Link>
-        
-       <Questions></Questions>
+        <div>
+
+            <Questions></Questions>
        
        </div>
     )

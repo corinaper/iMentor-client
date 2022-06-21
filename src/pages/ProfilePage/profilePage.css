@@ -5,75 +5,52 @@
   margin-top: auto;
 }
 
+.userPhoto{
+  width: 5rem;
+  border-radius: 50%;
+  margin-top: 1.5rem;
+  margin-bottom: .2rem;
+}
+
 .courseName {
   padding-bottom: 1rem;
 }
 
 .courseName * button {
   padding: 0.5rem 1rem;
-
   background-color: #32C3FF;
   color: white;
-
   border: none;
   border-radius: 0.32rem;
-
   font-size: 1rem;
 }
 
-.menteerBox {
-  display: flex;
-  justify-content: center;
+.aboutMe{
+  border: 1px solid #32C3FF;
+  border-radius: 10px;
+  width: 80vw;
+  min-height: 10vh;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   
-  width: 100%;
-
-  padding: 10rem 0;
 }
-
-.menteerProfile img {
-  width: 25%;
-
-  border-radius: 50%;
-  margin-bottom: 1.25rem;
-}
-
-.menteerProfile h1 {
-  font-size: 1.5rem;
-  padding-bottom: 1.25rem;
-
-  color: #212552;
-}
-
-.menteerProfile h2 {
-  font-size: 1.55rem;
-  font-weight: 800;
-}
-
-.menteerProfile > p {
-  font-size: 0.75rem;
-  font-weight: 200;
-
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-
-  color: #5d5d5d;
-}
-
-.aboutMe {
-  width: 80%;
-}
-
 .aboutMe p {
   letter-spacing: 0.01rem;
   line-height: 1.5rem;
+  font-size: 1rem;
+  word-wrap:break-word;
+  padding: 10px;
+  
 }
 
-.menteerContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.placeholderAbout{
+  color: grey;
+}
 
-  width: 82%;
+.emailProfile{
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.3rem;
 }
 
 .courseName {
@@ -83,9 +60,7 @@
 .courseName > span {
   font-size: 1.25rem;
   font-weight: 600;
-
   letter-spacing: 0.35rem;
-
   color: #212552;
 }
 
@@ -93,48 +68,14 @@
   padding: 1rem 0;
 }
 
-.menteerContainer > h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-
-  letter-spacing: 0.1rem;
-
-  padding-bottom: 0.5rem;
-
-  color: #212552;
+.skillList{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
 }
 
-.menteerContainer img {
-  width: 5rem;  
-}
-
-.menteerContainer > p {
-  font-size: 0.94rem;
-  font-weight: 400;
-
-  letter-spacing: 0.1rem;
-
-  padding: 0.6rem 0;
-
-  color: rgba(37, 37, 37, 0.7);
-}
-
-.aboutMe {
-  font-size: 1rem;
-
-  letter-spacing: 0.04rem;
-  line-height: 1.5rem;
-}
-
-.nav-logoutbtn {
-  padding: 0.5rem 1rem;
-
-  background-color: white;
-  color: #32C3FF;
-
-  border: 0.125rem solid #32C3FF;
-
-  border-radius: 0.32rem;
-
-  font-size: 1rem;
+.toLeft{
+  margin-left: 0px;
+  margin-top: 2rem;
 }

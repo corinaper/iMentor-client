@@ -13,7 +13,7 @@
   align-items: center;
   gap: 1.2rem;
   padding: 1.2em 1.3em;
-  margin-top: 8rem;
+  margin-top: 6rem;
   background-color: white;
   border: 0.125rem solid #32C3FF;
   border-radius: 0.64rem;
@@ -53,22 +53,4 @@
   display: flex;
   justify-content: center;
   gap: 1.7rem;
-}
-
-.mentorProfileBtn * button {
-  background-color: white;
-  color: #32C3FF;
-  border: 0.125rem solid #32C3FF;
-  border-radius: 0.32rem;
-  padding: 0.6rem 2rem;
-  font-size: 1rem;
-}
-
-.mentorContactBtn * button {
-  background-color: #32C3FF;
-  color: white;
-  border-radius: 0.32rem;
-  padding: 0.7rem 2.1rem;
-  border: none;
-  font-size: 1rem;
 }

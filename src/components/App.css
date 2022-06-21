@@ -8,7 +8,58 @@
 body {
   font-family: 'SF Pro Display', sans-serif;
   font-size: 1rem;
-    display: grid;
-    place-items: center;
 }
+
+.whiteButton{
+    background-color: white;
+    color: #32C3FF;
+    border: 0.125rem solid #32C3FF;
+    border-radius: 0.32rem;
+    padding: 0.6rem 2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    margin: 0;
+}
+
+
+
+.blueButton{
+  background-color: #32C3FF;
+  color: white;
+  border: 0.125rem solid #32C3FF;
+  border-radius: 0.32rem;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 0;
+}
+
+.buttonSizeS {
+  padding: 0.6rem 1rem;
+  font-size: 0.7rem;
+  margin-top: 10px;
+}
+
+.buttonSizeL {
+  margin-top: 10px;
+  width: 80vw;
+}
+
+
+.flex{
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.nomargin{
+  margin: 0;
+}
+
+.line{
+  width: 80vw;
+  height: 1px;
+  background-color: var(--secondary-color);
+}
+
 

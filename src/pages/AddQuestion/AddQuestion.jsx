@@ -58,10 +58,6 @@ function AddQuestion() {
           setFormState({ ...formState, imageUrl: data.cloudinary_url })
         })
         .catch((err) => console.log(err))
-        /*
-        uploadData.append("upload_preset","fzk9q9ld")
-        uploadService.uploadImage(uploadData)
-        .then(fileUrl => setImage(fileUrl))*/
 
     }
 
@@ -76,23 +72,16 @@ function AddQuestion() {
       console.log(newForm.skills)
   }
 
-
-
     return (
 
       <div className='addContainer'>
-        
-        <h1 className='ask'>Ask Questions</h1> 
-
-        <br />
-
-        <form onSubmit={handleSubmit}>
+        <h1 className='ask'>Ask a Question</h1> 
+        <form onSubmit={handleSubmit}>  
+            <label htmlFor="name"></label>
+            <input className='titleRectangle' placeholder='Topic Title' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> 
             
-            <label htmlFor="name"></label> <br /> <br />
-            <input className='titleRectangle' placeholder='     Topic Title' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> 
-            
-            <label htmlFor="text"></label> <br /> <br />
-            <input  className='codeRectangle' placeholder="     Post your Code Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} /> <br /><br />
+            <label htmlFor="text"></label>
+            <input  className='codeRectangle' placeholder="Post your Description Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} />
 
             
             <input type="file" className='upload' name='imageUrl' onChange={(e) => handleFileUpload(e, setImageUrl)} multiple/>
@@ -102,7 +91,7 @@ function AddQuestion() {
               </> )} <br /><br />
             <Skills function={skillChange} filtering={formState.skills}></Skills>
 
-            <button className='questionButton' type="submit" value="Post" >Post Question</button>
+            <button className='blueButton buttonSizeL' type="submit" value="Post" >Post Question</button>
 
         
         </form>

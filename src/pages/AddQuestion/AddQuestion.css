@@ -1,72 +1,53 @@
 .addContainer{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-/* .ask {
-  position: absolute;
-  width: 127px;
-  height: 24px;
-  left: 30px;
-  top: 85px;
-  font-family: “SF Pro Display”;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  color: #212552;
-} */
-
-
- .titleRectangle {
+.titleRectangle {
   box-sizing: border-box;
-  padding-bottom: 2rem;
+  padding-bottom: .5rem;
   display: flex;
   flex-direction: column;
-  width: 321px;
-  height: 100px;
+  width: 80vw;
+  height: 5vh;
   background: #FFFFFF;
   border: 1px solid #32C3FF;
   border-radius: 9px;
+  margin-bottom: 1rem;
 } 
 
  .codeRectangle {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding-bottom: 2rem;
-  width: 321px;
-  height: 100px;
+  padding-bottom: 1rem;
+  width: 80vw;
+  height: 20vh;
   background: #FFFFFF;
   border: 1px solid #32C3FF;
   border-radius: 9px;
+  margin-bottom: 1rem;
 } 
 
- .upload{
-
-  width: 322px;
-  height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 143px);
-  background: #32C3FF;
-  border: 1px solid #96D1DF;
-  border-radius: 5px;
-} 
-
-input[type=file]::file-selector-button{
-  display: none;
-  
-  
-
+input::placeholder{
+  margin: 0px;
+  padding: 0;
 }
 
+input[type=file]::file-selector-button{
+  background-image: url(https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655767554/iMentor/photo_1_f2hrx5.png);
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  height: 4rem;
+  width: 4rem;
+  color: transparent;
+  margin-left: 1rem;
+}
 
-
- .questionButton {
-  
+.questionButton {
   width: 322px;
   height: 52px;
   left: calc(50% - 322px / 2 + 0.5px);

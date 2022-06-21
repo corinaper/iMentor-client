@@ -58,19 +58,12 @@ const Mentors = () => {
                 <p className="mentor-body">{shortAboutMe}</p>
             </div>
             <div className="mentorBtns"> 
-                <div className="mentorBtns">
-                    <div className="mentorProfileBtn">
-                        <Link to={`/profile/${_id}`}>
-                            <button>Profile</button>
-                        </Link>
-                    </div>
-                </div>
-
-                <div className="mentorContactBtn">
-                    <Link to={`/chats/${user._id}/${_id}`}>
-                        <button>Contact</button>
-                    </Link>
-                </div>
+                <Link className="whiteButton" to={`/profile/${_id}`}>
+                    Profile
+                </Link>
+                <Link className="blueButton" to={`/chats/${user._id}/${_id}`}>
+                    Contact
+                </Link> 
             </div> 
             </div>
         )
