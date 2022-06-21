@@ -71,8 +71,8 @@ function skillChange(e){
     setFormState(newForm)
 }
     return (
-        
-        <div className="edContainer">
+        <div>
+        <div className="edContainer width">
                 
         <form className="fomid" onSubmit={handleSubmit}>
             <div className="formidinside" >
@@ -146,6 +146,7 @@ function skillChange(e){
           
           
           </div>
+    </div>
     )
         
 }

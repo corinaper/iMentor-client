@@ -8,11 +8,7 @@ const QuestionPage = () => {
 
 
     return (
-        <div>
-
             <Questions></Questions>
-       
-       </div>
     )
 }
 

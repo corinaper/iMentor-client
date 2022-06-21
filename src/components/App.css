@@ -1,13 +1,14 @@
 @import url('http://fonts.cdnfonts.com/css/sf-pro-display');
 
 *{
-  margin: auto;
+  margin: 0;
   padding: auto;
 }
 
 body {
   font-family: 'SF Pro Display', sans-serif;
   font-size: 1rem;
+  word-wrap: break-word;
 }
 
 .whiteButton{
@@ -20,8 +21,6 @@ body {
     text-decoration: none;
     margin: 0;
 }
-
-
 
 .blueButton{
   background-color: #32C3FF;
@@ -52,6 +51,14 @@ body {
   align-items: center;
 }
 
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .nomargin{
   margin: 0;
 }
@@ -61,5 +68,15 @@ body {
   height: 1px;
   background-color: var(--secondary-color);
 }
+
+.bold{
+  font-weight: bold;
+}
+
+.width{
+  max-width: 80%;
+  min-width: 80%;
+}
+
 
 

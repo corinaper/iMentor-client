@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  max-width: 100%;
 }
 
 .titleRectangle {
@@ -11,11 +12,13 @@
   display: flex;
   flex-direction: column;
   width: 80vw;
-  height: 5vh;
+  min-height: 5vh;
+  max-height: fit-content;
   background: #FFFFFF;
   border: 1px solid #32C3FF;
-  border-radius: 9px;
+  border-radius: 10px;
   margin-bottom: 1rem;
+  word-wrap:break-word;
 } 
 
  .codeRectangle {
@@ -24,11 +27,13 @@
   flex-direction: column;
   padding-bottom: 1rem;
   width: 80vw;
-  height: 20vh;
+  min-height: 20vh;
+  max-height: fit-content;
   background: #FFFFFF;
   border: 1px solid #32C3FF;
-  border-radius: 9px;
+  border-radius: 10px;
   margin-bottom: 1rem;
+  word-wrap:break-word;
 } 
 
 input::placeholder{
@@ -47,6 +52,12 @@ input[type=file]::file-selector-button{
   margin-left: 1rem;
 }
 
+.uploadImg{
+  border: 2px solid var(--secondary-color);
+  border-radius: 10px;
+  max-width: 40vw
+}
+
 .questionButton {
   width: 322px;
   height: 52px;
@@ -57,11 +68,6 @@ input[type=file]::file-selector-button{
   border-radius: 5px;
 }  
 
-.prevwImg{
-  display: flex;  
-  width: 100px;
-  
-}
 
 
 

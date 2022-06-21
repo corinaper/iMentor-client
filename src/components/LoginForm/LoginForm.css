@@ -1,9 +1,11 @@
+
+
 .loginForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    width: 82%;
+    width: 90%;
     max-width: 20rem;
     padding-top: 3rem;
     margin-bottom: 2rem;
@@ -12,25 +14,14 @@
 .labelInput {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.labelInput > label {
-    padding-bottom: 0.5rem;
-}
-
-.login-email {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'SF Pro Display';
+    width: 80%;
     font-weight: 400;
     font-size: 1rem;
-    
     color: black;
 }
 
-.login-email > input {
+.labelInput > input {
+    padding-bottom: 0.5rem; 
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -39,48 +30,10 @@
     background-color: white;
     border: 0.1rem solid #32C3FF;
     border-radius: 0.313rem;
+    width: 100%;;
+    margin-left: 0;
 }
 
-.login-password {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'SF Pro Display';
-    font-weight: 400;
-    font-size: 1rem;
-    
-    color: black;
-}
-
-.login-password > input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    background-color: white;
-    border: 0.1rem solid #32C3FF;
-    border-radius: 0.32rem;
-}
-
-.loginBtn {
-    display: flex;
-    justify-content: center;
-    padding: 0.9rem 1.1rem;    
-    margin-top: 2rem;
-    background-color: #32C3FF;
-    border: none;
-    border-radius: 0.32rem;
-}
-
-.loginBtn > button {
-    font-weight: 600;
-    font-size: 1.2rem;
-    letter-spacing: 0.05rem;
-    background-color: #32C3FF;
-    color: white;
-    border: none;
-}
 
 .error{
     color: red;

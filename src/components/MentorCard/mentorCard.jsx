@@ -43,8 +43,8 @@ const Mentors = () => {
     }
 
     return (
-        
-        <div className='mentorCardContainer'>
+        <div>
+        <div className='mentorCardContainer width'>
         <Skills function={filterMentors} filtering={skillList}></Skills> 
         {filteredList.map(({_id, profileImg, username, aboutMe, course})=>{
             const shortAboutMe = aboutMe.slice(0, 100)+'...'
@@ -69,6 +69,7 @@ const Mentors = () => {
         )
     }) }
     </div>
+</div>
    
     )
     

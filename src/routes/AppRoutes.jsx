@@ -8,7 +8,6 @@ import SignupPage from "../pages/SignupPage/SignupPage"
 import PrivateRoute from "./PrivateRoute"
 import QuestionPage from "../pages/QuestionPage/QuestionPage"
 import AddQuestion from "../pages/AddQuestion/AddQuestion"
-import Question from "../components/QuestionDetails/QuestionDetails"
 import QuestionDetailsPage from "../pages/QuestionDetailsPage/QuestionDetailsPage"
 import ChatListPage from "../pages/ChatPageList/ChatPageList";
 import ChatPage from "../pages/ChatPage/ChatPage";

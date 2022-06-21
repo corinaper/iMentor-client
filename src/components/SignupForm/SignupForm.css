@@ -9,11 +9,11 @@
     margin-bottom: 2rem;
 }
 
-.labelInput {
+/* .labelInput {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+} */
 
 .labelInput > label {
     padding-bottom: 0.5rem;

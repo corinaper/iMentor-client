@@ -44,18 +44,6 @@ const Loginform = () => {
                 console.log("this is the login error",err)})
     }
 
-    // useEffect(()=>{ 
-    //     profile.getOneUser(user?._id)
-    //     .then((user)=>{
-    //         console.log(user)
-    //     //     if(user && user.course){
-    //     //     navigate('/mentors')}
-
-    //     //    else if (user && !user.course) {
-    //     //    navigate(`/profile/${user._id}`)}
-    //     })
-    // },[user])
-
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
         setLoginData({ ...loginData, [name]: value })
@@ -92,11 +80,10 @@ const Loginform = () => {
 
             {error && 
         <p className="error">Incorrect login details</p>}
-        <div className="loginBtn">
-                <button type="submit">
+                <button className="blueButton buttonSizeL" type="submit">
                     Login
                 </button>
-            </div>
+            
 
         </form>
         

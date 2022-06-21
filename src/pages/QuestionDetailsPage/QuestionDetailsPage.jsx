@@ -6,10 +6,7 @@ import '../QuestionDetailsPage/QuestionDetailsPage.css'
 const QuestionDetails = () => {
 
     return (
-    <>
         <Question></Question>
-            
-    </>
     )
 }
 

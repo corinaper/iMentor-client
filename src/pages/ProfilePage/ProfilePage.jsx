@@ -70,7 +70,7 @@ const ProfilePage = () => {
                     <p>{aboutMe}</p> :
                     <p className="placeholderAbout">{username} is a {userType} for {course} course</p>}
                 </div>
-                <div className="skillList">
+                <div className="skillList width">
                     {skillList?.map((skill)=>(
                     <span className="chips-selected" key={skill._id} id={skill._id}>{skill.name}</span>))}
                 </div>
@@ -83,7 +83,7 @@ const ProfilePage = () => {
             {questions?.map(({_id, owner, title, description, comments})=>{
                 const shortDescription = description.slice(0, 100)+'...'
                 return(
-                    <div key={_id} className="questionCard">
+                    <div key={_id} className="questionCard ">
                         <div className="flex">
                             <Link to={`/profile/${owner._id}`} className="nomargin">
                                 <img className="profileImg" src={owner.profileImg} alt=""></img>

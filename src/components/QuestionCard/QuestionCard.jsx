@@ -39,7 +39,7 @@ const Question = () => {
     return (
        
         <div>
-
+        <div className="width">
         <Skills function={filterQuestions} filtering={skillList}></Skills>
         <Link to={`/addquestion`}>
             <button className="addPostBtn">Add a post</button>
@@ -47,6 +47,7 @@ const Question = () => {
         {filteredList.map(({_id, owner, title, description, comments})=>{
             const shortDescription = description.slice(0, 100)+'...'
         return(
+            <div>
             <div key={_id} className="questionCard">
             <div className="flex">
                 <Link to={`/profile/${owner._id}`} className="nomargin">
@@ -66,9 +67,11 @@ const Question = () => {
                 <Link to={`/questions/${_id}`} className="whiteButton buttonSizeS">Read more</Link>
             </div>  
 
-                </div>
-        )
+            </div>
+        </div>)
     }) }
+    
+    </div>
     </div>)
 }
 

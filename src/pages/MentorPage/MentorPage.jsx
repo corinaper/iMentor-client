@@ -4,9 +4,7 @@ import "./MentorPage.css"
 const MentorPage = () => {
 
     return (
-        <div className="mentorsContainer">
-            <Mentors />
-        </div>
+        <Mentors />
     )
 }
 

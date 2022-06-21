@@ -1,61 +1,87 @@
-.profileImg{
-    width: 3rem;
-}  
 
-.title{
-    position: absolute;
+.uploadedImg{
+    width: 80vw;
+    min-height: 5vh;
+    max-height: fit-content;
     background: #FFFFFF;
     border: 1px solid #32C3FF;
-    border-radius: 9px;
-
-
-    left: 30px;
-    top: 105px;
-    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
-.description{
-    position: absolute;
+.editButtons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: -6rem;
+}
 
-    left: 20px;
-    right: 20px;
-    top: 145px;
+.editImg{
+    margin:0;
+    width: 2.5rem;
+}
 
-    background: #FFFFFF;
-    border: 1px solid #32C3FF;
-    border-radius: 9px;
-    text-align: center;
+.editImg img{
+    width: 3rem;
+}
+
+#editpost{
+    margin-top: .5rem;
+    margin-bottom: 0;
+}
+
+.postComment{
+    background-color: var(--tertiary-color);
+    width: 100%;
+    padding: 7px 0px;
+    display: flex;
+    align-items: center;
 }
 
 .post{
     width: 76px;
     height: 44px;
-    left: calc(50% - 76px/2 + 118.5px);
-    top: calc(50% - 44px/2 + 107px);
-
     background: #32C3FF;
     border: 1px solid #FFFFFF;
     border-radius: 5px;
+    align-self: flex-start;
 }
+.comment-area{
+    min-height: 3rem;
+    max-height: fit-content;
+    width: 60vw;
+    background: #FFFFFF;
+    border: 1px solid #32C3FF;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 1rem;
+}
+
+.profileImg{
+    width: 3rem;
+    margin-left: 1rem;
+}  
 
 .showComment{
-    left: 18px;
-top: 561px;
-
-background: #F0F0F0;
-border-radius: 21px;
-
+    width: 100%;
 }
 
-.comment-area{
-    width: 223px;
-height: 52.11px;
-    background: #FFFFFF;
-border: 1px solid #32C3FF;
-border-radius: 9px;
+.commentBox{
+    padding: 10px 0px;
+    margin-bottom: .6rem;
+    background: #F0F0F0;
+    border-radius: 21px;
+    display: grid;
+    grid-template-columns: 30% 65%;
+    margin-top: -6rem;
 }
 
-.postComment{
-    display: flex;
-    justify-content: center;
+.userCommentInfo{
+    margin-left: 0;
 }
+
+.userCommentInfo p{
+    word-wrap: break-word;
+}
+
+

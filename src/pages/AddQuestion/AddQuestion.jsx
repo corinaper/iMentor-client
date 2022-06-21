@@ -73,21 +73,21 @@ function AddQuestion() {
   }
 
     return (
-
-      <div className='addContainer'>
+    <div>
+      <div className='addContainer width'>
         <h1 className='ask'>Ask a Question</h1> 
         <form onSubmit={handleSubmit}>  
             <label htmlFor="name"></label>
             <input className='titleRectangle' placeholder='Topic Title' type="text" id="name" name="title" value={formState.title} onChange={handleInputChange} /> 
             
             <label htmlFor="text"></label>
-            <input  className='codeRectangle' placeholder="Post your Description Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} />
+            <textarea  className='codeRectangle' placeholder="Post your Description Here" type="text" id="text" name="description" value={formState.description} onChange={handleInputChange} />
 
             
             <input type="file" className='upload' name='imageUrl' onChange={(e) => handleFileUpload(e, setImageUrl)} multiple/>
             { imageUrl && (
               <>
-            <img src={imageUrl} alt="profile" className='prevwImg' />  
+            <img src={imageUrl} alt="profile" className="uploadImg" />  
               </> )} <br /><br />
             <Skills function={skillChange} filtering={formState.skills}></Skills>
 
@@ -98,6 +98,7 @@ function AddQuestion() {
               {error && <p>{error}</p>}
 
         </div>
+      </div>
     )
 }
 
