@@ -5,6 +5,11 @@
   padding: auto;
 }
 
+a{
+  text-decoration: none;
+  color: var(--black-color);
+}
+
 body {
   font-family: 'SF Pro Display', sans-serif;
   font-size: 1rem;
@@ -44,6 +49,13 @@ body {
   width: 80vw;
 }
 
+.imgSizeS{
+  width: 1.7rem;
+}
+
+.imgSizeL{
+  width: 2rem;
+}
 
 .flex{
   display: flex;

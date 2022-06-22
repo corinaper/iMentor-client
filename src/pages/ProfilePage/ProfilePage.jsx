@@ -32,22 +32,26 @@ const ProfilePage = () => {
         
     },[profileId])
 
+    function settingToggle(){
+        const menu = document.querySelector(".popupSetting")
+        
+        if(!menu.classList.contains("hide") && !menu.classList.contains("show"))
+            {
+                menu.classList.add("show")}
+        else{
+                menu.classList.toggle("show")
+                menu.classList.toggle("hide")}
+    }
+
 
     const {course, _id, userType, profileImg, username, email, ocuppation, company, aboutMe, questions } = userProfile
     return (
         <div className="mentorProfileContainer">
-            {/* <div className="editBox">
-                
-                {user._id===_id && <Link to={"/profile/edit"}><button>Edit</button></Link>}
-            </div>
-            <div>
+            <div className="flex">
                 {user._id===_id && 
-                    <Link to={"/"}>
-                        <button className="whiteButton" onClick={logOutUser}>Log out</button>
-                    </Link>}
-            </div> */}
-
-            <h2>{course}</h2>
+                <img onClick={settingToggle} className="imgSizeS" src='https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655850057/iMentor/setting_drggve.png' alt='setting'></img>}
+                <h2>{username}</h2>
+           </div>
             
             <img className="userPhoto" src={profileImg} alt={username}></img>
             <div className="flex">
@@ -57,7 +61,7 @@ const ProfilePage = () => {
                 <p>{userType}</p>
             </div>
             
-            <h2>{username}</h2>
+            <h3>{course}</h3>
             <p className="emailProfile">{email}</p>
 
             {userType === "mentor" && 

@@ -5,16 +5,22 @@
     width: 100vw;
     height: 13vh;
     z-index: 15;
+    justify-content: center;
+    flex: 1;
 }
 
-.flexNav{
-    display: flex;
+.navbar > img{
+    margin-left: 40vw;
+}
+
+.navbar a{
+    margin-left: auto;
+    margin-right: 10vw;
 }
 
 .logo {
     margin-top: 1.5rem;
     width: 4.5rem;
-    margin-left: 40%;
 }
 
 .img {
@@ -24,7 +30,6 @@
 
 .navbar ~ div {
     margin-top: 6.5rem;
-    margin-bottom: 8rem;
     display: flex;
     justify-content: center;
 }
