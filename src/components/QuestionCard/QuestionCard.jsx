@@ -31,8 +31,6 @@ const Question = () => {
 		const newList = questionList.filter((mentor) => skillList.some((skill) => mentor.skills.includes(skill)));
 		if (newList.length > 0) setfilteredList(newList);
 		else setfilteredList(questionList);
-
-		console.log(newList);
 	}
 
 	return (

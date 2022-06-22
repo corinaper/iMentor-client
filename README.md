@@ -1,8 +1,6 @@
-# M3 - `README.md` Example
+<img src="https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png" width="200"/> &nbsp; <img src="https://i.ibb.co/txcgFGM/yapic.png" width="200"/> -->
 
-<br>
 # iMentor: Find a mentor in the Ironhack community
-<br>
 
 ## Description
 
@@ -10,221 +8,47 @@
 
 ## User Stories
 
--  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
--  **Signup:** As an anon I can sign up in the platform so that I can start playing into competition
--  **Login:** As a user I can login to the platform so that I can play competitions
--  **Logout:** As a user I can logout from the platform so no one else can use it
--  **Add Tournaments** As a user I can add a tournament
--  **Edit Tournaments** As a user I can edit a tournament
--  **Add Player Names** As a user I can add players to a tournament
--  **Edit Player profiles** As a user I can edit a player profile to fit into the tournament view
--  **View Tournament Table** As a user I want to see the tournament table
--  **Edit Games** As a user I can edit the games, so I can add scores
--  **View Ranks** As a user I can see the ranks
+- **Error 4xx**- As a user, I want to see a clear error page when it doesn't exist/has restricted access so that I know I probably make a mistake.
+- **index/home** - As a user, I want to seamless access the index/home so that I know I'm the right place to begin the flow.
+- **signup** - As a user, I want to signup in a secure and easy way on the webpage so that I can start using the app.
+- **login** - As a user, I want to be able to login on the webpage so that I can see my personal account.
+- **logout** - As a user, I want to be able to logout from the webpage so that I can make sure no one will access my personal account.
+- **edit profile** - As a user, I want to be able to edit my profile so that I can modify my personal data.
+- **search mentors** - As a user, I want to see and filter through the list of available mentors
+- **see post** - As a user, I want to see users' posts in an easy way where I can comment and engage
+- **create post** - As a user, I want to create my posts in an easy way where I can ask all mentors a question
+- **edit post** - As a user, I want to edit my posts in an easy way
+- **chat messages** - As a user, I want to send messages to mentors
+
+## Server Routes/Views:
+
+|**Path**    |    **Components**           |    **Permission**     |   **Behaviour**       |                          
+|--------------|-------------------|------------------------|-----------------------------------|
+|"/"         |               |      public              | Home page  |
+|"/signup"      | SignUp form      |   anon only        | Signup form, link to login, navigate to homepage after signup  |
+|"/login"       |  Login Form      |    anon only       | Login form, link to signup, navigate to homepage after login  |
+|"/mentors"     |  Footer, header, skills, mentor card | user only | Shows a list of mentors and gives the option to filter based on skills          | 
+|"/questions"   |   Footer, header, skills, Question card |  user only  | Shows a list of questions and gives the option to filter based on the question topic |   
+|"/questions/add" |   Footer, header    |      user only         | Adds a question to the feed/list      | 
+|"/questions/:id" |    Footer, header          |      user only     | See the details of the specific question  |
+|"/questions/:id/delete" |       |      user only     | Delete the question(only the owner can do it)  |  
+|"/profile/:id"        |     Footer, header       |      user only     | The details of the mentor/mentee            |
+|"/profile/:id/edit"        |    Footer, header   |      owner only    | Edit the details of the mentor/mentee  | 
+|"/chats/:id"        |    Footer, header, chat card        |   user only | See the list of messages  | 
+|""chats/:id/:otherId""        |    Footer, header         |   user only | See  chat with a person  | 
 
-
-
-
-## Backlog
-
-User profile:
-- see my profile
-- change tournament mode to FFA
-- Add weather widget
-- lottie interactions
-- users can bet
-- add geolocation to events when creating
-
-
-<br>
-
-
-# Client / Frontend
-
-## React Router Routes (React App)
-| Path                           | Component            | Permissions                 | Behavior                                                                     |
-| ------------------------------ | -------------------- | --------------------------- | -----------------------------------------------------------------------------|
-| `/`                            | SplashPage           | public `<Route>`            | Home page                                                                    |
-| `/signup`                      | SignupPage           | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup                |
-| `/login`                       | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login                 |
-| `/mentors`                     | TournamentListPage   | user only `<PrivateRoute>`  | Shows a list of mentors and gives the option to filter based on skills       |
-| `/questions`                   | TournamentListPage   | public `<Route>`            | List of questions and gives the option to filter based on the question topic |
-| `/questions/add`               | TournamentDetailPage | user only `<PrivateRoute>`  | Adds a question to the feed/list                                             |
-| `/questions/:id`               | n/a                  | public `<Route>`            | See the details of the specific question                                     | 
-| `/questions/:id/delete`        | PlayersListPage      | owner only  `<PrivateRoute>`| Delete the question(only the owner can do it)                                |
-| `/questions/:id/comment/add`   | PlayersListPage      | user only `<PrivateRoute>`  | Add a comment to a specific question                                         |
-| `/questions/comment/:id/delete`| PlayersDetailPage    | user only `<PrivateRoute>`  | Delete the comment                                                           |
-| `/profile/:id`                 | PlayersListPage      | user only  `<PrivateRoute>` | The details of the mentor/mentee                                             |
-| `/profile/:id/edit`            | TableView            | user only  `<PrivateRoute>` | Edit the details of the mentor/mentee                                        |
-| `/messages`                    | RanksPage            | owner only `<PrivateRoute>` | See the list of messages                                                     |
-| `/messages`                    | GameDetailPage       | owner only `<PrivateRoute>` | See specific chat                                                            |
-
-
-
-
-## Components
-
-- LoginPage
-
-- SplashPage
-
-- TournamentListPage
-
-- Tournament Cell
-
-- TournamentDetailPage
-
-- TableViewPage
-
-- PlayersListPage
-
-- PlayerDetailPage
-
-- RanksPage
-
-- TournamentDetailPageOutput
-
-- Navbar
-
-
-  
-
- 
-
-## Services
-
-- Auth Service
-  - auth.login(user)
-  - auth.signup(user)
-  - auth.logout()
-  - auth.me()
-  - auth.getUser() // synchronous
-- Tournament Service
-  - tournament.list()
-  - tournament.detail(id)
-  - tournament.add(id)
-  - tournament.delete(id)
-  
-- Player Service 
-
-  - player.detail(id)
-  - player.add(id)
-  - player.delete(id)
-
-- Game Service
-
-  - Game.put(id)
-
-
-
-<br>
-
-
-# Server / Backend
-
-
-## Models
-
-User model
-
-```javascript
-{
-  username: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  favorites: [Tournament]
-}
-```
-
-
-
-Tournament model
-
-```javascript
- {
-   name: {type: String, required: true},
-   img: {type: String},
-   players: [{type: Schema.Types.ObjectId,ref:'Participant'}],
-   games: [{type: Schema.Types.ObjectId,ref:'Game'}]
- }
-```
-
-
-
-Player model
-
-```javascript
-{
-  name: {type: String, required: true},
-  img: {type: String},
-  score: []
-}
-```
-
-
-
-Game model
-
-```javascript
-{
-  player1: [{type: Schema.Types.ObjectId,ref:'Participant'}],
-  player2: [{type: Schema.Types.ObjectId,ref:'Player'}],
-  player2: [{type: Schema.Types.ObjectId,ref:'Player'}],
-  winner: {type: String},
-  img: {type: String}
-}
-```
-
-
-<br>
-
-
-## API Endpoints (backend routes)
-
-| HTTP Method | URL                         | Request Body                 | Success status | Error Status | Description                                                  |
-| ----------- | --------------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
-| GET         | `/auth/profile    `           | Saved session                | 200            | 404          | Check if user is logged in and return profile page           |
-| POST        | `/auth/signup`                | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`                 | {username, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
-| POST        | `/auth/logout`                | (empty)                      | 204            | 400          | Logs out the user                                            |
-| GET         | `/api/tournaments`                |                              |                | 400          | Show all tournaments                                         |
-| GET         | `/api/tournaments/:id`            | {id}                         |                |              | Show specific tournament                                     |
-| POST        | `/api/tournaments` | {}                           | 201            | 400          | Create and save a new tournament                             |
-| PUT         | `/api/tournaments/:id`       | {name,img,players}           | 200            | 400          | edit tournament                                              |
-| DELETE      | `/api/tournaments/:id`     | {id}                         | 201            | 400          | delete tournament                                            |
-| GET         | `/api/players`                    |                              |                | 400          | show players                                                 |
-| GET         | `/api/players/:id`                | {id}                         |                |              | show specific player                                         |
-| POST        | `/api/players`         | {name,img,tournamentId}      | 200            | 404          | add player                                                   |
-| PUT         | `/api/players/:id`           | {name,img}                   | 201            | 400          | edit player                                                  |
-| DELETE      | `/api/players/:id`         | {id}                         | 200            | 400          | delete player                                                |
-| GET         | `/api/games`                      | {}                           | 201            | 400          | show games                                                   |
-| GET         | `/api/games/:id`                  | {id,tournamentId}            |                |              | show specific game                                           |
-| POST        | `/api/games`             | {player1,player2,winner,img} |                |              | add game                                                     |
-| PUT         | `/api/games/:id`             | {winner,score}               |                |              | edit game                                                    |
-
-
-<br>
-
-
-## Links
-
-### Trello/Kanban
-
-[Link to your trello board](https://trello.com/b/PBqtkUFX/curasan) 
-or picture of your physical board
 
 ### Git
 
-The url to your repository and to your deployed project
+[Repository Link](https://github.com/iMentorIronhack)
 
-[Client repository Link](https://github.com/screeeen/project-client)
 
-[Server repository Link](https://github.com/screeeen/project-server)
+### Contributors
 
-[Deployed App Link](http://heroku.com)
+Corina Perjan - [`Github`](https://github.com/corinaper) - [`<linkedin`](https://www.linkedin.com/in/corina-perjan/)
 
-### Slides
+Alberte Vieites - [`Github`](https://github.com/albertevieites) - [`linkedin`](https://www.linkedin.com/in/albertevieites/)
 
-The url to your presentation slides
+Adrian Molina - [`Github`](https://github.com/01000001kuma) - [`linkedin`](https://www.linkedin.com/in/adrian-molina/)
 
-[Slides Link](http://slides.com)
+Klaus Haugness- [`Github`](https://github.com/klaus2132) - [`linkedin`](https://www.linkedin.com/in/klaus-haugness)

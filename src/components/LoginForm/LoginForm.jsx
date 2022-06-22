@@ -28,16 +28,14 @@ const Loginform = () => {
                 setLoading(true)
                 setError(false)
             })
-            .then(()=>
-                profile.getOneUser(user?._id)
-                .then((user)=>console.log("course", user.course)))
+            .then(()=>profile.getOneUser(user?._id)) 
             .catch(err => {
                 setError(true)
                 setLoginData({
                     ...loginData, 
                     email: ''
                 }) 
-                console.log("this is the login error",err)})
+            })
     }
 
     const handleInputChange = e => {

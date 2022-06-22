@@ -30,7 +30,6 @@ const Question = ( ) => {
                     })})
             .then(()=>User.getOneUser(user._id))
             .then((user)=>{
-                console.log("use effect user", user.data)
                 setdatabaseUser(user.data)
                 
             })
@@ -51,7 +50,6 @@ const Question = ( ) => {
         questions.createComment(newComment,id)
         .then((newquestion) => {
             setQuestion(newquestion.data)
-            console.log(newquestion.data)
         })
         .then(()=>setNewComment({comment:""}))
         .catch((error) => console.log(error))}

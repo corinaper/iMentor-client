@@ -18,7 +18,6 @@ const navigate = useNavigate()
 useEffect(()=>{
     Profile.getOneUser(user._id)
     .then((user)=>{
-        console.log("from editProfile",user.data)
         setFormState(user.data)
         setUserType(user.data.userType)})
     .catch((err)=>console.log(err))
@@ -37,7 +36,6 @@ const handleInputChange = (event)=>{
       const {name, value } = event.currentTarget
       const newFormState = {...formState, [name]: value}
       setFormState(newFormState)
-      console.log(formState)
     }
 function handleFileUpload(event) {
       setImage(true)
@@ -55,7 +53,7 @@ function handleType(){
     if(userType==="mentor")
     {setUserType("mentee")
     setFormState({ ...formState, userType: "mentee" })
-console.log(formState)}
+    }
     else
     {setUserType("mentor")
     setFormState({ ...formState, userType: "mentor" })
@@ -63,7 +61,6 @@ console.log(formState)}
 }
 function skillChange(e){
     const skillId = e.target.id
-    console.log("skill id", skillId)
     const newForm = {...formState}
     if(!newForm.skills.includes(skillId))
     {newForm.skills.push(skillId)}

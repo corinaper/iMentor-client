@@ -26,7 +26,6 @@ function AddQuestion() {
       if(formState.title && formState.description){
       questionService.createQuestion(formState)
             .then(( data ) => {
-              console.log(data.data) 
               navigate(`/questions/${data?.data._id}`)
             }) 
             .catch((error) => {
@@ -67,7 +66,6 @@ function AddQuestion() {
       else {
         newForm.skills.splice(newForm.skills.indexOf(skillId),1)
         setFormState(newForm)
-        console.log(newForm.skills)
       }
   }
 

@@ -14,7 +14,6 @@ const EditQuestionPage = () => {
 
   const {id} = useParams()
   const { user } = useContext(AuthContext)
-  console.log(user)
   const [formState, setFormState] = useState()
   const [imageUrl, setImageUrl] = useState(false)
   const [error, setError] = useState()

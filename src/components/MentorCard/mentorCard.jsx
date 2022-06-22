@@ -19,7 +19,6 @@ const Mentors = () => {
 		mentors
 			.getAllMentors()
 			.then((mentors) => {
-				console.log('mentors from card', mentors);
 				setMentorsList(mentors.data);
 				setfilteredList(mentors.data);
 			})
@@ -35,8 +34,6 @@ const Mentors = () => {
 		const newList = mentorsList.filter((mentor) => skillList.some((skill) => mentor.skills.includes(skill)));
 		if (newList.length > 0) setfilteredList(newList);
 		else setfilteredList(mentorsList);
-
-		console.log(newList);
 	}
 
 	return (
