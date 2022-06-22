@@ -1,37 +1,31 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class Profile {
+	constructor() {
+		this.app = axios.create({
+			baseURL: `${process.env.REACT_APP_API_URL}`
+		});
 
-    constructor() {
+		this.app.interceptors.request.use((config) => {
+			const storedToken = localStorage.getItem('authToken');
 
-        this.app = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}`
-        })
+			if (storedToken) {
+				config.headers = { Authorization: `Bearer ${storedToken}` };
+			}
 
-        this.app.interceptors.request.use((config) => {
+			return config;
+		});
+	}
 
-            const storedToken = localStorage.getItem("authToken");
+	getOneUser = (id) => {
+		return this.app.get(`/profile/${id}`);
+	};
 
-            if (storedToken) {
-                config.headers = { Authorization: `Bearer ${storedToken}` }
-            }
-
-            return config
-        })
-
-    }
-
-    getOneUser = (id) => {
-        return this.app.get(`/profile/${id}`)
-    }
-
-    editUser=(id, info)=>{
-        return this.app.post(`/profile/${id}/edit`, info)
-    }
-
-
+	editUser = (id, info) => {
+		return this.app.post(`/profile/${id}/edit`, info);
+	};
 }
 
-const profile = new Profile()
+const profile = new Profile();
 
-export default profile
+export default profile;

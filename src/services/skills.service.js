@@ -1,36 +1,31 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class Skills {
+	constructor() {
+		this.app = axios.create({
+			baseURL: `${process.env.REACT_APP_API_URL}`
+		});
 
-    constructor() {
+		this.app.interceptors.request.use((config) => {
+			const storedToken = localStorage.getItem('authToken');
 
-        this.app = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}`
-        })
+			if (storedToken) {
+				config.headers = { Authorization: `Bearer ${storedToken}` };
+			}
 
-        this.app.interceptors.request.use((config) => {
+			return config;
+		});
+	}
 
-            const storedToken = localStorage.getItem("authToken");
+	getAllSkills = () => {
+		return this.app.get('/skills');
+	};
 
-            if (storedToken) {
-                config.headers = { Authorization: `Bearer ${storedToken}` }
-            }
-
-            return config
-        })
-
-    }
-
-    getAllSkills = () => {
-        return this.app.get('/skills')
-    }
-
-    get5Skills = () => {
-        return this.app.get('/only5skills')
-    }
-
+	get5Skills = () => {
+		return this.app.get('/only5skills');
+	};
 }
 
-const skills = new Skills()
+const skills = new Skills();
 
-export default skills
+export default skills;

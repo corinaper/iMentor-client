@@ -22,14 +22,14 @@ body {
 }
 
 .whiteButton{
-    background-color: white;
-    color: #32C3FF;
-    border: 0.125rem solid #32C3FF;
-    border-radius: 0.32rem;
-    padding: 0.6rem 2rem;
-    font-size: 1rem;
-    text-decoration: none;
-    margin: 0;
+  background-color: white;
+  color: #32C3FF;
+  border: 0.125rem solid #32C3FF;
+  border-radius: 0.32rem;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 0;
 }
 
 .blueButton{

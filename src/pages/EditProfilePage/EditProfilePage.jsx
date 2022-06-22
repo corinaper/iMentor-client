@@ -72,7 +72,7 @@ function skillChange(e){
 }
     return (
         <div>
-        <div className="edContainer width">
+            <div className="edContainer width">
                 
             <form className="fomid" onSubmit={handleSubmit}>
                 <div className="formidinside" >

@@ -1,28 +1,25 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class UploadService {
+	constructor() {
+		this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/upload` });
 
-    constructor() {
+		this.app.interceptors.request.use((config) => {
+			const storedToken = localStorage.getItem('authToken');
 
-        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/upload` })
+			if (storedToken) {
+				config.headers = { Authorization: `Bearer ${storedToken}` };
+			}
 
-        this.app.interceptors.request.use((config) => {
+			return config;
+		});
+	}
 
-            const storedToken = localStorage.getItem("authToken");
-
-            if (storedToken) {
-                config.headers = { Authorization: `Bearer ${storedToken}` }
-            }
-
-            return config
-        })
-    }
-
-    uploadImage(imageForm) {
-        return this.app.post('/image', imageForm) // here I will receive the Cloudinary image URL sring
-    }
+	uploadImage(imageForm) {
+		return this.app.post('/image', imageForm); // here I will receive the Cloudinary image URL sring
+	}
 }
 
-const uploadService = new UploadService()
+const uploadService = new UploadService();
 
-export default uploadService
+export default uploadService;

@@ -1,11 +1,7 @@
-import axios from "axios";
-import { useState, useContext, useRef } from "react";
-import { AuthContext } from "../../context/auth.context";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import chatService from "../../services/chat.service";
-import { Link } from "react-router-dom";
 import socket from "../../components/Socket/Socket";
 import '../ChatPage/ChatPage.css'
 
@@ -24,23 +20,19 @@ export default function ChatList() {
     return chat;    
     }
     const getAllMessages = () => {
-
-        
-        console.log("CHATS ", chats())
-
         if(chats().data)
             {
                 chatService
                 .getAll(`chats/${id}/${otherId}`)
-                .then((response) => {
-                    setReceiver(response.data.user1._id === id ? response.data.user2 : response.data.user1)
-                    setMessages(response.data.messages)
-                    setChat(response.data)
-                })
-                .catch((error) => console.log(error));
+                    .then((response) => {
+                        setReceiver(response.data.user1._id === id ? response.data.user2 : response.data.user1)
+                        setMessages(response.data.messages)
+                        setChat(response.data)
+                    })
+                    .catch((error) => console.log(error));
             }else{
                 chatService
-                    .createChat(id, otherId)
+                .createChat(id, otherId)
                     .then(response => {
                         setChat(response.data) 
                         setReceiver(response.data.user1._id === id ? response.data.user2 : response.data.user1)
@@ -49,10 +41,6 @@ export default function ChatList() {
             }
     };
 
-    // We set this effect will run only once, after the initial render
-    // by setting the empty dependency array - []
-
-    
     useEffect(() => {
         const interval = setInterval(() => {
             getAllMessages();
@@ -73,6 +61,7 @@ export default function ChatList() {
             }
         })
     }, []);
+
     const onEnterPress = (e) => {
         if(e.keyCode === 13 && e.shiftKey === false) {
             e.preventDefault();
@@ -80,19 +69,15 @@ export default function ChatList() {
         }
     }
     
-    
     const addNewMessage = () => {
-        
         if(newMessage){
             chatService.createOne(`chats/newMessage/${chat._id}`, { content: newMessage, sender: id, receiver: otherId })
-            .then(response => {
-                socket.emit('newMessage', [response.data.sender, response.data.receiver])
-                setNewMessage("")
-            })
-        }
-        
+                .then(response => {
+                    socket.emit('newMessage', [response.data.sender, response.data.receiver])
+                    setNewMessage("")
+                })
+        } 
     }
-    
 
       return !messages.length ? (
         <div>
@@ -111,12 +96,12 @@ export default function ChatList() {
         </div>
         ):(
             <div>
-            <div className="chat-page  ">
-            <div className="userDetails">
-                    <img src={receiver.profileImg} alt="" className="userImage"></img>
-                    <h2>{receiver.username}</h2>
-            </div>
-                <div className="chat-box">
+                <div className="chat-page  ">
+                    <div className="userDetails">
+                            <img src={receiver.profileImg} alt="" className="userImage"></img>
+                            <h2>{receiver.username}</h2>
+                    </div>
+                    <div className="chat-box">
                     
                     <div className="chat-display-box">
 

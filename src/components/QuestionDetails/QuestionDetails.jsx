@@ -65,58 +65,54 @@ const Question = ( ) => {
 
     return (
         <div>
-        <div className='flexColumn'>
-                    <div className='questionTop width'>
-                        <h3 className='titleRectangle'>{question?.title}</h3>
-                        <p className='codeRectangle'>{question?.description}</p>
-                        {question?.imageUrl &&
+            <div className='flexColumn'>
+                <div className='questionTop width'>
+                    <h3 className='titleRectangle'>{question?.title}</h3>
+                    <p className='codeRectangle'>{question?.description}</p>
+                    {question?.imageUrl &&
                         <img className='uploadedImg' src={question?.imageUrl} alt=""></img>}
-                        <div className='skillList'>
+                    <div className='skillList'>
                         {skillList?.map((skill)=>(
                             <span className="chips-selected" key={skill._id} id={skill._id}>{skill.name}</span>))}
-                        </div>
+                    </div>
                     <div>
                         {databaseUser?._id === question?.owner._id && 
-                        <div className="editButtons">
-                            <div className="flexColumn">
-                                <img onClick={deleteQuestion} className="editImg" src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655814034/iMentor/delete_2_ni1yfg.png" alt=""></img>
-                                <p id="editpost">Delete Post</p>
-                            </div>
-                            <div className="flexColumn">
-                                <Link className="editImg" to={`/question/${question?._id}/edit`}><img  src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655814037/iMentor/edit_2_wa92up.png" alt=""></img></Link>
-                                <p>Edit Post</p>
-                            </div>
-                        </div>}
+                            <div className="editButtons">
+                                <div className="flexColumn">
+                                    <img onClick={deleteQuestion} className="editImg" src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655814034/iMentor/delete_2_ni1yfg.png" alt=""></img>
+                                    <p id="editpost">Delete Post</p>
+                                </div>
+                                <div className="flexColumn">
+                                    <Link className="editImg" to={`/question/${question?._id}/edit`}><img  src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655814037/iMentor/edit_2_wa92up.png" alt=""></img></Link>
+                                    <p>Edit Post</p>
+                                </div>
+                            </div>}
                     </div>
-        </div>
+                </div>
                
-                    <div className='postComment'>
-                        <form action="submit" onSubmit={handleSubmit}>
-                            <textarea className='comment-area' type="text" name="comment" placeholder="Write you comment" onChange={handleInput}/>
-                            <button className='blueButton buttonSizeS' type="submit">Post</button>
-                        </form>
-                    </div>
+                <div className='postComment'>
+                    <form action="submit" onSubmit={handleSubmit}>
+                        <textarea className='comment-area' type="text" name="comment" placeholder="Write you comment" onChange={handleInput}/>
+                        <button className='blueButton buttonSizeS' type="submit">Post</button>
+                    </form>
+                </div>
 
-                    <div className='showComment'>
-                        {question?.comments.map(comment => 
-                         {  return(
-                             <div key={comment._id} className='commentBox width'>
-                                
-                                    <img className="profileImg" src={comment.user.profileImg} alt="profile pic" />
-                                    <div className="userCommentInfo">
-                                        <p className="bold">{comment.user.username}</p>
-                                        <p>{comment.text}</p>
-                                    </div>
-                            </div>) }
-                        
-                        )}
-                    </div>
-                    </div>
+                <div className='showComment'>
+                    {question?.comments.map(comment => 
+                         {return(
+                            <div key={comment._id} className='commentBox width'>
+                                <img className="profileImg" src={comment.user.profileImg} alt="profile pic" />
+                                <div className="userCommentInfo">
+                                    <p className="bold">{comment.user.username}</p>
+                                    <p>{comment.text}</p>
+                                </div>
+                            </div>) 
+                        }
+                    )}
+                </div>
+        </div>
     </div>                
     )
 }
-
-
-
 
 export default Question

@@ -6,10 +6,10 @@ import { Navigate, Outlet } from 'react-router-dom'
 const NotLoggedInRoute = () => {
 
     const { isLoggedIn, user} = useContext(AuthContext)
- 
-        
-    if (isLoggedIn ) { 
-        return <Navigate to={`/profile/${user?._id}`} />}
+     
+    if (isLoggedIn ) 
+    { return <Navigate to={`/profile/${user?._id}`} /> }
+    
     return <Outlet />
     
 }

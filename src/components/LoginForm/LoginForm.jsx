@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import authService from "../../services/auth.service"
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
@@ -15,15 +15,11 @@ const Loginform = () => {
     })
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-
-    const navigate = useNavigate()
-
     const { storeToken, authenticateUser, user } = useContext(AuthContext)
-   
+    const { password, email } = loginData
 
     const handleSubmit = e => {
         e.preventDefault()
-        
         authService
             .login(loginData)
             .then(({ data }) => {
@@ -47,50 +43,48 @@ const Loginform = () => {
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
         setLoginData({ ...loginData, [name]: value })
-    }
-
-    const { password, email } = loginData
+    } 
 
     return ( 
         <>
-        <form onSubmit={handleSubmit} className="loginForm">
-            
-            <div className="labelInput login-email">
-                <label htmlFor="input-email">Email</label>
-                    <input 
-                        type="text"
-                        name="email"
-                        value={email}
-                        onChange={handleInputChange} 
-                        required
+            <form onSubmit={handleSubmit} className="loginForm">
+                
+                <div className="labelInput login-email">
+                    <label htmlFor="input-email">Email</label>
+                        <input 
+                            type="text"
+                            name="email"
+                            value={email}
+                            onChange={handleInputChange} 
+                            required
                         />
-            </div>
+                </div>
 
-            <div className="labelInput login-password">
-                <label htmlFor="input-password">Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={handleInputChange}
-                        required
-                        minLength="8"
-                    />
-            </div>
+                <div className="labelInput login-password">
+                    <label htmlFor="input-password">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={handleInputChange}
+                            required
+                            minLength="8"
+                        />
+                </div>
 
-            {error && 
-        <p className="error">Incorrect login details</p>}
-                <button className="blueButton buttonSizeL" type="submit">
-                    Login
-                </button>
+                {error && 
+                    <p className="error">Incorrect login details</p>}
+                        <button className="blueButton buttonSizeL" type="submit">
+                            Login
+                        </button>
+                
+
+            </form>
             
-
-        </form>
-        
-        <p>Don't have an account? <Link to={"/signup"}>SignUp</Link></p>
-        
-        {loading &&
-        <Spinner></Spinner>}
+            <p>Don't have an account? <Link to={"/signup"}>SignUp</Link></p>
+            
+            {loading &&
+            <Spinner></Spinner>}
         </>
     )
 }

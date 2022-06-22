@@ -1,51 +1,47 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class Questions {
+	constructor() {
+		this.app = axios.create({
+			baseURL: `${process.env.REACT_APP_API_URL}`
+		});
 
-    constructor() {
+		this.app.interceptors.request.use((config) => {
+			const storedToken = localStorage.getItem('authToken');
 
-        this.app = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}`
-        })
+			if (storedToken) {
+				config.headers = { Authorization: `Bearer ${storedToken}` };
+			}
 
-        this.app.interceptors.request.use((config) => {
+			return config;
+		});
+	}
 
-            const storedToken = localStorage.getItem("authToken");
+	getAllQuestions = () => {
+		return this.app.get('/questions');
+	};
 
-            if (storedToken) {
-                config.headers = { Authorization: `Bearer ${storedToken}` }
-            }
+	getOneQuestion = (id) => {
+		return this.app.get(`/questions/${id}`);
+	};
 
-            return config
-        })
-    }
+	createQuestion = (question) => {
+		return this.app.post('/questions', question);
+	};
 
-    getAllQuestions = () => {
-        return this.app.get('/questions')
-    }
+	editQuestion = (question, id) => {
+		return this.app.post(`/questions/${id}/edit`, question);
+	};
 
-    getOneQuestion = (id) => {
-        return this.app.get(`/questions/${id}`)
-    }
+	deleteQuestion = (id) => {
+		return this.app.post(`/questions/${id}/delete`);
+	};
 
-    createQuestion = (question) => {
-        return this.app.post("/questions", question)
-    }
-    
-    editQuestion = (question, id) => {
-        return this.app.post(`/questions/${id}/edit`, question)
-    }
-    
-    deleteQuestion = (id) => {
-        return this.app.post(`/questions/${id}/delete`)
-    }
-
-    createComment = (comment, id) => {
-        return this.app.post(`/questions/${id}/comment/add`, comment)
-    }
-
+	createComment = (comment, id) => {
+		return this.app.post(`/questions/${id}/comment/add`, comment);
+	};
 }
 
-const questions = new Questions()
+const questions = new Questions();
 
-export default questions
+export default questions;

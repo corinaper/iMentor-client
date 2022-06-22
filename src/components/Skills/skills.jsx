@@ -1,7 +1,6 @@
 import skills from "../../services/skills.service" 
 import './Skills.css'
-import { useState } from "react"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 
 const Skills = (props) => {
     const [skillsList, setSkillsList] = useState([]);
@@ -21,30 +20,29 @@ const Skills = (props) => {
             .catch((err)=>console.log(err))   
     }
 
-    function showLess(){
-        
+    function showLess(){ 
         skills.get5Skills()
         .then((skills)=>{
             setSkillsList (skills.data)})
         .catch((err)=>console.log(err))  
-}
+    }
 
     return (
     <div className="chipsContainer">
         <div className="divChips">
-    {skillsList.map((skill)=>{
-        return(
-            props.filtering?.includes(skill._id) ?
-            <span className="chips-selected" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span> :
-            <span className="chips" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>
-            )
-            
-    }) }
+            {skillsList.map((skill)=>{
+                return(
+                    props.filtering?.includes(skill._id) ?
+                    <span className="chips-selected" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span> :
+                    <span className="chips" key={skill._id} id={skill._id} onClick={(e)=>props.function(e)}>{skill.name}</span>
+                    )
+            })}
         </div>
-        {skillsList.length === 5 ?
-            <div onClick={showAll} className="showSkills">+</div>
-            :
-            <div onClick={showLess} className="showSkills">-</div>}
+            {skillsList.length === 5 ?
+                <div onClick={showAll} className="showSkills">+</div>
+                :
+                <div onClick={showLess} className="showSkills">-</div>
+            }
     
     </div>)
     

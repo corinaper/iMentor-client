@@ -1,40 +1,35 @@
-import axios from 'axios'
-
+import axios from 'axios';
 
 class AuthService {
+	constructor() {
+		this.app = axios.create({
+			baseURL: `${process.env.REACT_APP_API_URL}/auth`
+		});
 
-    constructor() {
+		this.app.interceptors.request.use((config) => {
+			const storedToken = localStorage.getItem('authToken');
 
-        this.app = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}/auth`
-        })
+			if (storedToken) {
+				config.headers = { Authorization: `Bearer ${storedToken}` };
+			}
 
-        this.app.interceptors.request.use((config) => {
+			return config;
+		});
+	}
 
-            const storedToken = localStorage.getItem("authToken");
+	signup = (user) => {
+		return this.app.post('/signup', user);
+	};
 
-            if (storedToken) {
-                config.headers = { Authorization: `Bearer ${storedToken}` }
-            }
+	login = (user) => {
+		return this.app.post('/login', user);
+	};
 
-            return config
-        })
-    }
-
-    signup = user => {
-        return this.app.post('/signup', user)
-    }
-
-    login = user => {
-        return this.app.post('/login', user)
-    }
-
-    verify = token => {
-        return this.app.get('/verify', { headers: { Authorization: `Bearer ${token}` } })
-    }
-
+	verify = (token) => {
+		return this.app.get('/verify', { headers: { Authorization: `Bearer ${token}` } });
+	};
 }
 
-const authService = new AuthService()
+const authService = new AuthService();
 
-export default authService
+export default authService;
