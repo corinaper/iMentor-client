@@ -47,8 +47,8 @@ const Question = () => {
         {filteredList.map(({_id, owner, title, description, comments})=>{
             const shortDescription = description.slice(0, 100)+'...'
         return(
-            <div>
-            <div key={_id} className="questionCard">
+            <div key={_id}>
+            <div className="questionCard">
             <div className="flex">
                 <Link to={`/profile/${owner._id}`} className="nomargin">
                     <img className="profileImg" src={owner.profileImg} alt=""></img>

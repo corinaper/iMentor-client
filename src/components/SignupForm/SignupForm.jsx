@@ -78,11 +78,9 @@ const SignupForm = () => {
 
             {errorMessage && <p className="error">{errorMessage}</p>}
 
-            <div className="signupBtn">
-                <button type="submit">
+                <button className="blueButton buttonSizeL" type="submit">
                     Sign Up
-            </button>
-            </div>
+                </button>
 
         </form>
         <p id="loginLink">Already have an account? <Link to={"/login"}>Login</Link></p>

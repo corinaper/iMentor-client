@@ -1,7 +1,6 @@
 .navbar{
     background-color: white;
     position: fixed;
-    margin-top:-6.5rem;
     width: 100vw;
     height: 13vh;
     z-index: 15;
@@ -32,4 +31,5 @@
     margin-top: 6.5rem;
     display: flex;
     justify-content: center;
+    margin-bottom: 8rem;
 }

@@ -1,8 +1,8 @@
 .questionCard {
     padding: 1.2em 1.3em;
     border-bottom: 0.125rem solid rgba(0, 0, 0, 0.5);
-    min-width: 80%;
-    max-width: 80%;
+    min-width: 90%;
+    max-width: 300px;
 }
 
 .profileImg{

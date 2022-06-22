@@ -5,6 +5,11 @@
   padding: auto;
 }
 
+#root{
+  display: flex;
+  justify-content: center;
+}
+
 a{
   text-decoration: none;
   color: var(--black-color);
@@ -47,6 +52,7 @@ body {
 .buttonSizeL {
   margin-top: 10px;
   width: 80vw;
+  max-width: 300px;
 }
 
 .imgSizeS{

@@ -46,7 +46,7 @@ const ProfilePage = () => {
 
     const {course, _id, userType, profileImg, username, email, ocuppation, company, aboutMe, questions } = userProfile
     return (
-        <div className="mentorProfileContainer">
+        <div className="mentorProfileContainer width">
             <div className="flex">
                 {user._id===_id && 
                 <img onClick={settingToggle} className="imgSizeS" src='https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655850057/iMentor/setting_drggve.png' alt='setting'></img>}
@@ -74,7 +74,7 @@ const ProfilePage = () => {
                     <p>{aboutMe}</p> :
                     <p className="placeholderAbout">{username} is a {userType} for {course} course</p>}
                 </div>
-                <div className="skillList width">
+                <div className="skillList">
                     {skillList?.map((skill)=>(
                     <span className="chips-selected" key={skill._id} id={skill._id}>{skill.name}</span>))}
                 </div>

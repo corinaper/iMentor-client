@@ -15,28 +15,22 @@ const Skills = (props) => {
     },[])
 
     function showAll(){
-        
             skills.getAllSkills()
             .then((skills)=>{
-                // console.log("skills from card", skills)
                 setSkillsList (skills.data)})
-            .catch((err)=>console.log(err))
-            
-        
+            .catch((err)=>console.log(err))   
     }
 
     function showLess(){
         
         skills.get5Skills()
         .then((skills)=>{
-            // console.log("skills from card", skills)
             setSkillsList (skills.data)})
-        .catch((err)=>console.log(err))
-        
-    
+        .catch((err)=>console.log(err))  
 }
 
     return (
+    <div className="chipsContainer">
         <div className="divChips">
     {skillsList.map((skill)=>{
         return(
@@ -46,10 +40,11 @@ const Skills = (props) => {
             )
             
     }) }
+        </div>
         {skillsList.length === 5 ?
-            <div onClick={showAll} className="showMore">+</div>
+            <div onClick={showAll} className="showSkills">+</div>
             :
-            <div onClick={showLess} className="showLess">-</div>}
+            <div onClick={showLess} className="showSkills">-</div>}
     
     </div>)
     

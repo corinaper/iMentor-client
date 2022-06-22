@@ -3,19 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
   }
-  .divChips {
+
+.divChips {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    top: 8%;
-    width: 100%;
     background-color: white;
-    z-index: 11;
   }
 
   .chips {
@@ -45,33 +41,14 @@
     border: 0.125rem solid #32C3FF;
   }
   
-  .showMore {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    top: 95%;
+  .showSkills {
     background-color: white;
     color: #32C3FF;
     font-size: 1.8rem;
     border: 2px solid #32C3FF;
     border-radius: 100%;
-    width: 10%;
-    text-align: center;
-  }
-
-  .showLess{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    top: 62%;
-    background-color: white;
-    z-index: 10;
-    color: #32C3FF;
-    font-size: 1.8rem;
-    border: 2px solid #32C3FF;
-    border-radius: 100%;
-    width: 10%;
-    text-align: center;
+    padding: 0 2%;
+    padding-bottom: 1%;
   }
 
 
