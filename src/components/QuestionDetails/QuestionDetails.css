@@ -32,8 +32,14 @@
 
 .postComment{
     background-color: var(--tertiary-color);
-    width: 100%;
-    padding: 7px 0px;
+    width: 100vw;
+    padding: 0px 0px 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postComment form{
     display: flex;
     align-items: center;
 }
@@ -64,6 +70,8 @@
 
 .showComment{
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .commentBox{
@@ -72,8 +80,8 @@
     background: #F0F0F0;
     border-radius: 21px;
     display: grid;
-    grid-template-columns: 30% 65%;
-    margin-top: -6rem;
+    grid-template-columns: 20% 75%;
+    margin-top: 2rem;
 }
 
 .userCommentInfo{

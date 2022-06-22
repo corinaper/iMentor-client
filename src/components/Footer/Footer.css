@@ -32,12 +32,12 @@
 }
 
 .show{
-    animation: show 1s ease 0s 1 normal forwards;
+    animation: show .6s ease 0s 1 normal forwards;
 }
 
 .hide{
     
-    animation: hide 1s ease 0s 1 normal forwards;
+    animation: hide .6s ease 0s 1 normal forwards;
 }
 
 @keyframes show{

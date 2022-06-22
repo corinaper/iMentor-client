@@ -41,7 +41,7 @@ input::placeholder{
   padding: 0;
 }
 
-input[type=file]::file-selector-button{
+.upload[type=file]::file-selector-button{
   background-image: url(https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655767554/iMentor/photo_1_f2hrx5.png);
   background-repeat: no-repeat;
   border: none;

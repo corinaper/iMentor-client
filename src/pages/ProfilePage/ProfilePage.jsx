@@ -68,17 +68,21 @@ const ProfilePage = () => {
             
             <>
                 <p>{ocuppation}</p>
-                <p>{company}</p>
-                <div className="aboutMe">
-                    {aboutMe ?
+                <p className="bold">{company}</p>
+            </>
+            }
+
+            <div className="aboutMe">
+                {aboutMe ?
                     <p>{aboutMe}</p> :
                     <p className="placeholderAbout">{username} is a {userType} for {course} course</p>}
-                </div>
+            </div>
+
+            {userType === "mentor" && 
                 <div className="skillList">
                     {skillList?.map((skill)=>(
                     <span className="chips-selected" key={skill._id} id={skill._id}>{skill.name}</span>))}
                 </div>
-            </>
             }
 
             <h3 className="toLeft">Posts ({ questions?.length })</h3>

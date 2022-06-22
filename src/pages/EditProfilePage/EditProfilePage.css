@@ -13,46 +13,56 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-
-
 }
 
-.file{
-  width: 90%;
-  height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 143px);
-  background: #32C3FF;
-  border: 1px solid #96D1DF;
-  border-radius: 5px;
+.userPhoto, .editImage{
+  grid-area: 1 / 1;
+}
+
+.editImage{
+  height: 4rem;
+  width: 4rem;
+  margin-top: 4.7rem;
+  margin-left: 3.5rem;
+  margin-bottom: -3rem;
+}
+
+.editImage[type=file]::file-selector-button{
+  background-image: url(https://res.cloudinary.com/dz2hyfmhw/image/upload/v1655814037/iMentor/edit_2_wa92up.png);
+  background-size: 3rem;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  height: 3rem;
+  width: 3rem;
+  color: transparent;
+  margin-left: 1rem;
 }
 
 .about{
   width: 90%;
-  height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 143px);
+  min-height: 20vh;
+  max-height: fit-content;
   background: #ffffff;
   border: 1px solid #32C3FF;
-  border-radius: 5px;
-  padding-left: 0.4rem;
-  padding-top: 0.4rem;
+  border-radius: 10px;
+  padding: .5rem;
 
 }
 
-.par{
-  font-size: 0.8rem;
-}
-
-.imputs{
+.inputs{
+  padding: .5rem;
+  background-color: white;
+  border: 1px solid #32C3FF;
+  border-radius: 10px;
   width: 90%;
-  height: 25px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 143px);
-  background: #ffffff;
-  border: 1px solid #32C3FF;
-  border-radius: 5px;
-  padding-left: 0.4rem;
+}
+
+.formidinside input:nth-child(1){
+  margin-bottom: -1.5rem;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .userImage{
@@ -60,86 +70,107 @@
   border-radius: 50%;
   margin-bottom: 1.25rem;
 }
-
-.uploadbtn{
-  width: 90%;
-  height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 243px);
-  background: #32C3FF;
-  border: 1px solid #96D1DF;
-  border-radius: 5px;
-} 
+ 
 
 
 /* The switch - the box around the slider */
- .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }  
-  
-  /* The slider */
-   .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-    height: 20px;
-    border-radius: 1rem;
-    margin-top: 0.5rem;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 12px;
-    width: 15px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-    
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-    
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-    
-  } 
-  
-  Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
 
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-    
-  }
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.greyText{
+  color: #ccc;
+}
+
+/* dropdown styling */
+.box select {
+  background-color: white;
+  color: var(--black-color);
+  padding: 12px;
+  width: 100%;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before {
+  content: "\f13a";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}

@@ -74,78 +74,71 @@ function skillChange(e){
         <div>
         <div className="edContainer width">
                 
-        <form className="fomid" onSubmit={handleSubmit}>
-            <div className="formidinside" >
-            
-            <img className="userImage" src={formState?.profileImg} alt={formState?.username}></img>
+            <form className="fomid" onSubmit={handleSubmit}>
+                <div className="formidinside" >
 
+                    <input type="text" id="name" name="username" placeholder="Name" className="inputs" value={formState?.username} onChange={handleInputChange} />
+                    <div className="grid">
+                        <img className="userPhoto" src={formState?.profileImg} alt={formState?.username}></img>
+                        <input type="file" className="editImage" placeholder="Upload Image" name='profileImg' onChange={handleFileUpload} />
+                    </div>
 
-            <select id="course" name="course" onChange={handleInputChange}>
-               
-                {!formState?.course &&
-                
-                <option value="" selected>Select a course</option>}
-                {formState?.course === "Web Development" ?
-                
-                <option value="Web Development" selected>Web Development</option>
-                :
-                
-                <option value="Web Development">Web Development</option>}
-                {formState?.course === "UX/UI" ?
-                
-                <option value="UX/UI" selected>UX/UI</option>
-                :
-                
-                <option value="UX/UI">UX/UI</option>}
-                {formState?.course === "Data Analytics" ?
-                
-                <option value="Data Analytics" selected>Data Analytics</option>
-                :
-                
-                <option value="Data Analytics">Data Analytics</option>}
-            
-            </select>
-            
+                    <div className="flex">
+                        <label className="switch">
+                            {userType === "mentor" ?  
+                                <input type="checkbox" checked onClick={handleType}/>
+                                : 
+                                <input type="checkbox" onClick={handleType}/>}
+                                <span className="slider round"></span>
+                        </label>
+                        {userType === "mentor" ? 
+                            <p>mentor</p>
+                            :
+                            <p className="greyText">mentor</p>}
+                    </div>
 
+                    <div className="box">
+                        <select id="course" name="course" onChange={handleInputChange}>
+                            {!formState?.course &&
+                                <option value="" selected>Select a course</option>}
+                            {formState?.course === "Web Development" ?
+                                <option value="Web Development" selected>Web Development</option>
+                                :
+                                <option value="Web Development">Web Development</option>}
+                            {formState?.course === "UX/UI" ?
+                                <option value="UX/UI" selected>UX/UI</option>
+                                :
+                                <option value="UX/UI">UX/UI</option>}
+                            {formState?.course === "Data Analytics" ?
+                                <option value="Data Analytics" selected>Data Analytics</option>
+                                :
+                                <option value="Data Analytics">Data Analytics</option>}
+                        </select>
+                    </div>
+                    
+                    {userType === "mentor" &&
+                        <>
+                            <input placeholder="Current position" className="inputs" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
+                            <input placeholder="Company name" className="inputs" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />    
+                        </>}
 
-        <label className="switch">
-        
-        {userType === "mentor" ?  <input type="checkbox" checked onClick={handleType}/>
-        : <input type="checkbox" onClick={handleType}/>}
-            <span className="slider round"></span>
-        
-        
-        </label>
-            
-            
-            
-            <input type="text" id="name" name="username" placeholder="Name" className="imputs" value={formState?.username} onChange={handleInputChange} />
-            <p className="par" >{formState?.email}</p>
-            {userType === "mentor" &&
-           
-            <>
+                    <textarea placeholder="About Me" className="about" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
+                        
+                    {userType === "mentor" &&
+                        <>
+                            <Skills function={skillChange} filtering={formState?.skills}></Skills>
+                        </>}
+                    
+                     
 
+                    <button  className="blueButton buttonSizeL" type="submit" value="Post">Save Changes</button>
             
-            <input placeholder="Current position" className="imputs" type="text" id="name" name="ocuppation" value={formState?.ocuppation} onChange={handleInputChange} />
-            
-            <input placeholder="Company name" className="imputs" type="text" id="name" name="company" value={formState?.company} onChange={handleInputChange} />
-            <Skills function={skillChange} filtering={formState?.skills}></Skills>
-            </>}
-
-            <textarea placeholder="About Me" className="about" type="text" id="name" name="aboutMe" value={formState?.aboutMe} onChange={handleInputChange} />
-            
-            <input type="file" className="file" placeholder="Upload Image" name='profileImg' onChange={handleFileUpload} /> 
-
-            <button  className="uploadbtn" type="submit" value="Post">Save Changes</button>
-          
-            </div>
-          </form>
+                </div>
+            </form>
           
           {error && <p>{error}</p>  }
 
-          
-          
-          </div>
+        </div>
     </div>
     )
         

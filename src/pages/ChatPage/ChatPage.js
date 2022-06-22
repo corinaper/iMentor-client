@@ -54,9 +54,6 @@ export default function ChatList() {
 
     
     useEffect(() => {
-        /*setInterval(()=> {
-        getAllMessages();
-        }, 1000);*/
         const interval = setInterval(() => {
             getAllMessages();
           }, 750);
@@ -98,6 +95,7 @@ export default function ChatList() {
     
 
       return !messages.length ? (
+        <div>
             <div className="chat-page ">
                     <img src={receiver.profileImg} alt="" className="userImage"></img>
                     <h2>{receiver.username}</h2>
@@ -110,7 +108,9 @@ export default function ChatList() {
                     </div>
                 </div>
             </div>
+        </div>
         ):(
+            <div>
             <div className="chat-page  ">
             <div className="userDetails">
                     <img src={receiver.profileImg} alt="" className="userImage"></img>
@@ -154,5 +154,7 @@ export default function ChatList() {
                     </div>
                 </div>
             </div>
-        );
+        </div>
+        
+        )
 }

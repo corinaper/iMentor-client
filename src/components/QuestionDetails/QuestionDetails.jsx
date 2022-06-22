@@ -64,7 +64,7 @@ const Question = ( ) => {
 
 
     return (
-        <>
+        <div>
         <div className='flexColumn'>
                     <div className='questionTop width'>
                         <h3 className='titleRectangle'>{question?.title}</h3>
@@ -89,8 +89,7 @@ const Question = ( ) => {
                         </div>}
                     </div>
         </div>
-        </div>
-                    
+               
                     <div className='postComment'>
                         <form action="submit" onSubmit={handleSubmit}>
                             <textarea className='comment-area' type="text" name="comment" placeholder="Write you comment" onChange={handleInput}/>
@@ -112,7 +111,8 @@ const Question = ( ) => {
                         
                         )}
                     </div>
-    </>                
+                    </div>
+    </div>                
     )
 }
 
